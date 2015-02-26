@@ -1,0 +1,19 @@
+0.  BMP = 2 Powers of n; GIF = 256; PNG = 2 Powers of n; JPEG = 16.7M
+1.  GIF
+2.  Lossy compression means that when you repeatedly decode and encode, the file progressively loses some information and degrade. Lossless means that this does not happen, the file keeps as much information at the end of the process as at its beginning.
+3.  JPEG
+4.  The metadata that points to the file is deleted, not the file data itself. That is, until the bits that compose it are re-used.
+5.  (1) physically destroy the drive, (2) Degauss / demagnetize the drive, (3) overwrite the drive data using a dedicated program.
+6.  stdint.h is a header file providing a set of integer types with a fixed size in bits. 
+7.  It makes sure that your code is read properly across different machines, as they will know how to interpret an int even if the machine uses a different processing structure.
+8.  BYTE = 1 byte = 8 bits, WORD = 2 bytes, DWORD = 4 bytes, LONG = 4 bytes
+9.  BM (42 4D in hex)
+10. bfsize is the size of the bitmap file. bisize is the size of the BITMAPINFOHEADER structure given in bytes (usually equals 40)
+11. It indicates a top-down Devide Independent Bitmap (DIB), which can not be compressed. It start in the upper left corner.
+12. biBitCount specifies the BMP’s color depth
+13. fopen would return NULL if it can not create the file. For example, the user does not have authorization to create a new file in the destination folder.
+14. Because it copies the file piece by piece
+15. It assigns a value 1
+16. It skips the padding if there is any, and go to the next byte
+17. SEEK_CUR is relative to the the current position indicator in the fseek function. 
+18. Milo Banana dun it

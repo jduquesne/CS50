@@ -1,0 +1,11 @@
+0.  The longest word in the dictionary
+1.  Returns usage measure for either (1) Self, (2) Children, or (3) thread.
+2.  Sixteen if we follow the GNU library reference, there may exist more apparently
+3.  (1) it is cleaner, and (2) it is safer. By passing a refence instead of a value, we are sure to have the latest data. 
+4.  Main start by checking for errors in the arguments, then see if we use a specific dictionary (3 arg) or the generic one (2 arg). It sets the benchmark, then loads the dictionary, and calculate how much time we took to load after checking for errors. It then check for text to evaluate, checking for errors, and prepare to spell check. The spell checking process is done thanks to a for loop. We create a pointer to the first line, check if the word it contains is valid letter by letter ((1) characters and apostrophe only, (2) no numbers, (3) no longer than 45 letters), if it is, then we end the word with (\0), update the word counter, check the spelling, update the benchmark, print if misspelled, and restart the process for the next word/line. Main then check for errors, close the text if no error is found, determine the dictionary size and time to process, unload the dictionary, check for errors unloading, if no error, calculate the time to unload, and finally, report the benchmarks.  
+5.  fgetc limits the amount of data read, so that if a a word is too long, it does not create buffer problems. Fscanf may create such problems as it reads the word in one go.
+6.  So that their values cannot be changed while remaining readable. 
+7.  A hash table, with each elements initialized at NULL, and words inserted into nodes. The hash table gives us an array, with pointers to linked lists of inserted words. 
+8.  I don't remember. Should have been fast as I found a neat hash function online.
+9.  I mostly struggled to implement. Once it was implemented, adsjustments were small.
+10. Yes, as it does not perform as well as the one implemented by the staff. 
