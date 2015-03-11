@@ -1,0 +1,1357 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.1//EN"
+    "http://www.w3.org/TR/xhtml11/DTD/xhtml11.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en">
+<head>
+<meta http-equiv="Content-Type" content="application/xhtml+xml; charset=UTF-8" />
+<meta name="generator" content="AsciiDoc 8.6.8" />
+<title>Week 1</title>
+<style type="text/css">
+/* Shared CSS for AsciiDoc xhtml11 and html5 backends */
+
+/* Default font. */
+body {
+  font-family: Georgia,serif;
+}
+
+/* Title font. */
+h1, h2, h3, h4, h5, h6,
+div.title, caption.title,
+thead, p.table.header,
+#toctitle,
+#author, #revnumber, #revdate, #revremark,
+#footer {
+  font-family: Arial,Helvetica,sans-serif;
+}
+
+body {
+  margin: 1em 5% 1em 5%;
+}
+
+a {
+  color: blue;
+  text-decoration: underline;
+}
+a:visited {
+  color: fuchsia;
+}
+
+em {
+  font-style: italic;
+  color: navy;
+}
+
+strong {
+  font-weight: bold;
+  color: #083194;
+}
+
+h1, h2, h3, h4, h5, h6 {
+  color: #527bbd;
+  margin-top: 1.2em;
+  margin-bottom: 0.5em;
+  line-height: 1.3;
+}
+
+h1, h2, h3 {
+  border-bottom: 2px solid silver;
+}
+h2 {
+  padding-top: 0.5em;
+}
+h3 {
+  float: left;
+}
+h3 + * {
+  clear: left;
+}
+h5 {
+  font-size: 1.0em;
+}
+
+div.sectionbody {
+  margin-left: 0;
+}
+
+hr {
+  border: 1px solid silver;
+}
+
+p {
+  margin-top: 0.5em;
+  margin-bottom: 0.5em;
+}
+
+ul, ol, li > p {
+  margin-top: 0;
+}
+ul > li     { color: #aaa; }
+ul > li > * { color: black; }
+
+.monospaced, code, pre {
+  font-family: "Courier New", Courier, monospace;
+  font-size: inherit;
+  color: navy;
+  padding: 0;
+  margin: 0;
+}
+
+
+#author {
+  color: #527bbd;
+  font-weight: bold;
+  font-size: 1.1em;
+}
+#email {
+}
+#revnumber, #revdate, #revremark {
+}
+
+#footer {
+  font-size: small;
+  border-top: 2px solid silver;
+  padding-top: 0.5em;
+  margin-top: 4.0em;
+}
+#footer-text {
+  float: left;
+  padding-bottom: 0.5em;
+}
+#footer-badges {
+  float: right;
+  padding-bottom: 0.5em;
+}
+
+#preamble {
+  margin-top: 1.5em;
+  margin-bottom: 1.5em;
+}
+div.imageblock, div.exampleblock, div.verseblock,
+div.quoteblock, div.literalblock, div.listingblock, div.sidebarblock,
+div.admonitionblock {
+  margin-top: 1.0em;
+  margin-bottom: 1.5em;
+}
+div.admonitionblock {
+  margin-top: 2.0em;
+  margin-bottom: 2.0em;
+  margin-right: 10%;
+  color: #606060;
+}
+
+div.content { /* Block element content. */
+  padding: 0;
+}
+
+/* Block element titles. */
+div.title, caption.title {
+  color: #527bbd;
+  font-weight: bold;
+  text-align: left;
+  margin-top: 1.0em;
+  margin-bottom: 0.5em;
+}
+div.title + * {
+  margin-top: 0;
+}
+
+td div.title:first-child {
+  margin-top: 0.0em;
+}
+div.content div.title:first-child {
+  margin-top: 0.0em;
+}
+div.content + div.title {
+  margin-top: 0.0em;
+}
+
+div.sidebarblock > div.content {
+  background: #ffffee;
+  border: 1px solid #dddddd;
+  border-left: 4px solid #f0f0f0;
+  padding: 0.5em;
+}
+
+div.listingblock > div.content {
+  border: 1px solid #dddddd;
+  border-left: 5px solid #f0f0f0;
+  background: #f8f8f8;
+  padding: 0.5em;
+}
+
+div.quoteblock, div.verseblock {
+  padding-left: 1.0em;
+  margin-left: 1.0em;
+  margin-right: 10%;
+  border-left: 5px solid #f0f0f0;
+  color: #888;
+}
+
+div.quoteblock > div.attribution {
+  padding-top: 0.5em;
+  text-align: right;
+}
+
+div.verseblock > pre.content {
+  font-family: inherit;
+  font-size: inherit;
+}
+div.verseblock > div.attribution {
+  padding-top: 0.75em;
+  text-align: left;
+}
+/* DEPRECATED: Pre version 8.2.7 verse style literal block. */
+div.verseblock + div.attribution {
+  text-align: left;
+}
+
+div.admonitionblock .icon {
+  vertical-align: top;
+  font-size: 1.1em;
+  font-weight: bold;
+  text-decoration: underline;
+  color: #527bbd;
+  padding-right: 0.5em;
+}
+div.admonitionblock td.content {
+  padding-left: 0.5em;
+  border-left: 3px solid #dddddd;
+}
+
+div.exampleblock > div.content {
+  border-left: 3px solid #dddddd;
+  padding-left: 0.5em;
+}
+
+div.imageblock div.content { padding-left: 0; }
+span.image img { border-style: none; }
+a.image:visited { color: white; }
+
+dl {
+  margin-top: 0.8em;
+  margin-bottom: 0.8em;
+}
+dt {
+  margin-top: 0.5em;
+  margin-bottom: 0;
+  font-style: normal;
+  color: navy;
+}
+dd > *:first-child {
+  margin-top: 0.1em;
+}
+
+ul, ol {
+    list-style-position: outside;
+}
+ol.arabic {
+  list-style-type: decimal;
+}
+ol.loweralpha {
+  list-style-type: lower-alpha;
+}
+ol.upperalpha {
+  list-style-type: upper-alpha;
+}
+ol.lowerroman {
+  list-style-type: lower-roman;
+}
+ol.upperroman {
+  list-style-type: upper-roman;
+}
+
+div.compact ul, div.compact ol,
+div.compact p, div.compact p,
+div.compact div, div.compact div {
+  margin-top: 0.1em;
+  margin-bottom: 0.1em;
+}
+
+tfoot {
+  font-weight: bold;
+}
+td > div.verse {
+  white-space: pre;
+}
+
+div.hdlist {
+  margin-top: 0.8em;
+  margin-bottom: 0.8em;
+}
+div.hdlist tr {
+  padding-bottom: 15px;
+}
+dt.hdlist1.strong, td.hdlist1.strong {
+  font-weight: bold;
+}
+td.hdlist1 {
+  vertical-align: top;
+  font-style: normal;
+  padding-right: 0.8em;
+  color: navy;
+}
+td.hdlist2 {
+  vertical-align: top;
+}
+div.hdlist.compact tr {
+  margin: 0;
+  padding-bottom: 0;
+}
+
+.comment {
+  background: yellow;
+}
+
+.footnote, .footnoteref {
+  font-size: 0.8em;
+}
+
+span.footnote, span.footnoteref {
+  vertical-align: super;
+}
+
+#footnotes {
+  margin: 20px 0 20px 0;
+  padding: 7px 0 0 0;
+}
+
+#footnotes div.footnote {
+  margin: 0 0 5px 0;
+}
+
+#footnotes hr {
+  border: none;
+  border-top: 1px solid silver;
+  height: 1px;
+  text-align: left;
+  margin-left: 0;
+  width: 20%;
+  min-width: 100px;
+}
+
+div.colist td {
+  padding-right: 0.5em;
+  padding-bottom: 0.3em;
+  vertical-align: top;
+}
+div.colist td img {
+  margin-top: 0.3em;
+}
+
+@media print {
+  #footer-badges { display: none; }
+}
+
+#toc {
+  margin-bottom: 2.5em;
+}
+
+#toctitle {
+  color: #527bbd;
+  font-size: 1.1em;
+  font-weight: bold;
+  margin-top: 1.0em;
+  margin-bottom: 0.1em;
+}
+
+div.toclevel0, div.toclevel1, div.toclevel2, div.toclevel3, div.toclevel4 {
+  margin-top: 0;
+  margin-bottom: 0;
+}
+div.toclevel2 {
+  margin-left: 2em;
+  font-size: 0.9em;
+}
+div.toclevel3 {
+  margin-left: 4em;
+  font-size: 0.9em;
+}
+div.toclevel4 {
+  margin-left: 6em;
+  font-size: 0.9em;
+}
+
+span.aqua { color: aqua; }
+span.black { color: black; }
+span.blue { color: blue; }
+span.fuchsia { color: fuchsia; }
+span.gray { color: gray; }
+span.green { color: green; }
+span.lime { color: lime; }
+span.maroon { color: maroon; }
+span.navy { color: navy; }
+span.olive { color: olive; }
+span.purple { color: purple; }
+span.red { color: red; }
+span.silver { color: silver; }
+span.teal { color: teal; }
+span.white { color: white; }
+span.yellow { color: yellow; }
+
+span.aqua-background { background: aqua; }
+span.black-background { background: black; }
+span.blue-background { background: blue; }
+span.fuchsia-background { background: fuchsia; }
+span.gray-background { background: gray; }
+span.green-background { background: green; }
+span.lime-background { background: lime; }
+span.maroon-background { background: maroon; }
+span.navy-background { background: navy; }
+span.olive-background { background: olive; }
+span.purple-background { background: purple; }
+span.red-background { background: red; }
+span.silver-background { background: silver; }
+span.teal-background { background: teal; }
+span.white-background { background: white; }
+span.yellow-background { background: yellow; }
+
+span.big { font-size: 2em; }
+span.small { font-size: 0.6em; }
+
+span.underline { text-decoration: underline; }
+span.overline { text-decoration: overline; }
+span.line-through { text-decoration: line-through; }
+
+div.unbreakable { page-break-inside: avoid; }
+
+
+/*
+ * xhtml11 specific
+ *
+ * */
+
+div.tableblock {
+  margin-top: 1.0em;
+  margin-bottom: 1.5em;
+}
+div.tableblock > table {
+  border: 3px solid #527bbd;
+}
+thead, p.table.header {
+  font-weight: bold;
+  color: #527bbd;
+}
+p.table {
+  margin-top: 0;
+}
+/* Because the table frame attribute is overriden by CSS in most browsers. */
+div.tableblock > table[frame="void"] {
+  border-style: none;
+}
+div.tableblock > table[frame="hsides"] {
+  border-left-style: none;
+  border-right-style: none;
+}
+div.tableblock > table[frame="vsides"] {
+  border-top-style: none;
+  border-bottom-style: none;
+}
+
+
+/*
+ * html5 specific
+ *
+ * */
+
+table.tableblock {
+  margin-top: 1.0em;
+  margin-bottom: 1.5em;
+}
+thead, p.tableblock.header {
+  font-weight: bold;
+  color: #527bbd;
+}
+p.tableblock {
+  margin-top: 0;
+}
+table.tableblock {
+  border-width: 3px;
+  border-spacing: 0px;
+  border-style: solid;
+  border-color: #527bbd;
+  border-collapse: collapse;
+}
+th.tableblock, td.tableblock {
+  border-width: 1px;
+  padding: 4px;
+  border-style: solid;
+  border-color: #527bbd;
+}
+
+table.tableblock.frame-topbot {
+  border-left-style: hidden;
+  border-right-style: hidden;
+}
+table.tableblock.frame-sides {
+  border-top-style: hidden;
+  border-bottom-style: hidden;
+}
+table.tableblock.frame-none {
+  border-style: hidden;
+}
+
+th.tableblock.halign-left, td.tableblock.halign-left {
+  text-align: left;
+}
+th.tableblock.halign-center, td.tableblock.halign-center {
+  text-align: center;
+}
+th.tableblock.halign-right, td.tableblock.halign-right {
+  text-align: right;
+}
+
+th.tableblock.valign-top, td.tableblock.valign-top {
+  vertical-align: top;
+}
+th.tableblock.valign-middle, td.tableblock.valign-middle {
+  vertical-align: middle;
+}
+th.tableblock.valign-bottom, td.tableblock.valign-bottom {
+  vertical-align: bottom;
+}
+
+
+/*
+ * manpage specific
+ *
+ * */
+
+body.manpage h1 {
+  padding-top: 0.5em;
+  padding-bottom: 0.5em;
+  border-top: 2px solid silver;
+  border-bottom: 2px solid silver;
+}
+body.manpage h2 {
+  border-style: none;
+}
+body.manpage div.sectionbody {
+  margin-left: 3em;
+}
+
+@media print {
+  body.manpage div#toc { display: none; }
+}
+/*
+  pygmentize filter
+*/
+.highlight .hll { background-color: #ffffcc }
+.highlight  { background: #f4f4f4; }
+.highlight .c { color: #008800; font-style: italic } /* Comment */
+.highlight .err { border: 1px solid #FF0000 } /* Error */
+.highlight .k { color: #AA22FF; font-weight: bold } /* Keyword */
+.highlight .o { color: #666666 } /* Operator */
+.highlight .cm { color: #008800; font-style: italic } /* Comment.Multiline */
+.highlight .cp { color: #008800 } /* Comment.Preproc */
+.highlight .c1 { color: #008800; font-style: italic } /* Comment.Single */
+.highlight .cs { color: #008800; font-weight: bold } /* Comment.Special */
+.highlight .gd { color: #A00000 } /* Generic.Deleted */
+.highlight .ge { font-style: italic } /* Generic.Emph */
+.highlight .gr { color: #FF0000 } /* Generic.Error */
+.highlight .gh { color: #000080; font-weight: bold } /* Generic.Heading */
+.highlight .gi { color: #00A000 } /* Generic.Inserted */
+.highlight .go { color: #808080 } /* Generic.Output */
+.highlight .gp { color: #000080; font-weight: bold } /* Generic.Prompt */
+.highlight .gs { font-weight: bold } /* Generic.Strong */
+.highlight .gu { color: #800080; font-weight: bold } /* Generic.Subheading */
+.highlight .gt { color: #0040D0 } /* Generic.Traceback */
+.highlight .kc { color: #AA22FF; font-weight: bold } /* Keyword.Constant */
+.highlight .kd { color: #AA22FF; font-weight: bold } /* Keyword.Declaration */
+.highlight .kn { color: #AA22FF; font-weight: bold } /* Keyword.Namespace */
+.highlight .kp { color: #AA22FF } /* Keyword.Pseudo */
+.highlight .kr { color: #AA22FF; font-weight: bold } /* Keyword.Reserved */
+.highlight .kt { color: #00BB00; font-weight: bold } /* Keyword.Type */
+.highlight .m { color: #666666 } /* Literal.Number */
+.highlight .s { color: #BB4444 } /* Literal.String */
+.highlight .na { color: #BB4444 } /* Name.Attribute */
+.highlight .nb { color: #AA22FF } /* Name.Builtin */
+.highlight .nc { color: #0000FF } /* Name.Class */
+.highlight .no { color: #880000 } /* Name.Constant */
+.highlight .nd { color: #AA22FF } /* Name.Decorator */
+.highlight .ni { color: #999999; font-weight: bold } /* Name.Entity */
+.highlight .ne { color: #D2413A; font-weight: bold } /* Name.Exception */
+.highlight .nf { color: #00A000 } /* Name.Function */
+.highlight .nl { color: #A0A000 } /* Name.Label */
+.highlight .nn { color: #0000FF; font-weight: bold } /* Name.Namespace */
+.highlight .nt { color: #008000; font-weight: bold } /* Name.Tag */
+.highlight .nv { color: #B8860B } /* Name.Variable */
+.highlight .ow { color: #AA22FF; font-weight: bold } /* Operator.Word */
+.highlight .w { color: #bbbbbb } /* Text.Whitespace */
+.highlight .mf { color: #666666 } /* Literal.Number.Float */
+.highlight .mh { color: #666666 } /* Literal.Number.Hex */
+.highlight .mi { color: #666666 } /* Literal.Number.Integer */
+.highlight .mo { color: #666666 } /* Literal.Number.Oct */
+.highlight .sb { color: #BB4444 } /* Literal.String.Backtick */
+.highlight .sc { color: #BB4444 } /* Literal.String.Char */
+.highlight .sd { color: #BB4444; font-style: italic } /* Literal.String.Doc */
+.highlight .s2 { color: #BB4444 } /* Literal.String.Double */
+.highlight .se { color: #BB6622; font-weight: bold } /* Literal.String.Escape */
+.highlight .sh { color: #BB4444 } /* Literal.String.Heredoc */
+.highlight .si { color: #BB6688; font-weight: bold } /* Literal.String.Interpol */
+.highlight .sx { color: #008000 } /* Literal.String.Other */
+.highlight .sr { color: #BB6688 } /* Literal.String.Regex */
+.highlight .s1 { color: #BB4444 } /* Literal.String.Single */
+.highlight .ss { color: #B8860B } /* Literal.String.Symbol */
+.highlight .bp { color: #AA22FF } /* Name.Builtin.Pseudo */
+.highlight .vc { color: #B8860B } /* Name.Variable.Class */
+.highlight .vg { color: #B8860B } /* Name.Variable.Global */
+.highlight .vi { color: #B8860B } /* Name.Variable.Instance */
+.highlight .il { color: #666666 } /* Literal.Number.Integer.Long */
+
+
+
+</style>
+<script type="text/javascript">
+/*<![CDATA[*/
+var asciidoc = {  // Namespace.
+
+/////////////////////////////////////////////////////////////////////
+// Table Of Contents generator
+/////////////////////////////////////////////////////////////////////
+
+/* Author: Mihai Bazon, September 2002
+ * http://students.infoiasi.ro/~mishoo
+ *
+ * Table Of Content generator
+ * Version: 0.4
+ *
+ * Feel free to use this script under the terms of the GNU General Public
+ * License, as long as you do not remove or alter this notice.
+ */
+
+ /* modified by Troy D. Hanson, September 2006. License: GPL */
+ /* modified by Stuart Rackham, 2006, 2009. License: GPL */
+
+// toclevels = 1..4.
+toc: function (toclevels) {
+
+  function getText(el) {
+    var text = "";
+    for (var i = el.firstChild; i != null; i = i.nextSibling) {
+      if (i.nodeType == 3 /* Node.TEXT_NODE */) // IE doesn't speak constants.
+        text += i.data;
+      else if (i.firstChild != null)
+        text += getText(i);
+    }
+    return text;
+  }
+
+  function TocEntry(el, text, toclevel) {
+    this.element = el;
+    this.text = text;
+    this.toclevel = toclevel;
+  }
+
+  function tocEntries(el, toclevels) {
+    var result = new Array;
+    var re = new RegExp('[hH]([1-'+(toclevels+1)+'])');
+    // Function that scans the DOM tree for header elements (the DOM2
+    // nodeIterator API would be a better technique but not supported by all
+    // browsers).
+    var iterate = function (el) {
+      for (var i = el.firstChild; i != null; i = i.nextSibling) {
+        if (i.nodeType == 1 /* Node.ELEMENT_NODE */) {
+          var mo = re.exec(i.tagName);
+          if (mo && (i.getAttribute("class") || i.getAttribute("className")) != "float") {
+            result[result.length] = new TocEntry(i, getText(i), mo[1]-1);
+          }
+          iterate(i);
+        }
+      }
+    }
+    iterate(el);
+    return result;
+  }
+
+  var toc = document.getElementById("toc");
+  if (!toc) {
+    return;
+  }
+
+  // Delete existing TOC entries in case we're reloading the TOC.
+  var tocEntriesToRemove = [];
+  var i;
+  for (i = 0; i < toc.childNodes.length; i++) {
+    var entry = toc.childNodes[i];
+    if (entry.nodeName.toLowerCase() == 'div'
+     && entry.getAttribute("class")
+     && entry.getAttribute("class").match(/^toclevel/))
+      tocEntriesToRemove.push(entry);
+  }
+  for (i = 0; i < tocEntriesToRemove.length; i++) {
+    toc.removeChild(tocEntriesToRemove[i]);
+  }
+
+  // Rebuild TOC entries.
+  var entries = tocEntries(document.getElementById("content"), toclevels);
+  for (var i = 0; i < entries.length; ++i) {
+    var entry = entries[i];
+    if (entry.element.id == "")
+      entry.element.id = "_toc_" + i;
+    var a = document.createElement("a");
+    a.href = "#" + entry.element.id;
+    a.appendChild(document.createTextNode(entry.text));
+    var div = document.createElement("div");
+    div.appendChild(a);
+    div.className = "toclevel" + entry.toclevel;
+    toc.appendChild(div);
+  }
+  if (entries.length == 0)
+    toc.parentNode.removeChild(toc);
+},
+
+
+/////////////////////////////////////////////////////////////////////
+// Footnotes generator
+/////////////////////////////////////////////////////////////////////
+
+/* Based on footnote generation code from:
+ * http://www.brandspankingnew.net/archive/2005/07/format_footnote.html
+ */
+
+footnotes: function () {
+  // Delete existing footnote entries in case we're reloading the footnodes.
+  var i;
+  var noteholder = document.getElementById("footnotes");
+  if (!noteholder) {
+    return;
+  }
+  var entriesToRemove = [];
+  for (i = 0; i < noteholder.childNodes.length; i++) {
+    var entry = noteholder.childNodes[i];
+    if (entry.nodeName.toLowerCase() == 'div' && entry.getAttribute("class") == "footnote")
+      entriesToRemove.push(entry);
+  }
+  for (i = 0; i < entriesToRemove.length; i++) {
+    noteholder.removeChild(entriesToRemove[i]);
+  }
+
+  // Rebuild footnote entries.
+  var cont = document.getElementById("content");
+  var spans = cont.getElementsByTagName("span");
+  var refs = {};
+  var n = 0;
+  for (i=0; i<spans.length; i++) {
+    if (spans[i].className == "footnote") {
+      n++;
+      var note = spans[i].getAttribute("data-note");
+      if (!note) {
+        // Use [\s\S] in place of . so multi-line matches work.
+        // Because JavaScript has no s (dotall) regex flag.
+        note = spans[i].innerHTML.match(/\s*\[([\s\S]*)]\s*/)[1];
+        spans[i].innerHTML =
+          "[<a id='_footnoteref_" + n + "' href='#_footnote_" + n +
+          "' title='View footnote' class='footnote'>" + n + "</a>]";
+        spans[i].setAttribute("data-note", note);
+      }
+      noteholder.innerHTML +=
+        "<div class='footnote' id='_footnote_" + n + "'>" +
+        "<a href='#_footnoteref_" + n + "' title='Return to text'>" +
+        n + "</a>. " + note + "</div>";
+      var id =spans[i].getAttribute("id");
+      if (id != null) refs["#"+id] = n;
+    }
+  }
+  if (n == 0)
+    noteholder.parentNode.removeChild(noteholder);
+  else {
+    // Process footnoterefs.
+    for (i=0; i<spans.length; i++) {
+      if (spans[i].className == "footnoteref") {
+        var href = spans[i].getElementsByTagName("a")[0].getAttribute("href");
+        href = href.match(/#.*/)[0];  // Because IE return full URL.
+        n = refs[href];
+        spans[i].innerHTML =
+          "[<a href='#_footnote_" + n +
+          "' title='View footnote' class='footnote'>" + n + "</a>]";
+      }
+    }
+  }
+},
+
+install: function(toclevels) {
+  var timerId;
+
+  function reinstall() {
+    asciidoc.footnotes();
+    if (toclevels) {
+      asciidoc.toc(toclevels);
+    }
+  }
+
+  function reinstallAndRemoveTimer() {
+    clearInterval(timerId);
+    reinstall();
+  }
+
+  timerId = setInterval(reinstall, 500);
+  if (document.addEventListener)
+    document.addEventListener("DOMContentLoaded", reinstallAndRemoveTimer, false);
+  else
+    window.onload = reinstallAndRemoveTimer;
+}
+
+}
+asciidoc.install(2);
+/*]]>*/
+</script>
+</head>
+<body class="article">
+<div id="header">
+<h1>Week 1</h1>
+<span id="author">Andrew Sellergren</span><br />
+<div id="toc">
+  <div id="toctitle">Table of Contents</div>
+  <noscript><p><b>JavaScript must be enabled in your browser to display the table of contents.</b></p></noscript>
+</div>
+</div>
+<div id="content">
+<div class="sect1">
+<h2 id="_announcements_and_demos">Announcements and Demos</h2>
+<div class="sectionbody">
+<div class="ulist"><ul>
+<li>
+<p>
+Next time you&#8217;re milling about the Science Center, take a gander at the <a href="http://en.wikipedia.org/wiki/Harvard_Mark_I">Mark I</a>, one of the very first electromechanical computers capable of long self-sustained computation.  Check out <a href="http://www.youtube.com/watch?v=Uw1-UtwXtGw">this giant calculator</a>.  From this same Mark I computer comes the term "bug" that we take for granted.  One of the engineers discovered an actual moth in the machine that was causing some incorrect calculations.  The moth was then taped to a log book for posterity&#8217;s sake.
+</p>
+</li>
+<li>
+<p>
+To help make the class feel a bit more intimate, we&#8217;ll be gathering most Fridays at Fire and Ice in Harvard Square for a casual lunch.  If you&#8217;re interested, RSVP <a href="http://cs50.net/rsvp">here</a>.
+</p>
+</li>
+<li>
+<p>
+Avail yourself of the following resources at <a href="http://cs50.net/lectures">cs50.net/lectures</a> to aid you in your quest through CS50:
+</p>
+<div class="ulist"><ul>
+<li>
+<p>
+videos
+</p>
+<div class="ulist"><ul>
+<li>
+<p>
+If you click the icon at the bottom right in the video player, you&#8217;ll see a searchable full transcript of the lecture.
+</p>
+</li>
+</ul></div>
+</li>
+<li>
+<p>
+slides
+</p>
+</li>
+<li>
+<p>
+examples
+</p>
+</li>
+<li>
+<p>
+walkthroughs
+</p>
+<div class="ulist"><ul>
+<li>
+<p>
+To illuminate some of the more complex examples from lecture, we offer walkthroughs of those examples.  Check out the first round <a href="https://www.cs50.net/lectures/0/f/examples">here</a>.
+</p>
+</li>
+</ul></div>
+</li>
+<li>
+<p>
+scribe notes
+</p>
+<div class="ulist"><ul>
+<li>
+<p>
+Welcome to the scribe notes!  This is your canonical source of notes for each lecture so that you don&#8217;t have to scribble down anything while listening to David.  This is also your canonical source for jokes made at David&#8217;s expense.
+</p>
+</li>
+</ul></div>
+</li>
+</ul></div>
+</li>
+<li>
+<p>
+Sectioning starts Wednesday.  This Sunday <span class="footnote"><br />[<a href="http://www.youtube.com/watch?v=dChdT_XKmWc">Sunday Sunday Someday!</a>]<br /></span> we&#8217;ll offer a one-time supersection led by the course heads and available on video afterward.
+</p>
+</li>
+<li>
+<p>
+It&#8217;s time to introduce our inimitable course heads: Lauren Carvalho, Rob Bowden, Joseph Ong, R.J. Aquino, and Lucas Freitas.  Feel free to reach out to them at <a href="mailto:heads@cs50.net">heads@cs50.net</a>.
+</p>
+</li>
+<li>
+<p>
+Problem Set 0 has been released!
+</p>
+</li>
+<li>
+<p>
+<a href="http://cs50.net/ohs">Office Hours</a> will begin soon!  There really are no dumb questions. <span class="footnote"><br />[Except for once when David asked me what&#8217;s the deal with the internet and cats.  Duh.]<br /></span>
+</p>
+</li>
+<li>
+<p>
+<a href="http://cs50.net/discuss">CS50 Discuss</a> is the course&#8217;s forum where you can post any and all questions you have.  We&#8217;ll monitor it during lecture so that if you have a question about something David says, you can post it and we&#8217;ll try to respond in realtime.
+</p>
+</li>
+<li>
+<p>
+If you come into this course with little or no prior background in computer science or you&#8217;d just like to have the safety net of being able to call it quits when you&#8217;re 90% done with a problem set on a Thursday night, you should consider taking the course SAT/UNS.  Trust us, you&#8217;ll still learn plenty!
+</p>
+</li>
+</ul></div>
+</div>
+</div>
+<div class="sect1">
+<h2 id="_from_last_time">From Last Time</h2>
+<div class="sectionbody">
+<div class="ulist"><ul>
+<li>
+<p>
+In Scratch, we worked with purple puzzle pieces starting with verbs like "say" that represented <em>statements</em>.
+</p>
+</li>
+<li>
+<p>
+The blue hexagonal puzzle pieces that ended in question marks we deemed <em>boolean expressions</em>.
+</p>
+</li>
+<li>
+<p>
+We used these boolean expressions inside of <em>conditions</em>, which represented branches in our program&#8217;s logic.
+</p>
+</li>
+<li>
+<p>
+The puzzle pieces that contain the words "repeat" and "forever" are examples of <em>loops</em>.
+</p>
+</li>
+<li>
+<p>
+We wrote our own <em>functions</em> using the purple curved puzzle pieces containing the word "define."  A function is a chunk of code that we want to use over and over again without having to copy and paste.
+</p>
+</li>
+</ul></div>
+</div>
+</div>
+<div class="sect1">
+<h2 id="_from_scratch_to_c">From Scratch to C</h2>
+<div class="sectionbody">
+<div class="ulist"><ul>
+<li>
+<p>
+Recall that source code looks something like the following:
+</p>
+<div class="listingblock">
+<div class="content"><div class="highlight"><pre><span class="kt">int</span> <span class="nf">main</span><span class="p">(</span><span class="kt">void</span><span class="p">)</span>
+<span class="p">{</span>
+    <span class="n">printf</span><span class="p">(</span><span class="s">&quot;hello, world</span><span class="se">\n</span><span class="s">&quot;</span><span class="p">);</span>
+<span class="p">}</span>
+</pre></div></div></div>
+</li>
+<li>
+<p>
+The blue "say" puzzle piece from Scratch has now become <code>printf</code> and the orange "when green flag clicked" puzzle piece has become <code>main(void)</code>.
+</p>
+</li>
+<li>
+<p>
+However, source code is not something a computer actually understands.  To translate source code into something the computer understands, we&#8217;ll need a <em>compiler</em>.  A compiler is a program that takes source code as input and produces 0&#8217;s and 1&#8217;s, a.k.a. object code, as output.
+</p>
+</li>
+<li>
+<p>
+We won&#8217;t trouble ourselves with knowing the exact mapping between a series of 0&#8217;s and 1&#8217;s and the "print" command.  Rather, we&#8217;ll content ourselves with writing instructions at a higher level that can be translated to a lower level.  This is consistent with one of the themes of the course: layering on top of the work of others.
+</p>
+</li>
+<li>
+<p>
+Statements are direct instructions, e.g. "say" in Scratch or <code>printf</code> in C.
+</p>
+</li>
+<li>
+<p>
+The "forever" loop from Scratch can be recreated with a <code>while (true)</code> block in C.  The "repeat" loop from Scratch can be recreated with a <code>for</code> block in C.
+</p>
+</li>
+<li>
+<p>
+Note that in C just as in Scratch, there are multiple ways of achieving the same goals.
+</p>
+</li>
+<li>
+<p>
+In C, a loop that increments a variable and announces its value would look like so:
+</p>
+<div class="listingblock">
+<div class="content"><div class="highlight"><pre><span class="kt">int</span> <span class="n">counter</span> <span class="o">=</span> <span class="mi">0</span><span class="p">;</span>
+<span class="k">while</span> <span class="p">(</span><span class="nb">true</span><span class="p">)</span>
+<span class="p">{</span>
+    <span class="n">printf</span><span class="p">(</span><span class="s">&quot;%i</span><span class="se">\n</span><span class="s">&quot;</span><span class="p">,</span> <span class="n">counter</span><span class="p">);</span>
+    <span class="n">counter</span><span class="o">++</span><span class="p">;</span>
+<span class="p">}</span>
+</pre></div></div></div>
+</li>
+<li>
+<p>
+Here we declare a variable named <code>counter</code> and then create an infinite loop that prints its value then increments it.
+</p>
+</li>
+<li>
+<p>
+Boolean expressions are much the same in C as in Scratch. The less-than (<code>&lt;</code>) and greater-than (<code>&gt;</code>) operators are the same. One difference is that the "and" operator is represented as <code>&amp;&amp;</code> in C.
+</p>
+</li>
+<li>
+<p>
+Conditions in C look much the same as they do in Scratch:
+</p>
+<div class="listingblock">
+<div class="content"><div class="highlight"><pre><span class="k">if</span> <span class="p">(</span><span class="n">x</span> <span class="o">&lt;</span> <span class="n">y</span><span class="p">)</span>
+<span class="p">{</span>
+    <span class="n">printf</span><span class="p">(</span><span class="s">&quot;x is less than y</span><span class="se">\n</span><span class="s">&quot;</span><span class="p">);</span>
+<span class="p">}</span>
+<span class="k">else</span> <span class="k">if</span> <span class="p">(</span><span class="n">x</span> <span class="o">&gt;</span> <span class="n">y</span><span class="p">)</span>
+<span class="p">{</span>
+    <span class="n">printf</span><span class="p">(</span><span class="s">&quot;x is greater than y</span><span class="se">\n</span><span class="s">&quot;</span><span class="p">);</span>
+<span class="p">}</span>
+<span class="k">else</span>
+<span class="p">{</span>
+    <span class="n">printf</span><span class="p">(</span><span class="s">&quot;x is equal to y</span><span class="se">\n</span><span class="s">&quot;</span><span class="p">);</span>
+<span class="p">}</span>
+</pre></div></div></div>
+</li>
+</ul></div>
+</div>
+</div>
+<div class="sect1">
+<h2 id="_code_hello_world_code"><code>hello, world!</code></h2>
+<div class="sectionbody">
+<div class="ulist"><ul>
+<li>
+<p>
+The CS50 Appliance is software running inside of your normal computer&#8217;s environment that simulates the environment of another operating system, namely Fedora Linux.  At the bottom left of the Appliance window are three icons for gedit, Chrome, and Terminal.  Since we can code in any text editor, let&#8217;s start by opening gedit.
+</p>
+</li>
+<li>
+<p>
+In gedit, there are three main divisions of the window:
+</p>
+<div class="ulist"><ul>
+<li>
+<p>
+on the left, the source code pane
+</p>
+</li>
+<li>
+<p>
+on the right, the actual text editor, where we write code
+</p>
+</li>
+<li>
+<p>
+on the bottom, the terminal, where we run commands
+</p>
+</li>
+</ul></div>
+</li>
+<li>
+<p>
+Note that all of your files by default save to the <code>jharvard</code> directory, which is unique to your Appliance and is not shared with other students.  All of your files in the <code>Dropbox</code> subdirectory are automatically backed up in the cloud.  In this directory, we&#8217;ll save our file as <code>hello.c</code>.
+</p>
+</li>
+<li>
+<p>
+Now let&#8217;s quickly rewrite that first program in C:
+</p>
+<div class="listingblock">
+<div class="content"><div class="highlight"><pre><span class="cp">#include &lt;stdio.h&gt;</span>
+
+<span class="kt">int</span> <span class="nf">main</span><span class="p">(</span><span class="kt">void</span><span class="p">)</span>
+<span class="p">{</span>
+    <span class="n">printf</span><span class="p">(</span><span class="s">&quot;hello, world!</span><span class="se">\n</span><span class="s">&quot;</span><span class="p">);</span>
+<span class="p">}</span>
+</pre></div></div></div>
+</li>
+<li>
+<p>
+To actually run this program, we click on the terminal at the bottom of gedit.  To begin, we&#8217;re in the <code>jharvard</code> directory.  On other operating systems, we can simply double click on another directory in order to open it.  But in the terminal, we can only use the keyboard.  So to get to the <code>Dropbox</code> folder, we instead type <code>cd Dropbox</code>.  Now if we type <code>make hello</code>, we see a bit of cryptic syntax, but afterward, we can run <code>./hello</code> and see our program execute successfully.
+</p>
+</li>
+<li>
+<p>
+A single dot (<code>.</code>) refers to the current directory.  Typing <code>./hello</code> instructs the computer to look for a program named <code>hello</code> in the current directory.  Type <code>ls</code> to see the contents of the current directory.  In green, you&#8217;ll see <code>hello</code>, which is the executable program that we just compiled.  Recall that we use a <em>compiler</em> to translate the source code above into the object code that the computer can actually understand.
+</p>
+</li>
+</ul></div>
+</div>
+</div>
+<div class="sect1">
+<h2 id="_linux_commands">Linux Commands</h2>
+<div class="sectionbody">
+<div class="ulist"><ul>
+<li>
+<p>
+As an aside, here&#8217;s a short list of Linux commands that you&#8217;ll find useful:
+</p>
+<div class="ulist"><ul>
+<li>
+<p>
+<code>ls</code>
+</p>
+<div class="ulist"><ul>
+<li>
+<p>
+stands for "list," shows the contents of the current directory
+</p>
+</li>
+</ul></div>
+</li>
+<li>
+<p>
+<code>mkdir</code>
+</p>
+<div class="ulist"><ul>
+<li>
+<p>
+stands for "make directory," creates a new folder
+</p>
+</li>
+</ul></div>
+</li>
+<li>
+<p>
+<code>cd</code>
+</p>
+<div class="ulist"><ul>
+<li>
+<p>
+stands for "change directory," the equivalent of double clicking on a folder
+</p>
+</li>
+</ul></div>
+</li>
+<li>
+<p>
+<code>rm</code>
+</p>
+<div class="ulist"><ul>
+<li>
+<p>
+stands for "remove," deletes a file
+</p>
+</li>
+</ul></div>
+</li>
+<li>
+<p>
+<code>rmdir</code>
+</p>
+<div class="ulist"><ul>
+<li>
+<p>
+stands for "remove directory," deletes a directory
+</p>
+</li>
+</ul></div>
+</li>
+</ul></div>
+</li>
+</ul></div>
+</div>
+</div>
+<div class="sect1">
+<h2 id="_compiling">Compiling</h2>
+<div class="sectionbody">
+<div class="ulist"><ul>
+<li>
+<p>
+When we type <code>make hello</code> in the terminal, the command that actually runs is as follows:
+</p>
+<div class="paragraph"><p><code>clang -ggdb3 -00 -std=c99 -Wall -Werror hello.c -lcs50 -lm -o hello</code></p></div>
+</li>
+<li>
+<p>
+<code>make</code> is not actually a compiler, but rather a program that shortcuts these options to the compiler, which in this case is <code>clang</code>.  The shorter version of the command above is:
+</p>
+<div class="paragraph"><p><code>clang -o hello hello.c</code></p></div>
+</li>
+<li>
+<p>
+<code>-o</code> is a switch or flag, an option that influences the behavior of the program.  In this case, the value provided after <code>-o</code> is <code>hello</code>, which becomes the name of the executable that the compiler creates.  We could&#8217;ve typed <code>-o hihihi</code> and our executable would then have been named <code>hihihi</code>.  The flags that we pass to a program are special examples of <em>command-line arguments</em>.
+</p>
+</li>
+</ul></div>
+</div>
+</div>
+<div class="sect1">
+<h2 id="_user_input">User Input</h2>
+<div class="sectionbody">
+<div class="ulist"><ul>
+<li>
+<p>
+To make our program more interesting, let&#8217;s try asking the user for a name and saying hello to her.  To do this, we need a place to store the user&#8217;s name, i.e. a variable.  A variable that stores a word or a phrase is known as a <em>string</em>.  Let&#8217;s call this variable <code>name</code>:
+</p>
+<div class="listingblock">
+<div class="content"><div class="highlight"><pre><span class="cp">#include &lt;stdio.h&gt;</span>
+
+<span class="kt">int</span> <span class="nf">main</span><span class="p">(</span><span class="kt">void</span><span class="p">)</span>
+<span class="p">{</span>
+    <span class="n">string</span> <span class="n">name</span><span class="p">;</span>
+    <span class="n">name</span> <span class="o">=</span> <span class="n">GetString</span><span class="p">();</span>
+    <span class="n">printf</span><span class="p">(</span><span class="s">&quot;hello, David</span><span class="se">\n</span><span class="s">&quot;</span><span class="p">);</span>
+<span class="p">}</span>
+</pre></div></div></div>
+</li>
+<li>
+<p>
+Before we ask the user for her name, the variable <code>name</code> has no value.  We shouldn&#8217;t print it out as such.
+</p>
+</li>
+<li>
+<p>
+<code>GetString</code> is a function provided in the CS50 Library written by the staff.  <code>GetString</code> takes in user input and passes it back to your program as a string.  The <code>=</code> in this case is an assignment operator, meaning place in the left side the value of the right side.
+</p>
+</li>
+<li>
+<p>
+Now when we try to compile this program, we get all sorts of errors.  When the compiler prints out this many errors, it&#8217;s a good idea to work your way through them from top to bottom because the errors at bottom might actually have been caused by the errors at the top.  The topmost error is as follows:
+</p>
+<div class="paragraph"><p><code>hello.c:5:5 error: use of undeclared identifier 'string': did you mean 'stdin'?</code></p></div>
+</li>
+<li>
+<p>
+No, we didn&#8217;t mean <code>stdin</code>!  However, the variable type <code>string</code> is actually not built in to C.  It&#8217;s available via the CS50 Library.  To use this library, we actually need to tell our program to include it like so:
+</p>
+<div class="listingblock">
+<div class="content"><div class="highlight"><pre><span class="cp">#include &lt;cs50.h&gt;</span>
+<span class="cp">#include &lt;stdio.h&gt;</span>
+
+<span class="kt">int</span> <span class="nf">main</span><span class="p">(</span><span class="kt">void</span><span class="p">)</span>
+<span class="p">{</span>
+    <span class="n">string</span> <span class="n">name</span><span class="p">;</span>
+    <span class="n">name</span> <span class="o">=</span> <span class="n">GetString</span><span class="p">();</span>
+    <span class="n">printf</span><span class="p">(</span><span class="s">&quot;hello, David</span><span class="se">\n</span><span class="s">&quot;</span><span class="p">);</span>
+<span class="p">}</span>
+</pre></div></div></div>
+</li>
+<li>
+<p>
+When we compile and run this, the program appears to do nothing: the cursor simply blinks.  This is because it&#8217;s waiting for the user to type something.  When we type "Rob," the program still prints out "hello, David," which isn&#8217;t quite what we intended.  Let&#8217;s add a line to clarify to the user that he&#8217;s supposed to type something:
+</p>
+<div class="listingblock">
+<div class="content"><div class="highlight"><pre><span class="cp">#include &lt;cs50.h&gt;</span>
+<span class="cp">#include &lt;stdio.h&gt;</span>
+
+<span class="kt">int</span> <span class="nf">main</span><span class="p">(</span><span class="kt">void</span><span class="p">)</span>
+<span class="p">{</span>
+    <span class="n">string</span> <span class="n">name</span><span class="p">;</span>
+    <span class="n">printf</span><span class="p">(</span><span class="s">&quot;What is your name?&quot;</span><span class="p">);</span>
+    <span class="n">name</span> <span class="o">=</span> <span class="n">GetString</span><span class="p">();</span>
+    <span class="n">printf</span><span class="p">(</span><span class="s">&quot;hello, David</span><span class="se">\n</span><span class="s">&quot;</span><span class="p">);</span>
+<span class="p">}</span>
+</pre></div></div></div>
+</li>
+<li>
+<p>
+When we run the program, nothing seems to have changed.  Oops, we forgot to recompile.
+</p>
+</li>
+<li>
+<p>
+One thing we can improve is to add a newline between the question and the blinking cursor.  We do this by adding the <code>\n</code> character.
+</p>
+</li>
+<li>
+<p>
+What we really want is to print out the user-provided name, which is stored in <code>name</code>.  Thus, we nee to pass <code>name</code> to <code>printf</code> like so:
+</p>
+<div class="listingblock">
+<div class="content"><div class="highlight"><pre><span class="cp">#include &lt;cs50.h&gt;</span>
+<span class="cp">#include &lt;stdio.h&gt;</span>
+
+<span class="kt">int</span> <span class="nf">main</span><span class="p">(</span><span class="kt">void</span><span class="p">)</span>
+<span class="p">{</span>
+    <span class="n">string</span> <span class="n">name</span><span class="p">;</span>
+    <span class="n">printf</span><span class="p">(</span><span class="s">&quot;What is your name?</span><span class="se">\n</span><span class="s">&quot;</span><span class="p">);</span>
+    <span class="n">name</span> <span class="o">=</span> <span class="n">GetString</span><span class="p">();</span>
+    <span class="n">printf</span><span class="p">(</span><span class="s">&quot;hello, %s</span><span class="se">\n</span><span class="s">&quot;</span><span class="p">,</span> <span class="n">name</span><span class="p">);</span>
+<span class="p">}</span>
+</pre></div></div></div>
+</li>
+<li>
+<p>
+What&#8217;s between the parentheses after <code>printf</code> are the <em>arguments</em> that we pass it.  Here, we pass two arguments.  <code>%s</code> is a placeholder for the second argument, <code>name</code>, which gets inserted into the first argument.
+</p>
+</li>
+<li>
+<p>
+In addition to the CS50 Library, we&#8217;re including <code>stdio.h</code>, the library the contains the definition of <code>printf</code>.
+</p>
+</li>
+</ul></div>
+</div>
+</div>
+<div class="sect1">
+<h2 id="_loops">Loops</h2>
+<div class="sectionbody">
+<div class="ulist"><ul>
+<li>
+<p>
+Let&#8217;s write a silly little program with an infinite loop:
+</p>
+<div class="listingblock">
+<div class="content"><div class="highlight"><pre><span class="cp">#include &lt;cs50.h&gt;</span>
+<span class="cp">#include &lt;stdio.h&gt;</span>
+
+<span class="kt">int</span> <span class="nf">main</span><span class="p">(</span><span class="kt">void</span><span class="p">)</span>
+<span class="p">{</span>
+    <span class="k">while</span> <span class="p">(</span><span class="nb">true</span><span class="p">)</span>
+    <span class="p">{</span>
+        <span class="n">printf</span><span class="p">(</span><span class="s">&quot;I am a buggy program&quot;</span><span class="p">);</span>
+    <span class="p">}</span>
+<span class="p">}</span>
+</pre></div></div></div>
+</li>
+<li>
+<p>
+Since the loop condition <code>true</code> is always true, the loop continues executing indefinitely.  Compiling and running this program prints a whole lot of text to the terminal!  You don&#8217;t need to restart your Appliance to stop the program, just type Ctrl+C.
+</p>
+</li>
+<li>
+<p>
+Now let&#8217;s write a counter program:
+</p>
+<div class="listingblock">
+<div class="content"><div class="highlight"><pre><span class="cp">#include &lt;cs50.h&gt;</span>
+<span class="cp">#include &lt;stdio.h&gt;</span>
+
+<span class="kt">int</span> <span class="nf">main</span><span class="p">(</span><span class="kt">void</span><span class="p">)</span>
+<span class="p">{</span>
+    <span class="k">for</span> <span class="p">(</span><span class="kt">int</span> <span class="n">i</span> <span class="o">=</span> <span class="mi">0</span><span class="p">;</span> <span class="n">i</span> <span class="o">&lt;</span> <span class="mi">100</span><span class="p">;</span> <span class="n">i</span><span class="o">++</span><span class="p">)</span>
+    <span class="p">{</span>
+        <span class="n">printf</span><span class="p">(</span><span class="s">&quot;I can count to %i</span><span class="se">\n</span><span class="s">&quot;</span><span class="p">,</span> <span class="n">i</span><span class="p">);</span>
+    <span class="p">}</span>
+<span class="p">}</span>
+</pre></div></div></div>
+</li>
+<li>
+<p>
+Ignore the cryptic syntax for now, but know that this program counts (very fast) to 100.  What if we made a mistake and typed <code>i &gt;= 0</code> instead of <code>i &lt; 100</code> as the second loop condition?  We would unintentionally induce an infinite loop.  On Wednesday we&#8217;ll see if this program has finished!
+</p>
+</li>
+</ul></div>
+</div>
+</div>
+</div>
+<div id="footnotes"><hr /></div>
+<div id="footer">
+<div id="footer-text">
+Last updated 2013-09-13 18:39:33 PDT
+</div>
+</div>
+</body>
+</html>

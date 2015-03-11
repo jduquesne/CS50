@@ -1,0 +1,1131 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.1//EN"
+    "http://www.w3.org/TR/xhtml11/DTD/xhtml11.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en">
+<head>
+<meta http-equiv="Content-Type" content="application/xhtml+xml; charset=UTF-8" />
+<meta name="generator" content="AsciiDoc 8.6.8" />
+<title>Week 7, continued</title>
+<style type="text/css">
+/* Shared CSS for AsciiDoc xhtml11 and html5 backends */
+
+/* Default font. */
+body {
+  font-family: Georgia,serif;
+}
+
+/* Title font. */
+h1, h2, h3, h4, h5, h6,
+div.title, caption.title,
+thead, p.table.header,
+#toctitle,
+#author, #revnumber, #revdate, #revremark,
+#footer {
+  font-family: Arial,Helvetica,sans-serif;
+}
+
+body {
+  margin: 1em 5% 1em 5%;
+}
+
+a {
+  color: blue;
+  text-decoration: underline;
+}
+a:visited {
+  color: fuchsia;
+}
+
+em {
+  font-style: italic;
+  color: navy;
+}
+
+strong {
+  font-weight: bold;
+  color: #083194;
+}
+
+h1, h2, h3, h4, h5, h6 {
+  color: #527bbd;
+  margin-top: 1.2em;
+  margin-bottom: 0.5em;
+  line-height: 1.3;
+}
+
+h1, h2, h3 {
+  border-bottom: 2px solid silver;
+}
+h2 {
+  padding-top: 0.5em;
+}
+h3 {
+  float: left;
+}
+h3 + * {
+  clear: left;
+}
+h5 {
+  font-size: 1.0em;
+}
+
+div.sectionbody {
+  margin-left: 0;
+}
+
+hr {
+  border: 1px solid silver;
+}
+
+p {
+  margin-top: 0.5em;
+  margin-bottom: 0.5em;
+}
+
+ul, ol, li > p {
+  margin-top: 0;
+}
+ul > li     { color: #aaa; }
+ul > li > * { color: black; }
+
+.monospaced, code, pre {
+  font-family: "Courier New", Courier, monospace;
+  font-size: inherit;
+  color: navy;
+  padding: 0;
+  margin: 0;
+}
+
+
+#author {
+  color: #527bbd;
+  font-weight: bold;
+  font-size: 1.1em;
+}
+#email {
+}
+#revnumber, #revdate, #revremark {
+}
+
+#footer {
+  font-size: small;
+  border-top: 2px solid silver;
+  padding-top: 0.5em;
+  margin-top: 4.0em;
+}
+#footer-text {
+  float: left;
+  padding-bottom: 0.5em;
+}
+#footer-badges {
+  float: right;
+  padding-bottom: 0.5em;
+}
+
+#preamble {
+  margin-top: 1.5em;
+  margin-bottom: 1.5em;
+}
+div.imageblock, div.exampleblock, div.verseblock,
+div.quoteblock, div.literalblock, div.listingblock, div.sidebarblock,
+div.admonitionblock {
+  margin-top: 1.0em;
+  margin-bottom: 1.5em;
+}
+div.admonitionblock {
+  margin-top: 2.0em;
+  margin-bottom: 2.0em;
+  margin-right: 10%;
+  color: #606060;
+}
+
+div.content { /* Block element content. */
+  padding: 0;
+}
+
+/* Block element titles. */
+div.title, caption.title {
+  color: #527bbd;
+  font-weight: bold;
+  text-align: left;
+  margin-top: 1.0em;
+  margin-bottom: 0.5em;
+}
+div.title + * {
+  margin-top: 0;
+}
+
+td div.title:first-child {
+  margin-top: 0.0em;
+}
+div.content div.title:first-child {
+  margin-top: 0.0em;
+}
+div.content + div.title {
+  margin-top: 0.0em;
+}
+
+div.sidebarblock > div.content {
+  background: #ffffee;
+  border: 1px solid #dddddd;
+  border-left: 4px solid #f0f0f0;
+  padding: 0.5em;
+}
+
+div.listingblock > div.content {
+  border: 1px solid #dddddd;
+  border-left: 5px solid #f0f0f0;
+  background: #f8f8f8;
+  padding: 0.5em;
+}
+
+div.quoteblock, div.verseblock {
+  padding-left: 1.0em;
+  margin-left: 1.0em;
+  margin-right: 10%;
+  border-left: 5px solid #f0f0f0;
+  color: #888;
+}
+
+div.quoteblock > div.attribution {
+  padding-top: 0.5em;
+  text-align: right;
+}
+
+div.verseblock > pre.content {
+  font-family: inherit;
+  font-size: inherit;
+}
+div.verseblock > div.attribution {
+  padding-top: 0.75em;
+  text-align: left;
+}
+/* DEPRECATED: Pre version 8.2.7 verse style literal block. */
+div.verseblock + div.attribution {
+  text-align: left;
+}
+
+div.admonitionblock .icon {
+  vertical-align: top;
+  font-size: 1.1em;
+  font-weight: bold;
+  text-decoration: underline;
+  color: #527bbd;
+  padding-right: 0.5em;
+}
+div.admonitionblock td.content {
+  padding-left: 0.5em;
+  border-left: 3px solid #dddddd;
+}
+
+div.exampleblock > div.content {
+  border-left: 3px solid #dddddd;
+  padding-left: 0.5em;
+}
+
+div.imageblock div.content { padding-left: 0; }
+span.image img { border-style: none; }
+a.image:visited { color: white; }
+
+dl {
+  margin-top: 0.8em;
+  margin-bottom: 0.8em;
+}
+dt {
+  margin-top: 0.5em;
+  margin-bottom: 0;
+  font-style: normal;
+  color: navy;
+}
+dd > *:first-child {
+  margin-top: 0.1em;
+}
+
+ul, ol {
+    list-style-position: outside;
+}
+ol.arabic {
+  list-style-type: decimal;
+}
+ol.loweralpha {
+  list-style-type: lower-alpha;
+}
+ol.upperalpha {
+  list-style-type: upper-alpha;
+}
+ol.lowerroman {
+  list-style-type: lower-roman;
+}
+ol.upperroman {
+  list-style-type: upper-roman;
+}
+
+div.compact ul, div.compact ol,
+div.compact p, div.compact p,
+div.compact div, div.compact div {
+  margin-top: 0.1em;
+  margin-bottom: 0.1em;
+}
+
+tfoot {
+  font-weight: bold;
+}
+td > div.verse {
+  white-space: pre;
+}
+
+div.hdlist {
+  margin-top: 0.8em;
+  margin-bottom: 0.8em;
+}
+div.hdlist tr {
+  padding-bottom: 15px;
+}
+dt.hdlist1.strong, td.hdlist1.strong {
+  font-weight: bold;
+}
+td.hdlist1 {
+  vertical-align: top;
+  font-style: normal;
+  padding-right: 0.8em;
+  color: navy;
+}
+td.hdlist2 {
+  vertical-align: top;
+}
+div.hdlist.compact tr {
+  margin: 0;
+  padding-bottom: 0;
+}
+
+.comment {
+  background: yellow;
+}
+
+.footnote, .footnoteref {
+  font-size: 0.8em;
+}
+
+span.footnote, span.footnoteref {
+  vertical-align: super;
+}
+
+#footnotes {
+  margin: 20px 0 20px 0;
+  padding: 7px 0 0 0;
+}
+
+#footnotes div.footnote {
+  margin: 0 0 5px 0;
+}
+
+#footnotes hr {
+  border: none;
+  border-top: 1px solid silver;
+  height: 1px;
+  text-align: left;
+  margin-left: 0;
+  width: 20%;
+  min-width: 100px;
+}
+
+div.colist td {
+  padding-right: 0.5em;
+  padding-bottom: 0.3em;
+  vertical-align: top;
+}
+div.colist td img {
+  margin-top: 0.3em;
+}
+
+@media print {
+  #footer-badges { display: none; }
+}
+
+#toc {
+  margin-bottom: 2.5em;
+}
+
+#toctitle {
+  color: #527bbd;
+  font-size: 1.1em;
+  font-weight: bold;
+  margin-top: 1.0em;
+  margin-bottom: 0.1em;
+}
+
+div.toclevel0, div.toclevel1, div.toclevel2, div.toclevel3, div.toclevel4 {
+  margin-top: 0;
+  margin-bottom: 0;
+}
+div.toclevel2 {
+  margin-left: 2em;
+  font-size: 0.9em;
+}
+div.toclevel3 {
+  margin-left: 4em;
+  font-size: 0.9em;
+}
+div.toclevel4 {
+  margin-left: 6em;
+  font-size: 0.9em;
+}
+
+span.aqua { color: aqua; }
+span.black { color: black; }
+span.blue { color: blue; }
+span.fuchsia { color: fuchsia; }
+span.gray { color: gray; }
+span.green { color: green; }
+span.lime { color: lime; }
+span.maroon { color: maroon; }
+span.navy { color: navy; }
+span.olive { color: olive; }
+span.purple { color: purple; }
+span.red { color: red; }
+span.silver { color: silver; }
+span.teal { color: teal; }
+span.white { color: white; }
+span.yellow { color: yellow; }
+
+span.aqua-background { background: aqua; }
+span.black-background { background: black; }
+span.blue-background { background: blue; }
+span.fuchsia-background { background: fuchsia; }
+span.gray-background { background: gray; }
+span.green-background { background: green; }
+span.lime-background { background: lime; }
+span.maroon-background { background: maroon; }
+span.navy-background { background: navy; }
+span.olive-background { background: olive; }
+span.purple-background { background: purple; }
+span.red-background { background: red; }
+span.silver-background { background: silver; }
+span.teal-background { background: teal; }
+span.white-background { background: white; }
+span.yellow-background { background: yellow; }
+
+span.big { font-size: 2em; }
+span.small { font-size: 0.6em; }
+
+span.underline { text-decoration: underline; }
+span.overline { text-decoration: overline; }
+span.line-through { text-decoration: line-through; }
+
+div.unbreakable { page-break-inside: avoid; }
+
+
+/*
+ * xhtml11 specific
+ *
+ * */
+
+div.tableblock {
+  margin-top: 1.0em;
+  margin-bottom: 1.5em;
+}
+div.tableblock > table {
+  border: 3px solid #527bbd;
+}
+thead, p.table.header {
+  font-weight: bold;
+  color: #527bbd;
+}
+p.table {
+  margin-top: 0;
+}
+/* Because the table frame attribute is overriden by CSS in most browsers. */
+div.tableblock > table[frame="void"] {
+  border-style: none;
+}
+div.tableblock > table[frame="hsides"] {
+  border-left-style: none;
+  border-right-style: none;
+}
+div.tableblock > table[frame="vsides"] {
+  border-top-style: none;
+  border-bottom-style: none;
+}
+
+
+/*
+ * html5 specific
+ *
+ * */
+
+table.tableblock {
+  margin-top: 1.0em;
+  margin-bottom: 1.5em;
+}
+thead, p.tableblock.header {
+  font-weight: bold;
+  color: #527bbd;
+}
+p.tableblock {
+  margin-top: 0;
+}
+table.tableblock {
+  border-width: 3px;
+  border-spacing: 0px;
+  border-style: solid;
+  border-color: #527bbd;
+  border-collapse: collapse;
+}
+th.tableblock, td.tableblock {
+  border-width: 1px;
+  padding: 4px;
+  border-style: solid;
+  border-color: #527bbd;
+}
+
+table.tableblock.frame-topbot {
+  border-left-style: hidden;
+  border-right-style: hidden;
+}
+table.tableblock.frame-sides {
+  border-top-style: hidden;
+  border-bottom-style: hidden;
+}
+table.tableblock.frame-none {
+  border-style: hidden;
+}
+
+th.tableblock.halign-left, td.tableblock.halign-left {
+  text-align: left;
+}
+th.tableblock.halign-center, td.tableblock.halign-center {
+  text-align: center;
+}
+th.tableblock.halign-right, td.tableblock.halign-right {
+  text-align: right;
+}
+
+th.tableblock.valign-top, td.tableblock.valign-top {
+  vertical-align: top;
+}
+th.tableblock.valign-middle, td.tableblock.valign-middle {
+  vertical-align: middle;
+}
+th.tableblock.valign-bottom, td.tableblock.valign-bottom {
+  vertical-align: bottom;
+}
+
+
+/*
+ * manpage specific
+ *
+ * */
+
+body.manpage h1 {
+  padding-top: 0.5em;
+  padding-bottom: 0.5em;
+  border-top: 2px solid silver;
+  border-bottom: 2px solid silver;
+}
+body.manpage h2 {
+  border-style: none;
+}
+body.manpage div.sectionbody {
+  margin-left: 3em;
+}
+
+@media print {
+  body.manpage div#toc { display: none; }
+}
+/*
+  pygmentize filter
+*/
+.highlight .hll { background-color: #ffffcc }
+.highlight  { background: #f4f4f4; }
+.highlight .c { color: #008800; font-style: italic } /* Comment */
+.highlight .err { border: 1px solid #FF0000 } /* Error */
+.highlight .k { color: #AA22FF; font-weight: bold } /* Keyword */
+.highlight .o { color: #666666 } /* Operator */
+.highlight .cm { color: #008800; font-style: italic } /* Comment.Multiline */
+.highlight .cp { color: #008800 } /* Comment.Preproc */
+.highlight .c1 { color: #008800; font-style: italic } /* Comment.Single */
+.highlight .cs { color: #008800; font-weight: bold } /* Comment.Special */
+.highlight .gd { color: #A00000 } /* Generic.Deleted */
+.highlight .ge { font-style: italic } /* Generic.Emph */
+.highlight .gr { color: #FF0000 } /* Generic.Error */
+.highlight .gh { color: #000080; font-weight: bold } /* Generic.Heading */
+.highlight .gi { color: #00A000 } /* Generic.Inserted */
+.highlight .go { color: #808080 } /* Generic.Output */
+.highlight .gp { color: #000080; font-weight: bold } /* Generic.Prompt */
+.highlight .gs { font-weight: bold } /* Generic.Strong */
+.highlight .gu { color: #800080; font-weight: bold } /* Generic.Subheading */
+.highlight .gt { color: #0040D0 } /* Generic.Traceback */
+.highlight .kc { color: #AA22FF; font-weight: bold } /* Keyword.Constant */
+.highlight .kd { color: #AA22FF; font-weight: bold } /* Keyword.Declaration */
+.highlight .kn { color: #AA22FF; font-weight: bold } /* Keyword.Namespace */
+.highlight .kp { color: #AA22FF } /* Keyword.Pseudo */
+.highlight .kr { color: #AA22FF; font-weight: bold } /* Keyword.Reserved */
+.highlight .kt { color: #00BB00; font-weight: bold } /* Keyword.Type */
+.highlight .m { color: #666666 } /* Literal.Number */
+.highlight .s { color: #BB4444 } /* Literal.String */
+.highlight .na { color: #BB4444 } /* Name.Attribute */
+.highlight .nb { color: #AA22FF } /* Name.Builtin */
+.highlight .nc { color: #0000FF } /* Name.Class */
+.highlight .no { color: #880000 } /* Name.Constant */
+.highlight .nd { color: #AA22FF } /* Name.Decorator */
+.highlight .ni { color: #999999; font-weight: bold } /* Name.Entity */
+.highlight .ne { color: #D2413A; font-weight: bold } /* Name.Exception */
+.highlight .nf { color: #00A000 } /* Name.Function */
+.highlight .nl { color: #A0A000 } /* Name.Label */
+.highlight .nn { color: #0000FF; font-weight: bold } /* Name.Namespace */
+.highlight .nt { color: #008000; font-weight: bold } /* Name.Tag */
+.highlight .nv { color: #B8860B } /* Name.Variable */
+.highlight .ow { color: #AA22FF; font-weight: bold } /* Operator.Word */
+.highlight .w { color: #bbbbbb } /* Text.Whitespace */
+.highlight .mf { color: #666666 } /* Literal.Number.Float */
+.highlight .mh { color: #666666 } /* Literal.Number.Hex */
+.highlight .mi { color: #666666 } /* Literal.Number.Integer */
+.highlight .mo { color: #666666 } /* Literal.Number.Oct */
+.highlight .sb { color: #BB4444 } /* Literal.String.Backtick */
+.highlight .sc { color: #BB4444 } /* Literal.String.Char */
+.highlight .sd { color: #BB4444; font-style: italic } /* Literal.String.Doc */
+.highlight .s2 { color: #BB4444 } /* Literal.String.Double */
+.highlight .se { color: #BB6622; font-weight: bold } /* Literal.String.Escape */
+.highlight .sh { color: #BB4444 } /* Literal.String.Heredoc */
+.highlight .si { color: #BB6688; font-weight: bold } /* Literal.String.Interpol */
+.highlight .sx { color: #008000 } /* Literal.String.Other */
+.highlight .sr { color: #BB6688 } /* Literal.String.Regex */
+.highlight .s1 { color: #BB4444 } /* Literal.String.Single */
+.highlight .ss { color: #B8860B } /* Literal.String.Symbol */
+.highlight .bp { color: #AA22FF } /* Name.Builtin.Pseudo */
+.highlight .vc { color: #B8860B } /* Name.Variable.Class */
+.highlight .vg { color: #B8860B } /* Name.Variable.Global */
+.highlight .vi { color: #B8860B } /* Name.Variable.Instance */
+.highlight .il { color: #666666 } /* Literal.Number.Integer.Long */
+
+
+
+</style>
+<script type="text/javascript">
+/*<![CDATA[*/
+var asciidoc = {  // Namespace.
+
+/////////////////////////////////////////////////////////////////////
+// Table Of Contents generator
+/////////////////////////////////////////////////////////////////////
+
+/* Author: Mihai Bazon, September 2002
+ * http://students.infoiasi.ro/~mishoo
+ *
+ * Table Of Content generator
+ * Version: 0.4
+ *
+ * Feel free to use this script under the terms of the GNU General Public
+ * License, as long as you do not remove or alter this notice.
+ */
+
+ /* modified by Troy D. Hanson, September 2006. License: GPL */
+ /* modified by Stuart Rackham, 2006, 2009. License: GPL */
+
+// toclevels = 1..4.
+toc: function (toclevels) {
+
+  function getText(el) {
+    var text = "";
+    for (var i = el.firstChild; i != null; i = i.nextSibling) {
+      if (i.nodeType == 3 /* Node.TEXT_NODE */) // IE doesn't speak constants.
+        text += i.data;
+      else if (i.firstChild != null)
+        text += getText(i);
+    }
+    return text;
+  }
+
+  function TocEntry(el, text, toclevel) {
+    this.element = el;
+    this.text = text;
+    this.toclevel = toclevel;
+  }
+
+  function tocEntries(el, toclevels) {
+    var result = new Array;
+    var re = new RegExp('[hH]([1-'+(toclevels+1)+'])');
+    // Function that scans the DOM tree for header elements (the DOM2
+    // nodeIterator API would be a better technique but not supported by all
+    // browsers).
+    var iterate = function (el) {
+      for (var i = el.firstChild; i != null; i = i.nextSibling) {
+        if (i.nodeType == 1 /* Node.ELEMENT_NODE */) {
+          var mo = re.exec(i.tagName);
+          if (mo && (i.getAttribute("class") || i.getAttribute("className")) != "float") {
+            result[result.length] = new TocEntry(i, getText(i), mo[1]-1);
+          }
+          iterate(i);
+        }
+      }
+    }
+    iterate(el);
+    return result;
+  }
+
+  var toc = document.getElementById("toc");
+  if (!toc) {
+    return;
+  }
+
+  // Delete existing TOC entries in case we're reloading the TOC.
+  var tocEntriesToRemove = [];
+  var i;
+  for (i = 0; i < toc.childNodes.length; i++) {
+    var entry = toc.childNodes[i];
+    if (entry.nodeName.toLowerCase() == 'div'
+     && entry.getAttribute("class")
+     && entry.getAttribute("class").match(/^toclevel/))
+      tocEntriesToRemove.push(entry);
+  }
+  for (i = 0; i < tocEntriesToRemove.length; i++) {
+    toc.removeChild(tocEntriesToRemove[i]);
+  }
+
+  // Rebuild TOC entries.
+  var entries = tocEntries(document.getElementById("content"), toclevels);
+  for (var i = 0; i < entries.length; ++i) {
+    var entry = entries[i];
+    if (entry.element.id == "")
+      entry.element.id = "_toc_" + i;
+    var a = document.createElement("a");
+    a.href = "#" + entry.element.id;
+    a.appendChild(document.createTextNode(entry.text));
+    var div = document.createElement("div");
+    div.appendChild(a);
+    div.className = "toclevel" + entry.toclevel;
+    toc.appendChild(div);
+  }
+  if (entries.length == 0)
+    toc.parentNode.removeChild(toc);
+},
+
+
+/////////////////////////////////////////////////////////////////////
+// Footnotes generator
+/////////////////////////////////////////////////////////////////////
+
+/* Based on footnote generation code from:
+ * http://www.brandspankingnew.net/archive/2005/07/format_footnote.html
+ */
+
+footnotes: function () {
+  // Delete existing footnote entries in case we're reloading the footnodes.
+  var i;
+  var noteholder = document.getElementById("footnotes");
+  if (!noteholder) {
+    return;
+  }
+  var entriesToRemove = [];
+  for (i = 0; i < noteholder.childNodes.length; i++) {
+    var entry = noteholder.childNodes[i];
+    if (entry.nodeName.toLowerCase() == 'div' && entry.getAttribute("class") == "footnote")
+      entriesToRemove.push(entry);
+  }
+  for (i = 0; i < entriesToRemove.length; i++) {
+    noteholder.removeChild(entriesToRemove[i]);
+  }
+
+  // Rebuild footnote entries.
+  var cont = document.getElementById("content");
+  var spans = cont.getElementsByTagName("span");
+  var refs = {};
+  var n = 0;
+  for (i=0; i<spans.length; i++) {
+    if (spans[i].className == "footnote") {
+      n++;
+      var note = spans[i].getAttribute("data-note");
+      if (!note) {
+        // Use [\s\S] in place of . so multi-line matches work.
+        // Because JavaScript has no s (dotall) regex flag.
+        note = spans[i].innerHTML.match(/\s*\[([\s\S]*)]\s*/)[1];
+        spans[i].innerHTML =
+          "[<a id='_footnoteref_" + n + "' href='#_footnote_" + n +
+          "' title='View footnote' class='footnote'>" + n + "</a>]";
+        spans[i].setAttribute("data-note", note);
+      }
+      noteholder.innerHTML +=
+        "<div class='footnote' id='_footnote_" + n + "'>" +
+        "<a href='#_footnoteref_" + n + "' title='Return to text'>" +
+        n + "</a>. " + note + "</div>";
+      var id =spans[i].getAttribute("id");
+      if (id != null) refs["#"+id] = n;
+    }
+  }
+  if (n == 0)
+    noteholder.parentNode.removeChild(noteholder);
+  else {
+    // Process footnoterefs.
+    for (i=0; i<spans.length; i++) {
+      if (spans[i].className == "footnoteref") {
+        var href = spans[i].getElementsByTagName("a")[0].getAttribute("href");
+        href = href.match(/#.*/)[0];  // Because IE return full URL.
+        n = refs[href];
+        spans[i].innerHTML =
+          "[<a href='#_footnote_" + n +
+          "' title='View footnote' class='footnote'>" + n + "</a>]";
+      }
+    }
+  }
+},
+
+install: function(toclevels) {
+  var timerId;
+
+  function reinstall() {
+    asciidoc.footnotes();
+    if (toclevels) {
+      asciidoc.toc(toclevels);
+    }
+  }
+
+  function reinstallAndRemoveTimer() {
+    clearInterval(timerId);
+    reinstall();
+  }
+
+  timerId = setInterval(reinstall, 500);
+  if (document.addEventListener)
+    document.addEventListener("DOMContentLoaded", reinstallAndRemoveTimer, false);
+  else
+    window.onload = reinstallAndRemoveTimer;
+}
+
+}
+asciidoc.install(2);
+/*]]>*/
+</script>
+</head>
+<body class="article">
+<div id="header">
+<h1>Week 7, continued</h1>
+<span id="author">Andrew Sellergren</span><br />
+<div id="toc">
+  <div id="toctitle">Table of Contents</div>
+  <noscript><p><b>JavaScript must be enabled in your browser to display the table of contents.</b></p></noscript>
+</div>
+</div>
+<div id="content">
+<div class="sect1">
+<h2 id="_linked_lists">Linked Lists</h2>
+<div class="sectionbody">
+<div class="ulist"><ul>
+<li>
+<p>
+Arrays are of fixed size, which is both an advantage and a disadvantage.  It&#8217;s an advantage because it means you know exactly how much space you&#8217;ll be using, but it&#8217;s a disadvantage because it means you have to allocate an entirely new array if you need more space.  Arrays are stored as a single chunk of memory, which means that we have <em>random access</em> to all of their elements.
+</p>
+</li>
+<li>
+<p>
+We introduced the linked list as a data structure of expandable size:
+</p>
+<div class="imageblock">
+<div class="content">
+<img src="linked_list.png" alt="A linked list." />
+</div>
+</div>
+</li>
+<li>
+<p>
+We called each of the elements of a linked list a <em>node</em>.  Each node is implemented as a struct:
+</p>
+<div class="listingblock">
+<div class="content"><div class="highlight"><pre><span class="k">typedef</span> <span class="k">struct</span> <span class="n">node</span>
+<span class="p">{</span>
+    <span class="kt">int</span> <span class="n">n</span><span class="p">;</span>
+    <span class="k">struct</span> <span class="n">node</span><span class="o">*</span> <span class="n">next</span><span class="p">;</span>
+<span class="p">}</span>
+<span class="n">node</span><span class="p">;</span>
+</pre></div></div></div>
+</li>
+<li>
+<p>
+In the example above, the struct consists of an integer and a pointer to the next node.  Using these pointers, we can traverse the entire linked list given only a pointer to the first node.  The last node in the linked list has a NULL pointer.  Adding a node to the linked list is as simple as allocating memory for it and rearranging pointers.
+</p>
+</li>
+</ul></div>
+<div class="sect2">
+<h3 id="_code_list_0_c_code"><code>list-0.c</code></h3>
+<div class="ulist"><ul>
+<li>
+<p>
+Although this file isn&#8217;t very complex, it&#8217;s conventional to put type definitions in a separate header file.  When you include that file, you use double quotes instead of angle brackets because the file is local:
+</p>
+<div class="listingblock">
+<div class="content"><div class="highlight"><pre><span class="cp">#include &quot;list-0.h&quot;</span>
+</pre></div></div></div>
+</li>
+<li>
+<p>
+Our <code>main</code> function is simply a menu interface for getting a command from the user:
+</p>
+<div class="listingblock">
+<div class="content"><div class="highlight"><pre><span class="kt">int</span> <span class="nf">main</span><span class="p">(</span><span class="kt">void</span><span class="p">)</span>
+<span class="p">{</span>
+    <span class="kt">int</span> <span class="n">c</span><span class="p">;</span>
+    <span class="k">do</span>
+    <span class="p">{</span>
+        <span class="c1">// print instructions</span>
+        <span class="n">printf</span><span class="p">(</span><span class="s">&quot;</span><span class="se">\n</span><span class="s">MENU</span><span class="se">\n\n</span><span class="s">&quot;</span>
+            <span class="s">&quot;1 - delete</span><span class="se">\n</span><span class="s">&quot;</span>
+            <span class="s">&quot;2 - insert</span><span class="se">\n</span><span class="s">&quot;</span>
+            <span class="s">&quot;3 - search </span><span class="se">\n</span><span class="s">&quot;</span>
+            <span class="s">&quot;4 - traverse</span><span class="se">\n</span><span class="s">&quot;</span>
+            <span class="s">&quot;0 - quit</span><span class="se">\n\n</span><span class="s">&quot;</span><span class="p">);</span>
+
+        <span class="c1">// get command</span>
+        <span class="n">printf</span><span class="p">(</span><span class="s">&quot;Command: &quot;</span><span class="p">);</span>
+        <span class="n">c</span> <span class="o">=</span> <span class="n">GetInt</span><span class="p">();</span>
+
+        <span class="c1">// try to execute command</span>
+        <span class="k">switch</span> <span class="p">(</span><span class="n">c</span><span class="p">)</span>
+        <span class="p">{</span>
+            <span class="k">case</span> <span class="mi">1</span>: <span class="n">delete</span><span class="p">();</span> <span class="k">break</span><span class="p">;</span>
+            <span class="k">case</span> <span class="mi">2</span>: <span class="n">insert</span><span class="p">();</span> <span class="k">break</span><span class="p">;</span>
+            <span class="k">case</span> <span class="mi">3</span>: <span class="n">search</span><span class="p">();</span> <span class="k">break</span><span class="p">;</span>
+            <span class="k">case</span> <span class="mi">4</span>: <span class="n">traverse</span><span class="p">();</span> <span class="k">break</span><span class="p">;</span>
+        <span class="p">}</span>
+    <span class="p">}</span>
+    <span class="k">while</span> <span class="p">(</span><span class="n">c</span> <span class="o">!=</span> <span class="mi">0</span><span class="p">);</span>
+
+    <span class="c1">// free list before quitting</span>
+    <span class="n">node</span><span class="o">*</span> <span class="n">ptr</span> <span class="o">=</span> <span class="n">first</span><span class="p">;</span>
+    <span class="k">while</span> <span class="p">(</span><span class="n">ptr</span> <span class="o">!=</span> <span class="nb">NULL</span><span class="p">)</span>
+    <span class="p">{</span>
+        <span class="n">node</span><span class="o">*</span> <span class="n">predptr</span> <span class="o">=</span> <span class="n">ptr</span><span class="p">;</span>
+        <span class="n">ptr</span> <span class="o">=</span> <span class="n">ptr</span><span class="o">-&gt;</span><span class="n">next</span><span class="p">;</span>
+        <span class="n">free</span><span class="p">(</span><span class="n">predptr</span><span class="p">);</span>
+    <span class="p">}</span>
+<span class="p">}</span>
+</pre></div></div></div>
+</li>
+<li>
+<p>
+We have a do-while loop to prompt the user for non-negative input.  Once the user provides input, we switch on it to execute one of the four different functions.  Finally, we free the linked list before exiting.
+</p>
+</li>
+</ul></div>
+</div>
+<div class="sect2">
+<h3 id="_search">Search</h3>
+<div class="ulist"><ul>
+<li>
+<p>
+Let&#8217;s take a look at how the <code>search</code> function is implemented:
+</p>
+<div class="listingblock">
+<div class="content"><div class="highlight"><pre><span class="kt">void</span> <span class="nf">search</span><span class="p">(</span><span class="kt">void</span><span class="p">)</span>
+<span class="p">{</span>
+    <span class="c1">// prompt user for number</span>
+    <span class="n">printf</span><span class="p">(</span><span class="s">&quot;Number to search for: &quot;</span><span class="p">);</span>
+    <span class="kt">int</span> <span class="n">n</span> <span class="o">=</span> <span class="n">GetInt</span><span class="p">();</span>
+
+    <span class="c1">// get list&#39;s first node</span>
+    <span class="n">node</span><span class="o">*</span> <span class="n">ptr</span> <span class="o">=</span> <span class="n">first</span><span class="p">;</span>
+
+    <span class="c1">// search for number</span>
+    <span class="k">while</span> <span class="p">(</span><span class="n">ptr</span> <span class="o">!=</span> <span class="nb">NULL</span><span class="p">)</span>
+    <span class="p">{</span>
+        <span class="k">if</span> <span class="p">(</span><span class="n">ptr</span><span class="o">-&gt;</span><span class="n">n</span> <span class="o">==</span> <span class="n">n</span><span class="p">)</span>
+        <span class="p">{</span>
+            <span class="n">printf</span><span class="p">(</span><span class="s">&quot;</span><span class="se">\n</span><span class="s">Found %i!</span><span class="se">\n</span><span class="s">&quot;</span><span class="p">,</span> <span class="n">n</span><span class="p">);</span>
+            <span class="n">sleep</span><span class="p">(</span><span class="mi">1</span><span class="p">);</span>
+            <span class="k">break</span><span class="p">;</span>
+        <span class="p">}</span>
+        <span class="n">ptr</span> <span class="o">=</span> <span class="n">ptr</span><span class="o">-&gt;</span><span class="n">next</span><span class="p">;</span>
+    <span class="p">}</span>
+<span class="p">}</span>
+</pre></div></div></div>
+</li>
+<li>
+<p>
+We declare a pointer to a node called <code>ptr</code> and point it to the first node in the list.  To iterate through the list, we set our while condition to be <code>ptr != NULL</code>.  The last node in the linked list points to NULL, so <code>ptr</code> will be <code>NULL</code> when we&#8217;ve reached the end of the list.  To access the integer within the node that <code>ptr</code> points to, we use the <code>-&gt;</code> syntax.  <code>ptr-&gt;n</code> is equivalent to <code>(*ptr).n</code>.  If the integer within the node is the one we&#8217;re searching for, we&#8217;re done.  If not, we update <code>ptr</code> to be the <code>next</code> pointer of the current node.
+</p>
+</li>
+</ul></div>
+</div>
+<div class="sect2">
+<h3 id="_insertion">Insertion</h3>
+<div class="ulist"><ul>
+<li>
+<p>
+Insertion into a linked list requires handling three different cases: the beginning, middle, and end of the list.  In each case, we need to be careful in how we update the node pointers lest we end up orphaning part of the list.
+</p>
+</li>
+<li>
+<p>
+To visualize insertion, we&#8217;ll bring 6 volunteers onstage.  5 of these volunteers will represent the numbers 9, 17, 22, 26, and 34 that are in our linked list and 1 volunteer will represent the <code>first</code> pointer.
+</p>
+</li>
+<li>
+<p>
+Now, we&#8217;ll request memory for a new node, bringing one more volunteer onstage.  We&#8217;ll give him the number 5, which means that he belongs at the beginning of the list.  If we begin by pointing <code>first</code> at this new node, then we forget where the rest of the list is.  Instead, we should begin by pointing the new node&#8217;s <code>next</code> pointer at the first node of the list.  Then we update <code>first</code> to point to the new node.
+</p>
+</li>
+<li>
+<p>
+Again, we&#8217;ll request memory for a new node, bringing another volunteer onstage and assigning her the number 55.  She belongs at the end of the list.  To confirm this, we traverse the list by updating <code>ptr</code> to the value of <code>next</code> for each node.  In each case, we see that 55 is greater than <code>ptr-&gt;n</code>, so we advance to the next node.  However, ultimately, we end up with <code>ptr</code> equal to <code>NULL</code> because 55 is greater than all of the numbers in the list.  We don&#8217;t have a pointer, then, to the last node in the list, which means we can&#8217;t update it.  To prevent this, we need to keep track of the node one to the left of <code>ptr</code>.  We&#8217;ll store this in a variable called <code>predptr</code> in our sample code.  When we reach the end of the list, <code>predptr</code> will point to the last node in the list and we can update its <code>next</code> value to point to our new node.
+</p>
+</li>
+<li>
+<p>
+Another solution to this problem of keeping track of the previous node is to implement a <em>doubly linked list</em>.  In a doubly linked list, each node has a <code>next</code> pointer to point to the next node and a <code>prev</code> pointer to point to the previous node.
+</p>
+</li>
+<li>
+<p>
+Once more, we&#8217;ll request memory for a new node, assigning the value 20 to our last volunteer.  This time when we traverse the list, our <code>predptr</code> is pointing to the 17 node and our <code>ptr</code> is pointing to the 22 node when we find that <code>ptr-&gt;n</code> is greater than 20.  To insert 20 into the list, we point the <code>next</code> pointer of <code>predptr</code> to our new node and the <code>next</code> pointer of our our new node to <code>ptr</code>.
+</p>
+</li>
+<li>
+<p>
+Linked lists are yet another example that design is very much subjective.  They are not unilaterally better than arrays, but they may be more useful than arrays in certain contexts.  Likewise, arrays may be more useful than linked lists in certain contexts.
+</p>
+</li>
+</ul></div>
+</div>
+</div>
+</div>
+<div class="sect1">
+<h2 id="_hash_tables">Hash Tables</h2>
+<div class="sectionbody">
+<div class="ulist"><ul>
+<li>
+<p>
+The holy grail of running time is <em>O</em>(1), i.e. constant time.  We&#8217;ve already seen that arrays afford us constant-time lookup, so let&#8217;s return to this data structure and use it to store a list of names.  Let&#8217;s assume that our array is of size 26, so we can store a name in the location corresponding to its first letter.  In doing so, we also achieve constant time for insertion since we can access location <code>i</code> in the array in 1 step.  If we want to insert the name Alice, we index to location 0 and write it there.
+</p>
+</li>
+<li>
+<p>
+This data structure is called a <em>hash table</em>.  The process of getting the storage location of an element is called <em>hashing</em> and the function that does so is called a <em>hash function</em>.  In this case, the hash function simply takes the first letter of the name and converts it to a number.
+</p>
+</li>
+</ul></div>
+<div class="sect2">
+<h3 id="_linear_probing">Linear Probing</h3>
+<div class="ulist"><ul>
+<li>
+<p>
+What problems might arise with this hash table?  If we want to insert the name Aaron, we find that location 0 is already filled.  We could take the approach of inserting Aaron into the next empty location, but then our running time deteriorates to linear because in the worst case, we may have to iterate through all <em>n</em> locations in the array to insert or search for a name.  This approach is appropriately named <em>linear probing</em>.
+</p>
+</li>
+</ul></div>
+</div>
+<div class="sect2">
+<h3 id="_separate_chaining">Separate Chaining</h3>
+<div class="ulist"><ul>
+<li>
+<p>
+When two elements have the same hash, there is said to be a <em>collision</em> in the hash table.  Linear probing was our first approach to handling collisions.  Another approach is <em>separate chanining</em>.  In separate chaining, each location in the hash table stores a pointer to the first node of a linked list.  When a new element needs to be stored at a location, it is simply added to the beginning of the linked list.
+</p>
+</li>
+</ul></div>
+</div>
+<div class="sect2">
+<h3 id="_the_birthday_problem">The Birthday Problem</h3>
+<div class="ulist"><ul>
+<li>
+<p>
+Why worry at all about collisions?  How likely is it really that they will happen?  It turns out the probability of collisions is actually quite high.  We can phrase this question in a slightly different way that we&#8217;ll call the Birthday Problem:
+</p>
+<div class="paragraph"><p>In a room of <em>n</em> CS50 students, what’s the probability that at least 2 students have the same birthday?</p></div>
+</li>
+<li>
+<p>
+To answer this question, we’ll consider the opposite: what’s the probability that no 2 students have the same birthday. If there’s only 1 student in the room, then the probability that no 2 students have the same birthday is 1. If there are 2 students in the room, then there are 364 possible birthdays out of 365 which the second student could have that would be different from the first student’s. Thus, the probability that no 2 students have the same birthday in a room of 2 is 364 ⁄ 365. The probability that no 2 students have the same birthday in a room of 3 is 363 ⁄ 365. And so on. To get the total probability, we multiple all of these probabilities together. You can see this math here, courtesy of Wikipedia:
+</p>
+<div class="imageblock">
+<div class="content">
+<img src="birthday_problem.png" alt="The probability that no two people have the same birthday." />
+</div>
+</div>
+</li>
+<li>
+<p>
+This is much easier to interpret in the form of a graph, however:
+</p>
+<div class="imageblock">
+<div class="content">
+<img src="birthday_problem_graph.png" alt="The Birthday Problem as a graph of Probability of a Match vs. Number of Birthdays." />
+</div>
+</div>
+</li>
+<li>
+<p>
+Notice that the probability is already 0.5 when there are only 22 students in the room. By the time we consider the case where there are 58 students in the room, the probability is almost 1. The implication for hash tables is that there are going to be collisions.
+</p>
+</li>
+<li>
+<p>
+What is the worst-case running time of search in a hash table that uses separate chaining?   In the worst case, we’re going to have to traverse the entire linked list at any hash table location. If we consider the number of locations in our hash table to be <em>m</em>, then the lookup time for a hash table that uses separate chaining is <em>O</em>(<em>n</em> ⁄ <em>m</em>). <em>m</em> is a constant, though, so the lookup time is really just <em>O</em>(<em>n</em>). In the real world, however, <em>O</em>(<em>n</em> ⁄ <em>m</em>) can be much faster than <em>O</em>(<em>n</em>).
+</p>
+</li>
+<li>
+<p>
+What is the worst-case running time of insertion in a hash table that uses separate chaining?  It&#8217;s actually <em>O</em>(1) if we always insert to the beginning of the linked list at each hash table location.
+</p>
+</li>
+</ul></div>
+</div>
+</div>
+</div>
+<div class="sect1">
+<h2 id="_tries">Tries</h2>
+<div class="sectionbody">
+<div class="ulist"><ul>
+<li>
+<p>
+One last data structure we&#8217;ll discuss is a <em>trie</em>. The word “trie” comes from the word “retrieval,” but is usually pronounced like “try.” For our purposes, the nodes in a trie are arrays. We might use a trie to store a dictionary of names of famous scientists, as this diagram suggests:
+</p>
+<div class="imageblock">
+<div class="content">
+<img src="trie.png" alt="A trie used to store a dictionary of names of famous scientists." />
+</div>
+</div>
+</li>
+<li>
+<p>
+In this trie, each index in the array stands for a letter of the alphabet. Each of those indices also points to another array of letters. The Δ symbol denotes the end of a name. We have to keep track of where words end so that if one word actually contains another word (e.g. Mendeleev and Mendel), we know that both words exist. In code, the Δ symbol could be a Boolean flag in each node:
+</p>
+<div class="listingblock">
+<div class="content"><div class="highlight"><pre><span class="k">typedef</span> <span class="k">struct</span> <span class="n">node</span>
+<span class="p">{</span>
+    <span class="kt">bool</span> <span class="n">word</span><span class="p">;</span>
+    <span class="k">struct</span> <span class="n">node</span><span class="o">*</span> <span class="n">children</span><span class="p">[</span><span class="mi">27</span><span class="p">];</span>
+<span class="p">}</span>
+<span class="n">node</span><span class="p">;</span>
+</pre></div></div></div>
+</li>
+<li>
+<p>
+One advantage of a trie is that insertion and search times are unaffected by the number of elements already stored. If there are <em>n</em> elements stored in the trie and you want to insert the value Alice, it still takes just 5 steps, one for each letter. This runtime we might express as <em>O</em>(<em>k</em>), where <em>k</em> is the length of the longest possible word. But <em>k</em> is a constant, so we’re actually just talking about <em>O</em>(1), or constant-time insertion and lookup.
+</p>
+</li>
+<li>
+<p>
+Although it may seem like a trie is the holy grail of data structures, it may not perform better than a hash table in certain contexts.  Choosing between a hash table and a trie is one of many design decisions you&#8217;ll have to make for Problem Set 6.
+</p>
+</li>
+</ul></div>
+</div>
+</div>
+<div class="sect1">
+<h2 id="_teaser">Teaser</h2>
+<div class="sectionbody">
+<div class="ulist"><ul>
+<li>
+<p>
+Before long, we’ll transition to talking about web development, including HTML, PHP, and JavaScript. As a brief teaser, enjoy this trailer to <a href="http://www.youtube.com/watch?v=Cb8b1RMX6XY">Warriors of the Net</a>.
+</p>
+</li>
+</ul></div>
+</div>
+</div>
+</div>
+<div id="footnotes"><hr /></div>
+<div id="footer">
+<div id="footer-text">
+Last updated 2013-10-26 21:50:16 PDT
+</div>
+</div>
+</body>
+</html>

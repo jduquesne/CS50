@@ -1,0 +1,1355 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.1//EN"
+    "http://www.w3.org/TR/xhtml11/DTD/xhtml11.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en">
+<head>
+<meta http-equiv="Content-Type" content="application/xhtml+xml; charset=UTF-8" />
+<meta name="generator" content="AsciiDoc 8.6.8" />
+<title>Week 4</title>
+<style type="text/css">
+/* Shared CSS for AsciiDoc xhtml11 and html5 backends */
+
+/* Default font. */
+body {
+  font-family: Georgia,serif;
+}
+
+/* Title font. */
+h1, h2, h3, h4, h5, h6,
+div.title, caption.title,
+thead, p.table.header,
+#toctitle,
+#author, #revnumber, #revdate, #revremark,
+#footer {
+  font-family: Arial,Helvetica,sans-serif;
+}
+
+body {
+  margin: 1em 5% 1em 5%;
+}
+
+a {
+  color: blue;
+  text-decoration: underline;
+}
+a:visited {
+  color: fuchsia;
+}
+
+em {
+  font-style: italic;
+  color: navy;
+}
+
+strong {
+  font-weight: bold;
+  color: #083194;
+}
+
+h1, h2, h3, h4, h5, h6 {
+  color: #527bbd;
+  margin-top: 1.2em;
+  margin-bottom: 0.5em;
+  line-height: 1.3;
+}
+
+h1, h2, h3 {
+  border-bottom: 2px solid silver;
+}
+h2 {
+  padding-top: 0.5em;
+}
+h3 {
+  float: left;
+}
+h3 + * {
+  clear: left;
+}
+h5 {
+  font-size: 1.0em;
+}
+
+div.sectionbody {
+  margin-left: 0;
+}
+
+hr {
+  border: 1px solid silver;
+}
+
+p {
+  margin-top: 0.5em;
+  margin-bottom: 0.5em;
+}
+
+ul, ol, li > p {
+  margin-top: 0;
+}
+ul > li     { color: #aaa; }
+ul > li > * { color: black; }
+
+.monospaced, code, pre {
+  font-family: "Courier New", Courier, monospace;
+  font-size: inherit;
+  color: navy;
+  padding: 0;
+  margin: 0;
+}
+
+
+#author {
+  color: #527bbd;
+  font-weight: bold;
+  font-size: 1.1em;
+}
+#email {
+}
+#revnumber, #revdate, #revremark {
+}
+
+#footer {
+  font-size: small;
+  border-top: 2px solid silver;
+  padding-top: 0.5em;
+  margin-top: 4.0em;
+}
+#footer-text {
+  float: left;
+  padding-bottom: 0.5em;
+}
+#footer-badges {
+  float: right;
+  padding-bottom: 0.5em;
+}
+
+#preamble {
+  margin-top: 1.5em;
+  margin-bottom: 1.5em;
+}
+div.imageblock, div.exampleblock, div.verseblock,
+div.quoteblock, div.literalblock, div.listingblock, div.sidebarblock,
+div.admonitionblock {
+  margin-top: 1.0em;
+  margin-bottom: 1.5em;
+}
+div.admonitionblock {
+  margin-top: 2.0em;
+  margin-bottom: 2.0em;
+  margin-right: 10%;
+  color: #606060;
+}
+
+div.content { /* Block element content. */
+  padding: 0;
+}
+
+/* Block element titles. */
+div.title, caption.title {
+  color: #527bbd;
+  font-weight: bold;
+  text-align: left;
+  margin-top: 1.0em;
+  margin-bottom: 0.5em;
+}
+div.title + * {
+  margin-top: 0;
+}
+
+td div.title:first-child {
+  margin-top: 0.0em;
+}
+div.content div.title:first-child {
+  margin-top: 0.0em;
+}
+div.content + div.title {
+  margin-top: 0.0em;
+}
+
+div.sidebarblock > div.content {
+  background: #ffffee;
+  border: 1px solid #dddddd;
+  border-left: 4px solid #f0f0f0;
+  padding: 0.5em;
+}
+
+div.listingblock > div.content {
+  border: 1px solid #dddddd;
+  border-left: 5px solid #f0f0f0;
+  background: #f8f8f8;
+  padding: 0.5em;
+}
+
+div.quoteblock, div.verseblock {
+  padding-left: 1.0em;
+  margin-left: 1.0em;
+  margin-right: 10%;
+  border-left: 5px solid #f0f0f0;
+  color: #888;
+}
+
+div.quoteblock > div.attribution {
+  padding-top: 0.5em;
+  text-align: right;
+}
+
+div.verseblock > pre.content {
+  font-family: inherit;
+  font-size: inherit;
+}
+div.verseblock > div.attribution {
+  padding-top: 0.75em;
+  text-align: left;
+}
+/* DEPRECATED: Pre version 8.2.7 verse style literal block. */
+div.verseblock + div.attribution {
+  text-align: left;
+}
+
+div.admonitionblock .icon {
+  vertical-align: top;
+  font-size: 1.1em;
+  font-weight: bold;
+  text-decoration: underline;
+  color: #527bbd;
+  padding-right: 0.5em;
+}
+div.admonitionblock td.content {
+  padding-left: 0.5em;
+  border-left: 3px solid #dddddd;
+}
+
+div.exampleblock > div.content {
+  border-left: 3px solid #dddddd;
+  padding-left: 0.5em;
+}
+
+div.imageblock div.content { padding-left: 0; }
+span.image img { border-style: none; }
+a.image:visited { color: white; }
+
+dl {
+  margin-top: 0.8em;
+  margin-bottom: 0.8em;
+}
+dt {
+  margin-top: 0.5em;
+  margin-bottom: 0;
+  font-style: normal;
+  color: navy;
+}
+dd > *:first-child {
+  margin-top: 0.1em;
+}
+
+ul, ol {
+    list-style-position: outside;
+}
+ol.arabic {
+  list-style-type: decimal;
+}
+ol.loweralpha {
+  list-style-type: lower-alpha;
+}
+ol.upperalpha {
+  list-style-type: upper-alpha;
+}
+ol.lowerroman {
+  list-style-type: lower-roman;
+}
+ol.upperroman {
+  list-style-type: upper-roman;
+}
+
+div.compact ul, div.compact ol,
+div.compact p, div.compact p,
+div.compact div, div.compact div {
+  margin-top: 0.1em;
+  margin-bottom: 0.1em;
+}
+
+tfoot {
+  font-weight: bold;
+}
+td > div.verse {
+  white-space: pre;
+}
+
+div.hdlist {
+  margin-top: 0.8em;
+  margin-bottom: 0.8em;
+}
+div.hdlist tr {
+  padding-bottom: 15px;
+}
+dt.hdlist1.strong, td.hdlist1.strong {
+  font-weight: bold;
+}
+td.hdlist1 {
+  vertical-align: top;
+  font-style: normal;
+  padding-right: 0.8em;
+  color: navy;
+}
+td.hdlist2 {
+  vertical-align: top;
+}
+div.hdlist.compact tr {
+  margin: 0;
+  padding-bottom: 0;
+}
+
+.comment {
+  background: yellow;
+}
+
+.footnote, .footnoteref {
+  font-size: 0.8em;
+}
+
+span.footnote, span.footnoteref {
+  vertical-align: super;
+}
+
+#footnotes {
+  margin: 20px 0 20px 0;
+  padding: 7px 0 0 0;
+}
+
+#footnotes div.footnote {
+  margin: 0 0 5px 0;
+}
+
+#footnotes hr {
+  border: none;
+  border-top: 1px solid silver;
+  height: 1px;
+  text-align: left;
+  margin-left: 0;
+  width: 20%;
+  min-width: 100px;
+}
+
+div.colist td {
+  padding-right: 0.5em;
+  padding-bottom: 0.3em;
+  vertical-align: top;
+}
+div.colist td img {
+  margin-top: 0.3em;
+}
+
+@media print {
+  #footer-badges { display: none; }
+}
+
+#toc {
+  margin-bottom: 2.5em;
+}
+
+#toctitle {
+  color: #527bbd;
+  font-size: 1.1em;
+  font-weight: bold;
+  margin-top: 1.0em;
+  margin-bottom: 0.1em;
+}
+
+div.toclevel0, div.toclevel1, div.toclevel2, div.toclevel3, div.toclevel4 {
+  margin-top: 0;
+  margin-bottom: 0;
+}
+div.toclevel2 {
+  margin-left: 2em;
+  font-size: 0.9em;
+}
+div.toclevel3 {
+  margin-left: 4em;
+  font-size: 0.9em;
+}
+div.toclevel4 {
+  margin-left: 6em;
+  font-size: 0.9em;
+}
+
+span.aqua { color: aqua; }
+span.black { color: black; }
+span.blue { color: blue; }
+span.fuchsia { color: fuchsia; }
+span.gray { color: gray; }
+span.green { color: green; }
+span.lime { color: lime; }
+span.maroon { color: maroon; }
+span.navy { color: navy; }
+span.olive { color: olive; }
+span.purple { color: purple; }
+span.red { color: red; }
+span.silver { color: silver; }
+span.teal { color: teal; }
+span.white { color: white; }
+span.yellow { color: yellow; }
+
+span.aqua-background { background: aqua; }
+span.black-background { background: black; }
+span.blue-background { background: blue; }
+span.fuchsia-background { background: fuchsia; }
+span.gray-background { background: gray; }
+span.green-background { background: green; }
+span.lime-background { background: lime; }
+span.maroon-background { background: maroon; }
+span.navy-background { background: navy; }
+span.olive-background { background: olive; }
+span.purple-background { background: purple; }
+span.red-background { background: red; }
+span.silver-background { background: silver; }
+span.teal-background { background: teal; }
+span.white-background { background: white; }
+span.yellow-background { background: yellow; }
+
+span.big { font-size: 2em; }
+span.small { font-size: 0.6em; }
+
+span.underline { text-decoration: underline; }
+span.overline { text-decoration: overline; }
+span.line-through { text-decoration: line-through; }
+
+div.unbreakable { page-break-inside: avoid; }
+
+
+/*
+ * xhtml11 specific
+ *
+ * */
+
+div.tableblock {
+  margin-top: 1.0em;
+  margin-bottom: 1.5em;
+}
+div.tableblock > table {
+  border: 3px solid #527bbd;
+}
+thead, p.table.header {
+  font-weight: bold;
+  color: #527bbd;
+}
+p.table {
+  margin-top: 0;
+}
+/* Because the table frame attribute is overriden by CSS in most browsers. */
+div.tableblock > table[frame="void"] {
+  border-style: none;
+}
+div.tableblock > table[frame="hsides"] {
+  border-left-style: none;
+  border-right-style: none;
+}
+div.tableblock > table[frame="vsides"] {
+  border-top-style: none;
+  border-bottom-style: none;
+}
+
+
+/*
+ * html5 specific
+ *
+ * */
+
+table.tableblock {
+  margin-top: 1.0em;
+  margin-bottom: 1.5em;
+}
+thead, p.tableblock.header {
+  font-weight: bold;
+  color: #527bbd;
+}
+p.tableblock {
+  margin-top: 0;
+}
+table.tableblock {
+  border-width: 3px;
+  border-spacing: 0px;
+  border-style: solid;
+  border-color: #527bbd;
+  border-collapse: collapse;
+}
+th.tableblock, td.tableblock {
+  border-width: 1px;
+  padding: 4px;
+  border-style: solid;
+  border-color: #527bbd;
+}
+
+table.tableblock.frame-topbot {
+  border-left-style: hidden;
+  border-right-style: hidden;
+}
+table.tableblock.frame-sides {
+  border-top-style: hidden;
+  border-bottom-style: hidden;
+}
+table.tableblock.frame-none {
+  border-style: hidden;
+}
+
+th.tableblock.halign-left, td.tableblock.halign-left {
+  text-align: left;
+}
+th.tableblock.halign-center, td.tableblock.halign-center {
+  text-align: center;
+}
+th.tableblock.halign-right, td.tableblock.halign-right {
+  text-align: right;
+}
+
+th.tableblock.valign-top, td.tableblock.valign-top {
+  vertical-align: top;
+}
+th.tableblock.valign-middle, td.tableblock.valign-middle {
+  vertical-align: middle;
+}
+th.tableblock.valign-bottom, td.tableblock.valign-bottom {
+  vertical-align: bottom;
+}
+
+
+/*
+ * manpage specific
+ *
+ * */
+
+body.manpage h1 {
+  padding-top: 0.5em;
+  padding-bottom: 0.5em;
+  border-top: 2px solid silver;
+  border-bottom: 2px solid silver;
+}
+body.manpage h2 {
+  border-style: none;
+}
+body.manpage div.sectionbody {
+  margin-left: 3em;
+}
+
+@media print {
+  body.manpage div#toc { display: none; }
+}
+/*
+  pygmentize filter
+*/
+.highlight .hll { background-color: #ffffcc }
+.highlight  { background: #f4f4f4; }
+.highlight .c { color: #008800; font-style: italic } /* Comment */
+.highlight .err { border: 1px solid #FF0000 } /* Error */
+.highlight .k { color: #AA22FF; font-weight: bold } /* Keyword */
+.highlight .o { color: #666666 } /* Operator */
+.highlight .cm { color: #008800; font-style: italic } /* Comment.Multiline */
+.highlight .cp { color: #008800 } /* Comment.Preproc */
+.highlight .c1 { color: #008800; font-style: italic } /* Comment.Single */
+.highlight .cs { color: #008800; font-weight: bold } /* Comment.Special */
+.highlight .gd { color: #A00000 } /* Generic.Deleted */
+.highlight .ge { font-style: italic } /* Generic.Emph */
+.highlight .gr { color: #FF0000 } /* Generic.Error */
+.highlight .gh { color: #000080; font-weight: bold } /* Generic.Heading */
+.highlight .gi { color: #00A000 } /* Generic.Inserted */
+.highlight .go { color: #808080 } /* Generic.Output */
+.highlight .gp { color: #000080; font-weight: bold } /* Generic.Prompt */
+.highlight .gs { font-weight: bold } /* Generic.Strong */
+.highlight .gu { color: #800080; font-weight: bold } /* Generic.Subheading */
+.highlight .gt { color: #0040D0 } /* Generic.Traceback */
+.highlight .kc { color: #AA22FF; font-weight: bold } /* Keyword.Constant */
+.highlight .kd { color: #AA22FF; font-weight: bold } /* Keyword.Declaration */
+.highlight .kn { color: #AA22FF; font-weight: bold } /* Keyword.Namespace */
+.highlight .kp { color: #AA22FF } /* Keyword.Pseudo */
+.highlight .kr { color: #AA22FF; font-weight: bold } /* Keyword.Reserved */
+.highlight .kt { color: #00BB00; font-weight: bold } /* Keyword.Type */
+.highlight .m { color: #666666 } /* Literal.Number */
+.highlight .s { color: #BB4444 } /* Literal.String */
+.highlight .na { color: #BB4444 } /* Name.Attribute */
+.highlight .nb { color: #AA22FF } /* Name.Builtin */
+.highlight .nc { color: #0000FF } /* Name.Class */
+.highlight .no { color: #880000 } /* Name.Constant */
+.highlight .nd { color: #AA22FF } /* Name.Decorator */
+.highlight .ni { color: #999999; font-weight: bold } /* Name.Entity */
+.highlight .ne { color: #D2413A; font-weight: bold } /* Name.Exception */
+.highlight .nf { color: #00A000 } /* Name.Function */
+.highlight .nl { color: #A0A000 } /* Name.Label */
+.highlight .nn { color: #0000FF; font-weight: bold } /* Name.Namespace */
+.highlight .nt { color: #008000; font-weight: bold } /* Name.Tag */
+.highlight .nv { color: #B8860B } /* Name.Variable */
+.highlight .ow { color: #AA22FF; font-weight: bold } /* Operator.Word */
+.highlight .w { color: #bbbbbb } /* Text.Whitespace */
+.highlight .mf { color: #666666 } /* Literal.Number.Float */
+.highlight .mh { color: #666666 } /* Literal.Number.Hex */
+.highlight .mi { color: #666666 } /* Literal.Number.Integer */
+.highlight .mo { color: #666666 } /* Literal.Number.Oct */
+.highlight .sb { color: #BB4444 } /* Literal.String.Backtick */
+.highlight .sc { color: #BB4444 } /* Literal.String.Char */
+.highlight .sd { color: #BB4444; font-style: italic } /* Literal.String.Doc */
+.highlight .s2 { color: #BB4444 } /* Literal.String.Double */
+.highlight .se { color: #BB6622; font-weight: bold } /* Literal.String.Escape */
+.highlight .sh { color: #BB4444 } /* Literal.String.Heredoc */
+.highlight .si { color: #BB6688; font-weight: bold } /* Literal.String.Interpol */
+.highlight .sx { color: #008000 } /* Literal.String.Other */
+.highlight .sr { color: #BB6688 } /* Literal.String.Regex */
+.highlight .s1 { color: #BB4444 } /* Literal.String.Single */
+.highlight .ss { color: #B8860B } /* Literal.String.Symbol */
+.highlight .bp { color: #AA22FF } /* Name.Builtin.Pseudo */
+.highlight .vc { color: #B8860B } /* Name.Variable.Class */
+.highlight .vg { color: #B8860B } /* Name.Variable.Global */
+.highlight .vi { color: #B8860B } /* Name.Variable.Instance */
+.highlight .il { color: #666666 } /* Literal.Number.Integer.Long */
+
+
+
+</style>
+<script type="text/javascript">
+/*<![CDATA[*/
+var asciidoc = {  // Namespace.
+
+/////////////////////////////////////////////////////////////////////
+// Table Of Contents generator
+/////////////////////////////////////////////////////////////////////
+
+/* Author: Mihai Bazon, September 2002
+ * http://students.infoiasi.ro/~mishoo
+ *
+ * Table Of Content generator
+ * Version: 0.4
+ *
+ * Feel free to use this script under the terms of the GNU General Public
+ * License, as long as you do not remove or alter this notice.
+ */
+
+ /* modified by Troy D. Hanson, September 2006. License: GPL */
+ /* modified by Stuart Rackham, 2006, 2009. License: GPL */
+
+// toclevels = 1..4.
+toc: function (toclevels) {
+
+  function getText(el) {
+    var text = "";
+    for (var i = el.firstChild; i != null; i = i.nextSibling) {
+      if (i.nodeType == 3 /* Node.TEXT_NODE */) // IE doesn't speak constants.
+        text += i.data;
+      else if (i.firstChild != null)
+        text += getText(i);
+    }
+    return text;
+  }
+
+  function TocEntry(el, text, toclevel) {
+    this.element = el;
+    this.text = text;
+    this.toclevel = toclevel;
+  }
+
+  function tocEntries(el, toclevels) {
+    var result = new Array;
+    var re = new RegExp('[hH]([1-'+(toclevels+1)+'])');
+    // Function that scans the DOM tree for header elements (the DOM2
+    // nodeIterator API would be a better technique but not supported by all
+    // browsers).
+    var iterate = function (el) {
+      for (var i = el.firstChild; i != null; i = i.nextSibling) {
+        if (i.nodeType == 1 /* Node.ELEMENT_NODE */) {
+          var mo = re.exec(i.tagName);
+          if (mo && (i.getAttribute("class") || i.getAttribute("className")) != "float") {
+            result[result.length] = new TocEntry(i, getText(i), mo[1]-1);
+          }
+          iterate(i);
+        }
+      }
+    }
+    iterate(el);
+    return result;
+  }
+
+  var toc = document.getElementById("toc");
+  if (!toc) {
+    return;
+  }
+
+  // Delete existing TOC entries in case we're reloading the TOC.
+  var tocEntriesToRemove = [];
+  var i;
+  for (i = 0; i < toc.childNodes.length; i++) {
+    var entry = toc.childNodes[i];
+    if (entry.nodeName.toLowerCase() == 'div'
+     && entry.getAttribute("class")
+     && entry.getAttribute("class").match(/^toclevel/))
+      tocEntriesToRemove.push(entry);
+  }
+  for (i = 0; i < tocEntriesToRemove.length; i++) {
+    toc.removeChild(tocEntriesToRemove[i]);
+  }
+
+  // Rebuild TOC entries.
+  var entries = tocEntries(document.getElementById("content"), toclevels);
+  for (var i = 0; i < entries.length; ++i) {
+    var entry = entries[i];
+    if (entry.element.id == "")
+      entry.element.id = "_toc_" + i;
+    var a = document.createElement("a");
+    a.href = "#" + entry.element.id;
+    a.appendChild(document.createTextNode(entry.text));
+    var div = document.createElement("div");
+    div.appendChild(a);
+    div.className = "toclevel" + entry.toclevel;
+    toc.appendChild(div);
+  }
+  if (entries.length == 0)
+    toc.parentNode.removeChild(toc);
+},
+
+
+/////////////////////////////////////////////////////////////////////
+// Footnotes generator
+/////////////////////////////////////////////////////////////////////
+
+/* Based on footnote generation code from:
+ * http://www.brandspankingnew.net/archive/2005/07/format_footnote.html
+ */
+
+footnotes: function () {
+  // Delete existing footnote entries in case we're reloading the footnodes.
+  var i;
+  var noteholder = document.getElementById("footnotes");
+  if (!noteholder) {
+    return;
+  }
+  var entriesToRemove = [];
+  for (i = 0; i < noteholder.childNodes.length; i++) {
+    var entry = noteholder.childNodes[i];
+    if (entry.nodeName.toLowerCase() == 'div' && entry.getAttribute("class") == "footnote")
+      entriesToRemove.push(entry);
+  }
+  for (i = 0; i < entriesToRemove.length; i++) {
+    noteholder.removeChild(entriesToRemove[i]);
+  }
+
+  // Rebuild footnote entries.
+  var cont = document.getElementById("content");
+  var spans = cont.getElementsByTagName("span");
+  var refs = {};
+  var n = 0;
+  for (i=0; i<spans.length; i++) {
+    if (spans[i].className == "footnote") {
+      n++;
+      var note = spans[i].getAttribute("data-note");
+      if (!note) {
+        // Use [\s\S] in place of . so multi-line matches work.
+        // Because JavaScript has no s (dotall) regex flag.
+        note = spans[i].innerHTML.match(/\s*\[([\s\S]*)]\s*/)[1];
+        spans[i].innerHTML =
+          "[<a id='_footnoteref_" + n + "' href='#_footnote_" + n +
+          "' title='View footnote' class='footnote'>" + n + "</a>]";
+        spans[i].setAttribute("data-note", note);
+      }
+      noteholder.innerHTML +=
+        "<div class='footnote' id='_footnote_" + n + "'>" +
+        "<a href='#_footnoteref_" + n + "' title='Return to text'>" +
+        n + "</a>. " + note + "</div>";
+      var id =spans[i].getAttribute("id");
+      if (id != null) refs["#"+id] = n;
+    }
+  }
+  if (n == 0)
+    noteholder.parentNode.removeChild(noteholder);
+  else {
+    // Process footnoterefs.
+    for (i=0; i<spans.length; i++) {
+      if (spans[i].className == "footnoteref") {
+        var href = spans[i].getElementsByTagName("a")[0].getAttribute("href");
+        href = href.match(/#.*/)[0];  // Because IE return full URL.
+        n = refs[href];
+        spans[i].innerHTML =
+          "[<a href='#_footnote_" + n +
+          "' title='View footnote' class='footnote'>" + n + "</a>]";
+      }
+    }
+  }
+},
+
+install: function(toclevels) {
+  var timerId;
+
+  function reinstall() {
+    asciidoc.footnotes();
+    if (toclevels) {
+      asciidoc.toc(toclevels);
+    }
+  }
+
+  function reinstallAndRemoveTimer() {
+    clearInterval(timerId);
+    reinstall();
+  }
+
+  timerId = setInterval(reinstall, 500);
+  if (document.addEventListener)
+    document.addEventListener("DOMContentLoaded", reinstallAndRemoveTimer, false);
+  else
+    window.onload = reinstallAndRemoveTimer;
+}
+
+}
+asciidoc.install(2);
+/*]]>*/
+</script>
+</head>
+<body class="article">
+<div id="header">
+<h1>Week 4</h1>
+<span id="author">Andrew Sellergren</span><br />
+<div id="toc">
+  <div id="toctitle">Table of Contents</div>
+  <noscript><p><b>JavaScript must be enabled in your browser to display the table of contents.</b></p></noscript>
+</div>
+</div>
+<div id="content">
+<div class="sect1">
+<h2 id="_announcements_and_demos">Announcements and Demos</h2>
+<div class="sectionbody">
+<div class="ulist"><ul>
+<li>
+<p>
+We seem to have caused some confusion with our coupon code policy.  Apologies!  What we meant was to incentivize you to start your problem sets early.  To explain it more clearly:
+</p>
+<div class="ulist"><ul>
+<li>
+<p>
+by default, psets are due on Thu at 12pm
+</p>
+</li>
+<li>
+<p>
+if you start early, finishing part of pset by Wed at 12pm (and receive a coupon code), you can extend your deadline for rest of pset to Fri at 12pm
+</p>
+</li>
+<li>
+<p>
+coupon-code problem still required even if not completed by Wed at 12pm
+</p>
+</li>
+</ul></div>
+</li>
+</ul></div>
+</div>
+</div>
+<div class="sect1">
+<h2 id="_from_last_time">From Last Time</h2>
+<div class="sectionbody">
+<div class="ulist"><ul>
+<li>
+<p>
+We talked a little more high level about searching and sorting.  Bubble sort, for example, gets its name from the way that large numbers bubble up toward the end of the list.  We visualized bubble sort using <a href="http://www.cs.smith.edu/~thiebaut/java/sort/">this website</a>.
+</p>
+</li>
+<li>
+<p>
+We quantified the efficiency of searching and sorting algorithms using big <em>O</em> notation.  Bubble sort was said to take <em>n</em><sup>2</sup> steps in the worst case, where <em>n</em> was the size of the input.
+</p>
+</li>
+<li>
+<p>
+Selection sort gets its name from selecting the smallest number on each walkthrough of the list and placing it at the front.  Unfortunately, selection sort also took <em>n</em><sup>2</sup> steps in the worst case.
+</p>
+</li>
+<li>
+<p>
+Insertion sort involved sorting the list in place, but required shifting elements of the "sorted list" to the right whenever a smaller number needed to be placed in the middle of it.  It too took <em>n</em><sup>2</sup> steps.
+</p>
+</li>
+<li>
+<p>
+What&#8217;s the best sorting algorithm?  Why not <a href="http://www.youtube.com/watch?v=k4RRi_ntQc8">ask President Obama</a>?
+</p>
+</li>
+<li>
+<p>
+When talking about the running time of algorithms, <em>O</em> represents the upper bound, the worst case, whereas `\Omega` represents the lower bound, the best case.  For bubble sort, selection sort, and insertion sort, the worst case was that the list was in exactly reverse order and the best case was that the list was already sorted.  Whereas bubble sort (with a variable tracking the number of swaps) and insertion sort only took <em>n</em> steps in the best case, selection sort still took <em>n</em><sup>2</sup> steps.
+</p>
+</li>
+<li>
+<p>
+So we say that bubble sort, selection sort, and insertion sort are all <em>O</em>(<em>n</em><sup>2</sup>).  Linear search is <em>O</em>(<em>n</em>).  Binary search is <em>O</em>(log <em>n</em>).  Finding the length of an array is in <em>O</em>(1), a.k.a. constant time, if that length is stored in a variable.  <code>printf</code> is also <em>O</em>(<em>n</em>) since it takes <em>n</em> steps to print <em>n</em> characters.
+</p>
+</li>
+<li>
+<p>
+Bubble sort and insertion sort are `\Omega`(<em>n</em>).  Linear search and binary search are `\Omega`(1) because the element we&#8217;re looking for might just be the first one we examine.
+</p>
+</li>
+<li>
+<p>
+One algorithm we mentioned briefly was <em>merge sort</em>.  Merge sort is both `\Omega`(<em>n</em> log <em>n</em>) and <em>O</em>(<em>n</em> log <em>n</em>), so we say it is `\Theta`(<em>n</em> log <em>n</em>).
+</p>
+</li>
+</ul></div>
+</div>
+</div>
+<div class="sect1">
+<h2 id="_merge_sort">Merge Sort</h2>
+<div class="sectionbody">
+<div class="ulist"><ul>
+<li>
+<p>
+To see how merge sort compares to the other algorithms we&#8217;ve looked at so far, check out <a href="http://www.sorting-algorithms.com/random-initial-order">this animation</a>.  Notice that bubble sort, insertion sort, and selection sort are the three worst performers!  The flip side is that they are relatively easy to implement.
+</p>
+</li>
+<li>
+<p>
+We can describe merge sort with the following pseudocode:
+</p>
+<div class="listingblock">
+<div class="content">
+<pre><code>On input of n elements:
+    If n &lt; 2
+        Return.
+    Else:
+        Sort left half of elements.
+        Sort right half of elements.
+        Merge sorted halves.</code></pre>
+</div></div>
+</li>
+<li>
+<p>
+If <em>n</em> is less than 2, then it&#8217;s either 0 or 1 and the list is already sorted.  This is the trivial case.
+</p>
+</li>
+<li>
+<p>
+If <em>n</em> is greater than or equal to 2, then what?  We seem to be copping out with a circular algorithm.  Two of the steps begin with the command "sort" without giving any indication as to how we go about that.  When we say "sort," what we actually mean is reapply this whole algorithm to the left half and the right half of the original list.
+</p>
+</li>
+<li>
+<p>
+Will this algorithm loop infinitely?  No, because after you&#8217;ve halved the original list enough times, you will eventually have less than 2 items left.
+</p>
+</li>
+<li>
+<p>
+Okay, so we&#8217;re halving and halving and halving until we have less than 2 items and then we&#8217;re returning.  So far, nothing seems sorted.  The magic must be in the "Merge sorted halves" step.
+</p>
+</li>
+<li>
+<p>
+One consideration with merge sort is that we need a second list for intermediate storage.  In computer science, there&#8217;s generally a tradeoff between resources and speed.  If we want to do something faster, we may need to use more memory.
+</p>
+</li>
+<li>
+<p>
+To visualize merge sort, let&#8217;s bring 8 volunteers on stage.  We&#8217;ll hand them numbers and sit them down in chairs so that they&#8217;re in the following order:
+</p>
+<div class="paragraph"><p><strong><span class="monospaced">4 2 6 1 3 7 5 8</span></strong></p></div>
+</li>
+<li>
+<p>
+The bold numbers are the ones we&#8217;re currently focusing on.  Merge sort says to first sort the left half, so let&#8217;s consider:
+</p>
+<div class="paragraph"><p><span class="monospaced"><strong>4 2 6 1</strong> 3 7 5 8</span></p></div>
+</li>
+<li>
+<p>
+Now we again sort the left half:
+</p>
+<div class="paragraph"><p><span class="monospaced"><strong>4 2</strong> 6 1 3 7 5 8</span></p></div>
+</li>
+<li>
+<p>
+And again:
+</p>
+<div class="paragraph"><p><span class="monospaced"><strong>4</strong> 2 6 1 3 7 5 8</span></p></div>
+</li>
+<li>
+<p>
+Now we have a list of size 1, so it&#8217;s already sorted and we return.  Backtracking, we look at the right half of the final two-person list:
+</p>
+<div class="paragraph"><p><span class="monospaced">4 <strong>2</strong> 6 1 3 7 5 8</span></p></div>
+</li>
+<li>
+<p>
+Again, a list of size 1, so we return.  Finally, we arrive at a merge step.  Since the elements are out of order, we need to put them in the correct order as we merge:
+</p>
+<div class="paragraph"><p><span class="monospaced">_ _ 6 1 3 7 5 8</span></p></div>
+<div class="paragraph"><p><span class="red monospaced">2 4 _ _ _ _ _ _</span></p></div>
+</li>
+<li>
+<p>
+From now on, the red numbers will represent the second list we use for intermediate storage.  Now we focus on the right half of the left half of the original list:
+</p>
+<div class="paragraph"><p><span class="monospaced">_ _ <strong>6 1</strong> 3 7 5 8</span></p></div>
+<div class="paragraph"><p><span class="red monospaced">2 4 _ _ _ _ _ _</span></p></div>
+</li>
+<li>
+<p>
+We insert these two numbers in order into our intermediate list:
+</p>
+<div class="paragraph"><p><span class="monospaced">_ _ _ _ 3 7 5 8</span></p></div>
+<div class="paragraph"><p><span class="red monospaced">2 4 1 6 _ _ _ _</span></p></div>
+</li>
+<li>
+<p>
+Now we merge the left and right half of the intermediate list:
+</p>
+<div class="paragraph"><p><span class="monospaced">_ _ _ _ 3 7 5 8</span></p></div>
+<div class="paragraph"><p><span class="red monospaced">1 2 4 6 _ _ _ _</span></p></div>
+</li>
+<li>
+<p>
+Finally, we can insert the intermediate list back into the original list:
+</p>
+<div class="paragraph"><p><span class="monospaced">1 2 4 6 3 7 5 8</span></p></div>
+</li>
+<li>
+<p>
+And we&#8217;re done with the "Sort left half" step for the original list!
+</p>
+</li>
+<li>
+<p>
+Repeat for the right half of the original list, skipping to the "Sort left half" step:
+</p>
+<div class="paragraph"><p><span class="monospaced">1 2 4 6 _ _ 5 8</span></p></div>
+<div class="paragraph"><p><span class="red monospaced">_ _ _ _ 3 7 _ _</span></p></div>
+</li>
+<li>
+<p>
+Sort right half:
+</p>
+<div class="paragraph"><p><span class="monospaced">1 2 4 6 _ _ _ _</span></p></div>
+<div class="paragraph"><p><span class="red monospaced">_ _ _ _ 3 7 5 8</span></p></div>
+</li>
+<li>
+<p>
+Merge:
+</p>
+<div class="paragraph"><p><span class="monospaced">1 2 4 6 _ _ _ _</span></p></div>
+<div class="paragraph"><p><span class="red monospaced">_ _ _ _ 3 5 7 8</span></p></div>
+</li>
+<li>
+<p>
+Move the right half back to the original list:
+</p>
+<div class="paragraph"><p><span class="monospaced">1 2 4 6 3 5 7 8</span></p></div>
+</li>
+<li>
+<p>
+Now, merge the left half and the right half of the original list:
+</p>
+<div class="paragraph"><p><span class="monospaced">_ _ _ _ _ _ _ _</span></p></div>
+<div class="paragraph"><p><span class="red monospaced">1 2 3 4 5 6 7 8</span></p></div>
+</li>
+<li>
+<p>
+And ta-da!
+</p>
+<div class="paragraph"><p><span class="monospaced">1 2 3 4 5 6 7 8</span></p></div>
+</li>
+<li>
+<p>
+Merge sort is <em>O</em>(<em>n</em> log <em>n</em>).  As before, the log <em>n</em> comes from the dividing by two.  The <em>n</em> thus must come from the merging.  You can rationalize this by considering the last merge step.  To figure out which number to place in the intermediate array next, we point our left hand at the leftmost number of the left half and our right hand at the leftmost number of the right half.  Then we walk each hand to the right and compare numbers.  All told, we walk through every number in the list, which takes <em>n</em> steps.
+</p>
+</li>
+<li>
+<p>
+Check out <a href="http://www.youtube.com/watch?v=EeQ8pwjQxTM">Rob&#8217;s visualization</a> of merge sort.  You can even hear <a href="http://www.youtube.com/watch?v=t8g-iYGHpEA">what sorting algorithms sound like</a>.
+</p>
+</li>
+<li>
+<p>
+A function that calls itself is using <em>recursion</em>.  In the above pseudocode, we implemented merge sort using recursion.
+</p>
+</li>
+</ul></div>
+<div class="sect2">
+<h3 id="_a_little_math">A Little Math</h3>
+<div class="ulist"><ul>
+<li>
+<p>
+To show mathematically that merge sort is <em>O</em>(<em>n</em> log <em>n</em>), let&#8217;s use the following notation:
+</p>
+<div class="listingblock">
+<div class="content">
+<pre><code>T(n) = 0, if n &lt; 2</code></pre>
+</div></div>
+</li>
+<li>
+<p>
+So far, all this says is that it takes 0 steps to sort a list of 1 or 0 elements.  This is the so-called <em>base case</em>.
+</p>
+<div class="listingblock">
+<div class="content">
+<pre><code>T(n) = T(n/2) + T(n/2) + n, if n &gt; 1</code></pre>
+</div></div>
+</li>
+<li>
+<p>
+This notation indicates that the rest of the algorithm, the <em>recursive case</em>, i.e. sorting a list of <em>n</em> elements, takes as many steps as sorting its two halves, each of <em>n</em> / 2 elements, plus an extra <em>n</em> steps to do the merging.
+</p>
+</li>
+<li>
+<p>
+Consider the case where <em>n</em> = 16:
+</p>
+<div class="listingblock">
+<div class="content">
+<pre><code>T(16) = 2 * T(8) + 16
+T(8)  = 2 * T(4) + 8
+T(4)  = 2 * T(2) + 4
+T(2)  = 2 * T(1) + 2
+T(1)  = 0</code></pre>
+</div></div>
+</li>
+<li>
+<p>
+Since the <em>base case</em>, where a list of 0 or 1 is already sorted, takes 0 steps, we can now substitute 0 in for <code>T(1)</code> and calculate <code>T(2)</code>:
+</p>
+<div class="listingblock">
+<div class="content">
+<pre><code>T(2) = 2 * 0 + 2
+     = 2</code></pre>
+</div></div>
+</li>
+<li>
+<p>
+Now we can substitute 2 in for <code>T(2)</code> and so on until we get:
+</p>
+<div class="listingblock">
+<div class="content">
+<pre><code>T(16) = 2 * 24 + 16
+T(8)  = 2 * 8  + 8
+T(4)  = 2 * 2  + 4
+T(2)  = 2 * 0  + 2
+T(1)  = 1</code></pre>
+</div></div>
+</li>
+<li>
+<p>
+Thus, <code>T(16)</code> is 64.  This number is actually <em>n</em> log <em>n</em>.  Dividing the list successively accounts for log <em>n</em>, but the additional <em>n</em> factor comes from the merge step.
+</p>
+</li>
+<li>
+<p>
+Here again with merge sort we&#8217;ve returned to the idea of "divide and conquer" that we saw in Week 0 with the phonebook example.
+</p>
+</li>
+<li>
+<p>
+In case you want to know what recursion is, try <a href="http://www.google.com/search?q=recursion">Googling it</a> and checking out the "Did you mean" suggestion.  Hooray for geek humor!
+</p>
+</li>
+</ul></div>
+</div>
+</div>
+</div>
+<div class="sect1">
+<h2 id="_more_with_recursion">More with Recursion</h2>
+<div class="sectionbody">
+<div class="sect2">
+<h3 id="_code_sigma_0_c_code"><code>sigma-0.c</code></h3>
+<div class="ulist"><ul>
+<li>
+<p>
+Let&#8217;s write a program that sums up the numbers 0 through <em>n</em>, where <em>n</em> is provided by the user.  We start with some boilerplate code to get a positive integer from the user using a do-while loop:
+</p>
+<div class="listingblock">
+<div class="content"><div class="highlight"><pre><span class="cp">#include &lt;cs50.h&gt;</span>
+<span class="cp">#include &lt;stdio.h&gt;</span>
+
+<span class="kt">int</span> <span class="nf">main</span><span class="p">(</span><span class="kt">void</span><span class="p">)</span>
+<span class="p">{</span>
+    <span class="kt">int</span> <span class="n">n</span><span class="p">;</span>
+    <span class="k">do</span>
+    <span class="p">{</span>
+        <span class="n">printf</span><span class="p">(</span><span class="s">&quot;Positive integer please: &quot;</span><span class="p">);</span>
+        <span class="n">n</span> <span class="o">=</span> <span class="n">GetInt</span><span class="p">();</span>
+    <span class="p">}</span>
+    <span class="k">while</span> <span class="p">(</span><span class="n">n</span> <span class="o">&lt;</span> <span class="mi">1</span><span class="p">);</span>
+<span class="p">}</span>
+</pre></div></div></div>
+</li>
+<li>
+<p>
+Recall the sigma symbol (`\Sigma`) which stands for sum.  It makes sense, then, to call our summing function <code>sigma</code>:
+</p>
+<div class="listingblock">
+<div class="content"><div class="highlight"><pre><span class="cp">#include &lt;cs50.h&gt;</span>
+<span class="cp">#include &lt;stdio.h&gt;</span>
+
+<span class="kt">int</span> <span class="nf">main</span><span class="p">(</span><span class="kt">void</span><span class="p">)</span>
+<span class="p">{</span>
+    <span class="kt">int</span> <span class="n">n</span><span class="p">;</span>
+    <span class="k">do</span>
+    <span class="p">{</span>
+        <span class="n">printf</span><span class="p">(</span><span class="s">&quot;Positive integer please: &quot;</span><span class="p">);</span>
+        <span class="n">n</span> <span class="o">=</span> <span class="n">GetInt</span><span class="p">();</span>
+    <span class="p">}</span>
+    <span class="k">while</span> <span class="p">(</span><span class="n">n</span> <span class="o">&lt;</span> <span class="mi">1</span><span class="p">);</span>
+
+    <span class="kt">int</span> <span class="n">answer</span> <span class="o">=</span> <span class="n">sigma</span><span class="p">(</span><span class="n">n</span><span class="p">);</span>
+
+    <span class="n">printf</span><span class="p">(</span><span class="s">&quot;%i</span><span class="se">\n</span><span class="s">&quot;</span><span class="p">,</span> <span class="n">answer</span><span class="p">);</span>
+<span class="p">}</span>
+</pre></div></div></div>
+</li>
+<li>
+<p>
+Now we need to define <code>sigma</code>:
+</p>
+<div class="listingblock">
+<div class="content"><div class="highlight"><pre><span class="cp">#include &lt;cs50.h&gt;</span>
+<span class="cp">#include &lt;stdio.h&gt;</span>
+
+<span class="kt">int</span> <span class="nf">sigma</span><span class="p">(</span><span class="kt">int</span> <span class="n">m</span><span class="p">);</span>
+
+<span class="kt">int</span> <span class="nf">main</span><span class="p">(</span><span class="kt">void</span><span class="p">)</span>
+<span class="p">{</span>
+    <span class="kt">int</span> <span class="n">n</span><span class="p">;</span>
+    <span class="k">do</span>
+    <span class="p">{</span>
+        <span class="n">printf</span><span class="p">(</span><span class="s">&quot;Positive integer please: &quot;</span><span class="p">);</span>
+        <span class="n">n</span> <span class="o">=</span> <span class="n">GetInt</span><span class="p">();</span>
+    <span class="p">}</span>
+    <span class="k">while</span> <span class="p">(</span><span class="n">n</span> <span class="o">&lt;</span> <span class="mi">1</span><span class="p">);</span>
+
+    <span class="kt">int</span> <span class="n">answer</span> <span class="o">=</span> <span class="n">sigma</span><span class="p">(</span><span class="n">n</span><span class="p">);</span>
+
+    <span class="n">printf</span><span class="p">(</span><span class="s">&quot;%i</span><span class="se">\n</span><span class="s">&quot;</span><span class="p">,</span> <span class="n">answer</span><span class="p">);</span>
+<span class="p">}</span>
+
+<span class="kt">int</span> <span class="nf">sigma</span><span class="p">(</span><span class="kt">int</span> <span class="n">m</span><span class="p">)</span>
+<span class="p">{</span>
+    <span class="k">if</span> <span class="p">(</span><span class="n">m</span> <span class="o">&lt;</span> <span class="mi">1</span><span class="p">)</span>
+    <span class="p">{</span>
+        <span class="k">return</span> <span class="mi">0</span><span class="p">;</span>
+    <span class="p">}</span>
+
+    <span class="kt">int</span> <span class="n">sum</span> <span class="o">=</span> <span class="mi">0</span><span class="p">;</span>
+    <span class="k">for</span> <span class="p">(</span><span class="kt">int</span> <span class="n">i</span> <span class="o">=</span> <span class="mi">1</span><span class="p">;</span> <span class="n">i</span> <span class="o">&lt;=</span> <span class="n">m</span><span class="p">;</span> <span class="n">i</span><span class="o">++</span><span class="p">)</span>
+    <span class="p">{</span>
+        <span class="n">sum</span> <span class="o">+=</span> <span class="n">i</span><span class="p">;</span>
+    <span class="p">}</span>
+    <span class="k">return</span> <span class="n">sum</span><span class="p">;</span>
+<span class="p">}</span>
+</pre></div></div></div>
+</li>
+<li>
+<p>
+This is pretty straightforward.  First, we do some error checking, then we iterate through all numbers 1 through <code>m</code>, summing them up as we go.  <code>sum += i</code> is functionally equivalent to <code>sum = sum + i</code>.
+</p>
+</li>
+<li>
+<p>
+Don&#8217;t forget that we need to declare <code>sigma</code> before <code>main</code> if we want to implement <code>sigma</code> after <code>main</code>!
+</p>
+</li>
+<li>
+<p>
+When we compile and run this, it seems to work!  What happens when we mess with it by inputting a very large number?  Turns out that if our sum becomes so large that an <code>int</code> doesn&#8217;t have enough bits for it, it will be confused for a negative number.
+</p>
+</li>
+</ul></div>
+</div>
+<div class="sect2">
+<h3 id="_code_sigma_1_c_code"><code>sigma-1.c</code></h3>
+<div class="ulist"><ul>
+<li>
+<p>
+Let&#8217;s try to approach the same problem using recursion.
+</p>
+</li>
+<li>
+<p>
+Our implementation of <code>main</code> doesn&#8217;t change.  <code>sigma</code>, however, now looks like this:
+</p>
+<div class="listingblock">
+<div class="content"><div class="highlight"><pre><span class="kt">int</span> <span class="nf">sigma</span><span class="p">(</span><span class="kt">int</span> <span class="n">m</span><span class="p">)</span>
+<span class="p">{</span>
+    <span class="k">if</span> <span class="p">(</span><span class="n">m</span> <span class="o">&lt;=</span> <span class="mi">0</span><span class="p">)</span>
+    <span class="p">{</span>
+        <span class="k">return</span> <span class="mi">0</span><span class="p">;</span>
+    <span class="p">}</span>
+    <span class="k">else</span>
+    <span class="p">{</span>
+        <span class="k">return</span> <span class="p">(</span><span class="n">m</span> <span class="o">+</span> <span class="n">sigma</span><span class="p">(</span><span class="n">m</span> <span class="o">-</span> <span class="mi">1</span><span class="p">));</span>
+    <span class="p">}</span>
+<span class="p">}</span>
+</pre></div></div></div>
+</li>
+<li>
+<p>
+You might worry that this implementation will induce an infinite loop.  However, the first if condition represents a base case in which <code>sigma</code> doesn&#8217;t call itself.
+</p>
+</li>
+</ul></div>
+</div>
+</div>
+</div>
+<div class="sect1">
+<h2 id="_teaser">Teaser</h2>
+<div class="sectionbody">
+<div class="sect2">
+<h3 id="_code_noswap_c_code"><code>noswap.c</code></h3>
+<div class="ulist"><ul>
+<li>
+<p>
+Consider the following code that claims to swap the values of two integers:
+</p>
+<div class="listingblock">
+<div class="content"><div class="highlight"><pre><span class="cp">#include &lt;stdio.h&gt;</span>
+
+<span class="kt">void</span> <span class="nf">swap</span><span class="p">(</span><span class="kt">int</span> <span class="n">a</span><span class="p">,</span> <span class="kt">int</span> <span class="n">b</span><span class="p">);</span>
+
+<span class="kt">int</span> <span class="nf">main</span><span class="p">(</span><span class="kt">void</span><span class="p">)</span>
+<span class="p">{</span>
+    <span class="kt">int</span> <span class="n">x</span> <span class="o">=</span> <span class="mi">1</span><span class="p">;</span>
+    <span class="kt">int</span> <span class="n">y</span> <span class="o">=</span> <span class="mi">2</span><span class="p">;</span>
+
+    <span class="n">printf</span><span class="p">(</span><span class="s">&quot;x is %i</span><span class="se">\n</span><span class="s">&quot;</span><span class="p">,</span> <span class="n">x</span><span class="p">);</span>
+    <span class="n">printf</span><span class="p">(</span><span class="s">&quot;y is %i</span><span class="se">\n</span><span class="s">&quot;</span><span class="p">,</span> <span class="n">y</span><span class="p">);</span>
+    <span class="n">printf</span><span class="p">(</span><span class="s">&quot;Swapping...</span><span class="se">\n</span><span class="s">&quot;</span><span class="p">);</span>
+    <span class="n">swap</span><span class="p">(</span><span class="n">x</span><span class="p">,</span> <span class="n">y</span><span class="p">);</span>
+    <span class="n">printf</span><span class="p">(</span><span class="s">&quot;Swapped!</span><span class="se">\n</span><span class="s">&quot;</span><span class="p">);</span>
+    <span class="n">printf</span><span class="p">(</span><span class="s">&quot;x is %i</span><span class="se">\n</span><span class="s">&quot;</span><span class="p">,</span> <span class="n">x</span><span class="p">);</span>
+    <span class="n">printf</span><span class="p">(</span><span class="s">&quot;y is %i</span><span class="se">\n</span><span class="s">&quot;</span><span class="p">,</span> <span class="n">y</span><span class="p">);</span>
+<span class="p">}</span>
+
+<span class="kt">void</span> <span class="nf">swap</span><span class="p">(</span><span class="kt">int</span> <span class="n">a</span><span class="p">,</span> <span class="kt">int</span> <span class="n">b</span><span class="p">)</span>
+<span class="p">{</span>
+    <span class="kt">int</span> <span class="n">tmp</span> <span class="o">=</span> <span class="n">a</span><span class="p">;</span>
+    <span class="n">a</span> <span class="o">=</span> <span class="n">b</span><span class="p">;</span>
+    <span class="n">b</span> <span class="o">=</span> <span class="n">tmp</span><span class="p">;</span>
+<span class="p">}</span>
+</pre></div></div></div>
+</li>
+<li>
+<p>
+Seems reasonable, right?  Unfortunately, when we compile and run this, we get this output:
+</p>
+<div class="listingblock">
+<div class="content">
+<pre><code>x is 1
+y is 2
+Swapping...
+Swapped!
+x is 1
+y is 2</code></pre>
+</div></div>
+</li>
+<li>
+<p>
+Obviously, the numbers haven&#8217;t really been swapped.  We&#8217;ll find out why next time!
+</p>
+</li>
+</ul></div>
+</div>
+</div>
+</div>
+</div>
+<div id="footnotes"><hr /></div>
+<div id="footer">
+<div id="footer-text">
+Last updated 2013-10-03 00:26:15 PDT
+</div>
+</div>
+</body>
+</html>

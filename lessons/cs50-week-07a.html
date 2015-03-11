@@ -1,0 +1,1387 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.1//EN"
+    "http://www.w3.org/TR/xhtml11/DTD/xhtml11.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en">
+<head>
+<meta http-equiv="Content-Type" content="application/xhtml+xml; charset=UTF-8" />
+<meta name="generator" content="AsciiDoc 8.6.8" />
+<title>Week 7</title>
+<style type="text/css">
+/* Shared CSS for AsciiDoc xhtml11 and html5 backends */
+
+/* Default font. */
+body {
+  font-family: Georgia,serif;
+}
+
+/* Title font. */
+h1, h2, h3, h4, h5, h6,
+div.title, caption.title,
+thead, p.table.header,
+#toctitle,
+#author, #revnumber, #revdate, #revremark,
+#footer {
+  font-family: Arial,Helvetica,sans-serif;
+}
+
+body {
+  margin: 1em 5% 1em 5%;
+}
+
+a {
+  color: blue;
+  text-decoration: underline;
+}
+a:visited {
+  color: fuchsia;
+}
+
+em {
+  font-style: italic;
+  color: navy;
+}
+
+strong {
+  font-weight: bold;
+  color: #083194;
+}
+
+h1, h2, h3, h4, h5, h6 {
+  color: #527bbd;
+  margin-top: 1.2em;
+  margin-bottom: 0.5em;
+  line-height: 1.3;
+}
+
+h1, h2, h3 {
+  border-bottom: 2px solid silver;
+}
+h2 {
+  padding-top: 0.5em;
+}
+h3 {
+  float: left;
+}
+h3 + * {
+  clear: left;
+}
+h5 {
+  font-size: 1.0em;
+}
+
+div.sectionbody {
+  margin-left: 0;
+}
+
+hr {
+  border: 1px solid silver;
+}
+
+p {
+  margin-top: 0.5em;
+  margin-bottom: 0.5em;
+}
+
+ul, ol, li > p {
+  margin-top: 0;
+}
+ul > li     { color: #aaa; }
+ul > li > * { color: black; }
+
+.monospaced, code, pre {
+  font-family: "Courier New", Courier, monospace;
+  font-size: inherit;
+  color: navy;
+  padding: 0;
+  margin: 0;
+}
+
+
+#author {
+  color: #527bbd;
+  font-weight: bold;
+  font-size: 1.1em;
+}
+#email {
+}
+#revnumber, #revdate, #revremark {
+}
+
+#footer {
+  font-size: small;
+  border-top: 2px solid silver;
+  padding-top: 0.5em;
+  margin-top: 4.0em;
+}
+#footer-text {
+  float: left;
+  padding-bottom: 0.5em;
+}
+#footer-badges {
+  float: right;
+  padding-bottom: 0.5em;
+}
+
+#preamble {
+  margin-top: 1.5em;
+  margin-bottom: 1.5em;
+}
+div.imageblock, div.exampleblock, div.verseblock,
+div.quoteblock, div.literalblock, div.listingblock, div.sidebarblock,
+div.admonitionblock {
+  margin-top: 1.0em;
+  margin-bottom: 1.5em;
+}
+div.admonitionblock {
+  margin-top: 2.0em;
+  margin-bottom: 2.0em;
+  margin-right: 10%;
+  color: #606060;
+}
+
+div.content { /* Block element content. */
+  padding: 0;
+}
+
+/* Block element titles. */
+div.title, caption.title {
+  color: #527bbd;
+  font-weight: bold;
+  text-align: left;
+  margin-top: 1.0em;
+  margin-bottom: 0.5em;
+}
+div.title + * {
+  margin-top: 0;
+}
+
+td div.title:first-child {
+  margin-top: 0.0em;
+}
+div.content div.title:first-child {
+  margin-top: 0.0em;
+}
+div.content + div.title {
+  margin-top: 0.0em;
+}
+
+div.sidebarblock > div.content {
+  background: #ffffee;
+  border: 1px solid #dddddd;
+  border-left: 4px solid #f0f0f0;
+  padding: 0.5em;
+}
+
+div.listingblock > div.content {
+  border: 1px solid #dddddd;
+  border-left: 5px solid #f0f0f0;
+  background: #f8f8f8;
+  padding: 0.5em;
+}
+
+div.quoteblock, div.verseblock {
+  padding-left: 1.0em;
+  margin-left: 1.0em;
+  margin-right: 10%;
+  border-left: 5px solid #f0f0f0;
+  color: #888;
+}
+
+div.quoteblock > div.attribution {
+  padding-top: 0.5em;
+  text-align: right;
+}
+
+div.verseblock > pre.content {
+  font-family: inherit;
+  font-size: inherit;
+}
+div.verseblock > div.attribution {
+  padding-top: 0.75em;
+  text-align: left;
+}
+/* DEPRECATED: Pre version 8.2.7 verse style literal block. */
+div.verseblock + div.attribution {
+  text-align: left;
+}
+
+div.admonitionblock .icon {
+  vertical-align: top;
+  font-size: 1.1em;
+  font-weight: bold;
+  text-decoration: underline;
+  color: #527bbd;
+  padding-right: 0.5em;
+}
+div.admonitionblock td.content {
+  padding-left: 0.5em;
+  border-left: 3px solid #dddddd;
+}
+
+div.exampleblock > div.content {
+  border-left: 3px solid #dddddd;
+  padding-left: 0.5em;
+}
+
+div.imageblock div.content { padding-left: 0; }
+span.image img { border-style: none; }
+a.image:visited { color: white; }
+
+dl {
+  margin-top: 0.8em;
+  margin-bottom: 0.8em;
+}
+dt {
+  margin-top: 0.5em;
+  margin-bottom: 0;
+  font-style: normal;
+  color: navy;
+}
+dd > *:first-child {
+  margin-top: 0.1em;
+}
+
+ul, ol {
+    list-style-position: outside;
+}
+ol.arabic {
+  list-style-type: decimal;
+}
+ol.loweralpha {
+  list-style-type: lower-alpha;
+}
+ol.upperalpha {
+  list-style-type: upper-alpha;
+}
+ol.lowerroman {
+  list-style-type: lower-roman;
+}
+ol.upperroman {
+  list-style-type: upper-roman;
+}
+
+div.compact ul, div.compact ol,
+div.compact p, div.compact p,
+div.compact div, div.compact div {
+  margin-top: 0.1em;
+  margin-bottom: 0.1em;
+}
+
+tfoot {
+  font-weight: bold;
+}
+td > div.verse {
+  white-space: pre;
+}
+
+div.hdlist {
+  margin-top: 0.8em;
+  margin-bottom: 0.8em;
+}
+div.hdlist tr {
+  padding-bottom: 15px;
+}
+dt.hdlist1.strong, td.hdlist1.strong {
+  font-weight: bold;
+}
+td.hdlist1 {
+  vertical-align: top;
+  font-style: normal;
+  padding-right: 0.8em;
+  color: navy;
+}
+td.hdlist2 {
+  vertical-align: top;
+}
+div.hdlist.compact tr {
+  margin: 0;
+  padding-bottom: 0;
+}
+
+.comment {
+  background: yellow;
+}
+
+.footnote, .footnoteref {
+  font-size: 0.8em;
+}
+
+span.footnote, span.footnoteref {
+  vertical-align: super;
+}
+
+#footnotes {
+  margin: 20px 0 20px 0;
+  padding: 7px 0 0 0;
+}
+
+#footnotes div.footnote {
+  margin: 0 0 5px 0;
+}
+
+#footnotes hr {
+  border: none;
+  border-top: 1px solid silver;
+  height: 1px;
+  text-align: left;
+  margin-left: 0;
+  width: 20%;
+  min-width: 100px;
+}
+
+div.colist td {
+  padding-right: 0.5em;
+  padding-bottom: 0.3em;
+  vertical-align: top;
+}
+div.colist td img {
+  margin-top: 0.3em;
+}
+
+@media print {
+  #footer-badges { display: none; }
+}
+
+#toc {
+  margin-bottom: 2.5em;
+}
+
+#toctitle {
+  color: #527bbd;
+  font-size: 1.1em;
+  font-weight: bold;
+  margin-top: 1.0em;
+  margin-bottom: 0.1em;
+}
+
+div.toclevel0, div.toclevel1, div.toclevel2, div.toclevel3, div.toclevel4 {
+  margin-top: 0;
+  margin-bottom: 0;
+}
+div.toclevel2 {
+  margin-left: 2em;
+  font-size: 0.9em;
+}
+div.toclevel3 {
+  margin-left: 4em;
+  font-size: 0.9em;
+}
+div.toclevel4 {
+  margin-left: 6em;
+  font-size: 0.9em;
+}
+
+span.aqua { color: aqua; }
+span.black { color: black; }
+span.blue { color: blue; }
+span.fuchsia { color: fuchsia; }
+span.gray { color: gray; }
+span.green { color: green; }
+span.lime { color: lime; }
+span.maroon { color: maroon; }
+span.navy { color: navy; }
+span.olive { color: olive; }
+span.purple { color: purple; }
+span.red { color: red; }
+span.silver { color: silver; }
+span.teal { color: teal; }
+span.white { color: white; }
+span.yellow { color: yellow; }
+
+span.aqua-background { background: aqua; }
+span.black-background { background: black; }
+span.blue-background { background: blue; }
+span.fuchsia-background { background: fuchsia; }
+span.gray-background { background: gray; }
+span.green-background { background: green; }
+span.lime-background { background: lime; }
+span.maroon-background { background: maroon; }
+span.navy-background { background: navy; }
+span.olive-background { background: olive; }
+span.purple-background { background: purple; }
+span.red-background { background: red; }
+span.silver-background { background: silver; }
+span.teal-background { background: teal; }
+span.white-background { background: white; }
+span.yellow-background { background: yellow; }
+
+span.big { font-size: 2em; }
+span.small { font-size: 0.6em; }
+
+span.underline { text-decoration: underline; }
+span.overline { text-decoration: overline; }
+span.line-through { text-decoration: line-through; }
+
+div.unbreakable { page-break-inside: avoid; }
+
+
+/*
+ * xhtml11 specific
+ *
+ * */
+
+div.tableblock {
+  margin-top: 1.0em;
+  margin-bottom: 1.5em;
+}
+div.tableblock > table {
+  border: 3px solid #527bbd;
+}
+thead, p.table.header {
+  font-weight: bold;
+  color: #527bbd;
+}
+p.table {
+  margin-top: 0;
+}
+/* Because the table frame attribute is overriden by CSS in most browsers. */
+div.tableblock > table[frame="void"] {
+  border-style: none;
+}
+div.tableblock > table[frame="hsides"] {
+  border-left-style: none;
+  border-right-style: none;
+}
+div.tableblock > table[frame="vsides"] {
+  border-top-style: none;
+  border-bottom-style: none;
+}
+
+
+/*
+ * html5 specific
+ *
+ * */
+
+table.tableblock {
+  margin-top: 1.0em;
+  margin-bottom: 1.5em;
+}
+thead, p.tableblock.header {
+  font-weight: bold;
+  color: #527bbd;
+}
+p.tableblock {
+  margin-top: 0;
+}
+table.tableblock {
+  border-width: 3px;
+  border-spacing: 0px;
+  border-style: solid;
+  border-color: #527bbd;
+  border-collapse: collapse;
+}
+th.tableblock, td.tableblock {
+  border-width: 1px;
+  padding: 4px;
+  border-style: solid;
+  border-color: #527bbd;
+}
+
+table.tableblock.frame-topbot {
+  border-left-style: hidden;
+  border-right-style: hidden;
+}
+table.tableblock.frame-sides {
+  border-top-style: hidden;
+  border-bottom-style: hidden;
+}
+table.tableblock.frame-none {
+  border-style: hidden;
+}
+
+th.tableblock.halign-left, td.tableblock.halign-left {
+  text-align: left;
+}
+th.tableblock.halign-center, td.tableblock.halign-center {
+  text-align: center;
+}
+th.tableblock.halign-right, td.tableblock.halign-right {
+  text-align: right;
+}
+
+th.tableblock.valign-top, td.tableblock.valign-top {
+  vertical-align: top;
+}
+th.tableblock.valign-middle, td.tableblock.valign-middle {
+  vertical-align: middle;
+}
+th.tableblock.valign-bottom, td.tableblock.valign-bottom {
+  vertical-align: bottom;
+}
+
+
+/*
+ * manpage specific
+ *
+ * */
+
+body.manpage h1 {
+  padding-top: 0.5em;
+  padding-bottom: 0.5em;
+  border-top: 2px solid silver;
+  border-bottom: 2px solid silver;
+}
+body.manpage h2 {
+  border-style: none;
+}
+body.manpage div.sectionbody {
+  margin-left: 3em;
+}
+
+@media print {
+  body.manpage div#toc { display: none; }
+}
+/*
+  pygmentize filter
+*/
+.highlight .hll { background-color: #ffffcc }
+.highlight  { background: #f4f4f4; }
+.highlight .c { color: #008800; font-style: italic } /* Comment */
+.highlight .err { border: 1px solid #FF0000 } /* Error */
+.highlight .k { color: #AA22FF; font-weight: bold } /* Keyword */
+.highlight .o { color: #666666 } /* Operator */
+.highlight .cm { color: #008800; font-style: italic } /* Comment.Multiline */
+.highlight .cp { color: #008800 } /* Comment.Preproc */
+.highlight .c1 { color: #008800; font-style: italic } /* Comment.Single */
+.highlight .cs { color: #008800; font-weight: bold } /* Comment.Special */
+.highlight .gd { color: #A00000 } /* Generic.Deleted */
+.highlight .ge { font-style: italic } /* Generic.Emph */
+.highlight .gr { color: #FF0000 } /* Generic.Error */
+.highlight .gh { color: #000080; font-weight: bold } /* Generic.Heading */
+.highlight .gi { color: #00A000 } /* Generic.Inserted */
+.highlight .go { color: #808080 } /* Generic.Output */
+.highlight .gp { color: #000080; font-weight: bold } /* Generic.Prompt */
+.highlight .gs { font-weight: bold } /* Generic.Strong */
+.highlight .gu { color: #800080; font-weight: bold } /* Generic.Subheading */
+.highlight .gt { color: #0040D0 } /* Generic.Traceback */
+.highlight .kc { color: #AA22FF; font-weight: bold } /* Keyword.Constant */
+.highlight .kd { color: #AA22FF; font-weight: bold } /* Keyword.Declaration */
+.highlight .kn { color: #AA22FF; font-weight: bold } /* Keyword.Namespace */
+.highlight .kp { color: #AA22FF } /* Keyword.Pseudo */
+.highlight .kr { color: #AA22FF; font-weight: bold } /* Keyword.Reserved */
+.highlight .kt { color: #00BB00; font-weight: bold } /* Keyword.Type */
+.highlight .m { color: #666666 } /* Literal.Number */
+.highlight .s { color: #BB4444 } /* Literal.String */
+.highlight .na { color: #BB4444 } /* Name.Attribute */
+.highlight .nb { color: #AA22FF } /* Name.Builtin */
+.highlight .nc { color: #0000FF } /* Name.Class */
+.highlight .no { color: #880000 } /* Name.Constant */
+.highlight .nd { color: #AA22FF } /* Name.Decorator */
+.highlight .ni { color: #999999; font-weight: bold } /* Name.Entity */
+.highlight .ne { color: #D2413A; font-weight: bold } /* Name.Exception */
+.highlight .nf { color: #00A000 } /* Name.Function */
+.highlight .nl { color: #A0A000 } /* Name.Label */
+.highlight .nn { color: #0000FF; font-weight: bold } /* Name.Namespace */
+.highlight .nt { color: #008000; font-weight: bold } /* Name.Tag */
+.highlight .nv { color: #B8860B } /* Name.Variable */
+.highlight .ow { color: #AA22FF; font-weight: bold } /* Operator.Word */
+.highlight .w { color: #bbbbbb } /* Text.Whitespace */
+.highlight .mf { color: #666666 } /* Literal.Number.Float */
+.highlight .mh { color: #666666 } /* Literal.Number.Hex */
+.highlight .mi { color: #666666 } /* Literal.Number.Integer */
+.highlight .mo { color: #666666 } /* Literal.Number.Oct */
+.highlight .sb { color: #BB4444 } /* Literal.String.Backtick */
+.highlight .sc { color: #BB4444 } /* Literal.String.Char */
+.highlight .sd { color: #BB4444; font-style: italic } /* Literal.String.Doc */
+.highlight .s2 { color: #BB4444 } /* Literal.String.Double */
+.highlight .se { color: #BB6622; font-weight: bold } /* Literal.String.Escape */
+.highlight .sh { color: #BB4444 } /* Literal.String.Heredoc */
+.highlight .si { color: #BB6688; font-weight: bold } /* Literal.String.Interpol */
+.highlight .sx { color: #008000 } /* Literal.String.Other */
+.highlight .sr { color: #BB6688 } /* Literal.String.Regex */
+.highlight .s1 { color: #BB4444 } /* Literal.String.Single */
+.highlight .ss { color: #B8860B } /* Literal.String.Symbol */
+.highlight .bp { color: #AA22FF } /* Name.Builtin.Pseudo */
+.highlight .vc { color: #B8860B } /* Name.Variable.Class */
+.highlight .vg { color: #B8860B } /* Name.Variable.Global */
+.highlight .vi { color: #B8860B } /* Name.Variable.Instance */
+.highlight .il { color: #666666 } /* Literal.Number.Integer.Long */
+
+
+
+</style>
+<script type="text/javascript">
+/*<![CDATA[*/
+var asciidoc = {  // Namespace.
+
+/////////////////////////////////////////////////////////////////////
+// Table Of Contents generator
+/////////////////////////////////////////////////////////////////////
+
+/* Author: Mihai Bazon, September 2002
+ * http://students.infoiasi.ro/~mishoo
+ *
+ * Table Of Content generator
+ * Version: 0.4
+ *
+ * Feel free to use this script under the terms of the GNU General Public
+ * License, as long as you do not remove or alter this notice.
+ */
+
+ /* modified by Troy D. Hanson, September 2006. License: GPL */
+ /* modified by Stuart Rackham, 2006, 2009. License: GPL */
+
+// toclevels = 1..4.
+toc: function (toclevels) {
+
+  function getText(el) {
+    var text = "";
+    for (var i = el.firstChild; i != null; i = i.nextSibling) {
+      if (i.nodeType == 3 /* Node.TEXT_NODE */) // IE doesn't speak constants.
+        text += i.data;
+      else if (i.firstChild != null)
+        text += getText(i);
+    }
+    return text;
+  }
+
+  function TocEntry(el, text, toclevel) {
+    this.element = el;
+    this.text = text;
+    this.toclevel = toclevel;
+  }
+
+  function tocEntries(el, toclevels) {
+    var result = new Array;
+    var re = new RegExp('[hH]([1-'+(toclevels+1)+'])');
+    // Function that scans the DOM tree for header elements (the DOM2
+    // nodeIterator API would be a better technique but not supported by all
+    // browsers).
+    var iterate = function (el) {
+      for (var i = el.firstChild; i != null; i = i.nextSibling) {
+        if (i.nodeType == 1 /* Node.ELEMENT_NODE */) {
+          var mo = re.exec(i.tagName);
+          if (mo && (i.getAttribute("class") || i.getAttribute("className")) != "float") {
+            result[result.length] = new TocEntry(i, getText(i), mo[1]-1);
+          }
+          iterate(i);
+        }
+      }
+    }
+    iterate(el);
+    return result;
+  }
+
+  var toc = document.getElementById("toc");
+  if (!toc) {
+    return;
+  }
+
+  // Delete existing TOC entries in case we're reloading the TOC.
+  var tocEntriesToRemove = [];
+  var i;
+  for (i = 0; i < toc.childNodes.length; i++) {
+    var entry = toc.childNodes[i];
+    if (entry.nodeName.toLowerCase() == 'div'
+     && entry.getAttribute("class")
+     && entry.getAttribute("class").match(/^toclevel/))
+      tocEntriesToRemove.push(entry);
+  }
+  for (i = 0; i < tocEntriesToRemove.length; i++) {
+    toc.removeChild(tocEntriesToRemove[i]);
+  }
+
+  // Rebuild TOC entries.
+  var entries = tocEntries(document.getElementById("content"), toclevels);
+  for (var i = 0; i < entries.length; ++i) {
+    var entry = entries[i];
+    if (entry.element.id == "")
+      entry.element.id = "_toc_" + i;
+    var a = document.createElement("a");
+    a.href = "#" + entry.element.id;
+    a.appendChild(document.createTextNode(entry.text));
+    var div = document.createElement("div");
+    div.appendChild(a);
+    div.className = "toclevel" + entry.toclevel;
+    toc.appendChild(div);
+  }
+  if (entries.length == 0)
+    toc.parentNode.removeChild(toc);
+},
+
+
+/////////////////////////////////////////////////////////////////////
+// Footnotes generator
+/////////////////////////////////////////////////////////////////////
+
+/* Based on footnote generation code from:
+ * http://www.brandspankingnew.net/archive/2005/07/format_footnote.html
+ */
+
+footnotes: function () {
+  // Delete existing footnote entries in case we're reloading the footnodes.
+  var i;
+  var noteholder = document.getElementById("footnotes");
+  if (!noteholder) {
+    return;
+  }
+  var entriesToRemove = [];
+  for (i = 0; i < noteholder.childNodes.length; i++) {
+    var entry = noteholder.childNodes[i];
+    if (entry.nodeName.toLowerCase() == 'div' && entry.getAttribute("class") == "footnote")
+      entriesToRemove.push(entry);
+  }
+  for (i = 0; i < entriesToRemove.length; i++) {
+    noteholder.removeChild(entriesToRemove[i]);
+  }
+
+  // Rebuild footnote entries.
+  var cont = document.getElementById("content");
+  var spans = cont.getElementsByTagName("span");
+  var refs = {};
+  var n = 0;
+  for (i=0; i<spans.length; i++) {
+    if (spans[i].className == "footnote") {
+      n++;
+      var note = spans[i].getAttribute("data-note");
+      if (!note) {
+        // Use [\s\S] in place of . so multi-line matches work.
+        // Because JavaScript has no s (dotall) regex flag.
+        note = spans[i].innerHTML.match(/\s*\[([\s\S]*)]\s*/)[1];
+        spans[i].innerHTML =
+          "[<a id='_footnoteref_" + n + "' href='#_footnote_" + n +
+          "' title='View footnote' class='footnote'>" + n + "</a>]";
+        spans[i].setAttribute("data-note", note);
+      }
+      noteholder.innerHTML +=
+        "<div class='footnote' id='_footnote_" + n + "'>" +
+        "<a href='#_footnoteref_" + n + "' title='Return to text'>" +
+        n + "</a>. " + note + "</div>";
+      var id =spans[i].getAttribute("id");
+      if (id != null) refs["#"+id] = n;
+    }
+  }
+  if (n == 0)
+    noteholder.parentNode.removeChild(noteholder);
+  else {
+    // Process footnoterefs.
+    for (i=0; i<spans.length; i++) {
+      if (spans[i].className == "footnoteref") {
+        var href = spans[i].getElementsByTagName("a")[0].getAttribute("href");
+        href = href.match(/#.*/)[0];  // Because IE return full URL.
+        n = refs[href];
+        spans[i].innerHTML =
+          "[<a href='#_footnote_" + n +
+          "' title='View footnote' class='footnote'>" + n + "</a>]";
+      }
+    }
+  }
+},
+
+install: function(toclevels) {
+  var timerId;
+
+  function reinstall() {
+    asciidoc.footnotes();
+    if (toclevels) {
+      asciidoc.toc(toclevels);
+    }
+  }
+
+  function reinstallAndRemoveTimer() {
+    clearInterval(timerId);
+    reinstall();
+  }
+
+  timerId = setInterval(reinstall, 500);
+  if (document.addEventListener)
+    document.addEventListener("DOMContentLoaded", reinstallAndRemoveTimer, false);
+  else
+    window.onload = reinstallAndRemoveTimer;
+}
+
+}
+asciidoc.install(2);
+/*]]>*/
+</script>
+</head>
+<body class="article">
+<div id="header">
+<h1>Week 7</h1>
+<span id="author">Andrew Sellergren</span><br />
+<div id="toc">
+  <div id="toctitle">Table of Contents</div>
+  <noscript><p><b>JavaScript must be enabled in your browser to display the table of contents.</b></p></noscript>
+</div>
+</div>
+<div id="content">
+<div class="sect1">
+<h2 id="_announcements_and_demos">Announcements and Demos</h2>
+<div class="sectionbody">
+<div class="ulist"><ul>
+<li>
+<p>
+<a href="http://cs50.net/rsvp">Sign up</a> for CS50 Lunch this Friday!
+</p>
+</li>
+<li>
+<p>
+Final Projects are nigh!  The <a href="http://cdn.cs50.net/2013/fall/project/project.html">specification</a> has already been released, detailing the following checkpoints:
+</p>
+<div class="ulist"><ul>
+<li>
+<p>
+Pre-Proposal
+</p>
+</li>
+<li>
+<p>
+Proposal
+</p>
+</li>
+<li>
+<p>
+Status Report
+</p>
+</li>
+<li>
+<p>
+CS50 Hackathon
+</p>
+</li>
+<li>
+<p>
+Implementation
+</p>
+</li>
+<li>
+<p>
+CS50 Fair
+</p>
+</li>
+</ul></div>
+</li>
+</ul></div>
+</div>
+</div>
+<div class="sect1">
+<h2 id="_from_last_time">From Last Time</h2>
+<div class="sectionbody">
+<div class="ulist"><ul>
+<li>
+<p>
+By now, you&#8217;re hopefully getting comfortable with the concept of a pointer, a memory address.
+</p>
+</li>
+<li>
+<p>
+We learned that Valgrind is a useful tool for detecting memory leaks and abuses.  A lot of its output is cryptic, but you should look for phrases like "invalid write" and "definitely lost" as hints to your mistakes.
+</p>
+</li>
+</ul></div>
+</div>
+</div>
+<div class="sect1">
+<h2 id="_user_input">User Input</h2>
+<div class="sectionbody">
+<div class="ulist"><ul>
+<li>
+<p>
+<code>sscanf</code> is what the CS50 Library uses to get input from the user in functions like <code>GetString</code>.
+</p>
+</li>
+</ul></div>
+<div class="sect2">
+<h3 id="_code_scanf_0_c_code"><code>scanf-0.c</code></h3>
+<div class="ulist"><ul>
+<li>
+<p>
+Take a look at a simple example of using <code>scanf</code>, which is quite similar to <code>sscanf</code>:
+</p>
+<div class="listingblock">
+<div class="content"><div class="highlight"><pre><span class="cp">#include &lt;stdio.h&gt;</span>
+
+<span class="kt">int</span> <span class="nf">main</span><span class="p">(</span><span class="kt">void</span><span class="p">)</span>
+<span class="p">{</span>
+    <span class="kt">int</span> <span class="n">x</span><span class="p">;</span>
+    <span class="n">printf</span><span class="p">(</span><span class="s">&quot;Number please: &quot;</span><span class="p">);</span>
+    <span class="n">scanf</span><span class="p">(</span><span class="s">&quot;%i&quot;</span><span class="p">,</span> <span class="o">&amp;</span><span class="n">x</span><span class="p">);</span>
+    <span class="n">printf</span><span class="p">(</span><span class="s">&quot;Thanks for the %i!</span><span class="se">\n</span><span class="s">&quot;</span><span class="p">,</span> <span class="n">x</span><span class="p">);</span>
+<span class="p">}</span>
+</pre></div></div></div>
+</li>
+<li>
+<p>
+The first argument to <code>scanf</code> resembles an argument we might pass to <code>printf</code> (The "f" in both denotes "formatted").  The second argument is the address of <code>x</code>, thus empowering <code>scanf</code> to actually modify the memory in which <code>x</code> is stored.
+</p>
+</li>
+<li>
+<p>
+This program behaves as expected if the user provides a number as input.  However, if the user provides a string or any other non-numeric input, the program behaves strangely.  One of the things the CS50 Library provides is some error checking so that if the user provides bad input, he or she will be prompted to retry.
+</p>
+</li>
+</ul></div>
+</div>
+<div class="sect2">
+<h3 id="_code_scanf_1_c_code"><code>scanf-1.c</code></h3>
+<div class="ulist"><ul>
+<li>
+<p>
+<code>scanf-1.c</code> closely resembles <code>scanf-0.c</code>, but introduces one major bug:
+</p>
+<div class="listingblock">
+<div class="content"><div class="highlight"><pre><span class="cp">#include &lt;stdio.h&gt;</span>
+
+<span class="kt">int</span> <span class="nf">main</span><span class="p">(</span><span class="kt">void</span><span class="p">)</span>
+<span class="p">{</span>
+    <span class="kt">char</span><span class="o">*</span> <span class="n">buffer</span><span class="p">;</span>
+    <span class="n">printf</span><span class="p">(</span><span class="s">&quot;String please: &quot;</span><span class="p">);</span>
+    <span class="n">scanf</span><span class="p">(</span><span class="s">&quot;%s&quot;</span><span class="p">,</span> <span class="n">buffer</span><span class="p">);</span>
+    <span class="n">printf</span><span class="p">(</span><span class="s">&quot;Thanks for the %s!</span><span class="se">\n</span><span class="s">&quot;</span><span class="p">,</span> <span class="n">buffer</span><span class="p">);</span>
+<span class="p">}</span>
+</pre></div></div></div>
+</li>
+<li>
+<p>
+A buffer is just a generic name for a chunk of memory, a place to store information.
+</p>
+</li>
+<li>
+<p>
+The problem here is that <code>buffer</code> is uninitialized.  We didn&#8217;t ask the operating system for a chunk of memory in which to store the string the user gives us.  If we run this program, it will probably crash with a segmentation fault.
+</p>
+</li>
+</ul></div>
+</div>
+<div class="sect2">
+<h3 id="_code_scanf_2_c_code"><code>scanf-2.c</code></h3>
+<div class="ulist"><ul>
+<li>
+<p>
+One solution to the bug in <code>scanf-1.c</code> would be to allocate memory for <code>buffer</code> on the stack, as we do in <code>scanf-2.c</code>:
+</p>
+<div class="listingblock">
+<div class="content"><div class="highlight"><pre><span class="cp">#include &lt;stdio.h&gt;</span>
+
+<span class="kt">int</span> <span class="nf">main</span><span class="p">(</span><span class="kt">void</span><span class="p">)</span>
+<span class="p">{</span>
+    <span class="kt">char</span> <span class="n">buffer</span><span class="p">[</span><span class="mi">16</span><span class="p">];</span>
+    <span class="n">printf</span><span class="p">(</span><span class="s">&quot;String please: &quot;</span><span class="p">);</span>
+    <span class="n">scanf</span><span class="p">(</span><span class="s">&quot;%s&quot;</span><span class="p">,</span> <span class="n">buffer</span><span class="p">);</span>
+    <span class="n">printf</span><span class="p">(</span><span class="s">&quot;Thanks for the %s!</span><span class="se">\n</span><span class="s">&quot;</span><span class="p">,</span> <span class="n">buffer</span><span class="p">);</span>
+<span class="p">}</span>
+</pre></div></div></div>
+</li>
+<li>
+<p>
+Here, you can see that <code>scanf</code> treats the array <code>buffer</code> as a memory address.  We know that the address is for a chunk of memory of size 16 bytes.
+</p>
+</li>
+<li>
+<p>
+In what scenario might this program also be buggy?  If the user provides a string longer than 15 characters (not 16 because we need at least one character for the null terminator), the program may crash with a segmentation fault.
+</p>
+</li>
+<li>
+<p>
+How do we know in advance how much memory to request for user input?  We don&#8217;t!  The CS50 Library has some logic that reads user input one character at a time with <code>scanf</code> and requests more memory whenever it runs out.
+</p>
+</li>
+</ul></div>
+</div>
+</div>
+</div>
+<div class="sect1">
+<h2 id="_structs">Structs</h2>
+<div class="sectionbody">
+<div class="ulist"><ul>
+<li>
+<p>
+Let&#8217;s revisit the problem of storing information about a number of students.  We might start off just declaring a few variables like so:
+</p>
+<div class="listingblock">
+<div class="content"><div class="highlight"><pre><span class="cp">#include &lt;cs50.h&gt;</span>
+<span class="cp">#include &lt;stdio.h&gt;</span>
+
+<span class="kt">int</span> <span class="nf">main</span><span class="p">(</span><span class="kt">void</span><span class="p">)</span>
+<span class="p">{</span>
+    <span class="n">string</span> <span class="n">name</span> <span class="o">=</span> <span class="n">GetString</span><span class="p">();</span>
+    <span class="n">string</span> <span class="n">house</span> <span class="o">=</span> <span class="n">GetString</span><span class="p">();</span>
+<span class="p">}</span>
+
+<span class="o">*</span> <span class="n">What</span> <span class="k">if</span> <span class="n">we</span> <span class="n">want</span> <span class="n">to</span> <span class="n">store</span> <span class="n">another</span> <span class="n">student</span><span class="err">&#39;</span><span class="n">s</span> <span class="n">information</span><span class="o">?</span>  <span class="n">Well</span> <span class="n">I</span> <span class="n">guess</span> <span class="n">we</span> <span class="n">need</span> <span class="n">some</span> <span class="n">more</span> <span class="n">variables</span><span class="o">:</span>
+<span class="o">+</span>
+<span class="p">[</span><span class="n">source</span><span class="p">]</span>
+</pre></div></div></div>
+</li>
+</ul></div>
+<div class="paragraph"><p>#include &lt;cs50.h&gt;
+#include &lt;stdio.h&gt;</p></div>
+<div class="paragraph"><p>int main(void)
+{
+    string name = GetString();
+    string house = GetString();</p></div>
+<div class="literalblock">
+<div class="content">
+<pre><code>string name2 = GetString();
+string house2 = GetString();</code></pre>
+</div></div>
+<div class="literalblock">
+<div class="content">
+<pre><code>    string name3 = GetString();
+    string house3 = GetString();
+}</code></pre>
+</div></div>
+<div class="ulist"><ul>
+<li>
+<p>
+Hopefully, this strikes you as bad design.  In prior weeks, we solved the problem of storing numerous variables of the same types by using arrays:
+</p>
+<div class="listingblock">
+<div class="content"><div class="highlight"><pre><span class="cp">#include &lt;cs50.h&gt;</span>
+<span class="cp">#include &lt;stdio.h&gt;</span>
+
+<span class="kt">int</span> <span class="nf">main</span><span class="p">(</span><span class="kt">void</span><span class="p">)</span>
+<span class="p">{</span>
+    <span class="n">string</span> <span class="n">names</span><span class="p">[</span><span class="mi">3</span><span class="p">];</span>
+    <span class="n">string</span> <span class="n">house</span><span class="p">[</span><span class="mi">3</span><span class="p">];</span>
+<span class="p">}</span>
+</pre></div></div></div>
+</li>
+<li>
+<p>
+This solves the problem of repetitive code, but introduces the problem of names no longer being directly associated with houses.
+</p>
+</li>
+</ul></div>
+<div class="sect2">
+<h3 id="_code_structs_h_code"><code>structs.h</code></h3>
+<div class="ulist"><ul>
+<li>
+<p>
+To reduce code repetition but keep information tightly coupled, we can introduce a new variable type using syntax like the following:
+</p>
+<div class="listingblock">
+<div class="content"><div class="highlight"><pre><span class="cp">#include &lt;cs50.h&gt;</span>
+
+<span class="c1">// structure representing a student</span>
+<span class="k">typedef</span> <span class="k">struct</span>
+<span class="p">{</span>
+    <span class="n">string</span> <span class="n">name</span><span class="p">;</span>
+    <span class="n">string</span> <span class="n">house</span><span class="p">;</span>
+<span class="p">}</span>
+<span class="n">student</span><span class="p">;</span>
+</pre></div></div></div>
+</li>
+</ul></div>
+</div>
+<div class="sect2">
+<h3 id="_code_structs_0_c_code"><code>structs-0.c</code></h3>
+<div class="ulist"><ul>
+<li>
+<p>
+Now we have a type called <code>student</code> that contains both pieces of information about a student.  Filling in this information is quite straightforward:
+</p>
+<div class="listingblock">
+<div class="content"><div class="highlight"><pre><span class="cp">#include &lt;cs50.h&gt;</span>
+<span class="cp">#include &lt;stdio.h&gt;</span>
+<span class="cp">#include &lt;string.h&gt;</span>
+
+<span class="cp">#include &quot;structs.h&quot;</span>
+
+<span class="c1">// number of students</span>
+<span class="cp">#define STUDENTS 3</span>
+
+<span class="kt">int</span> <span class="nf">main</span><span class="p">(</span><span class="kt">void</span><span class="p">)</span>
+<span class="p">{</span>
+    <span class="c1">// declare students</span>
+    <span class="n">student</span> <span class="n">students</span><span class="p">[</span><span class="n">STUDENTS</span><span class="p">];</span>
+
+    <span class="c1">// populate students with user&#39;s input</span>
+    <span class="k">for</span> <span class="p">(</span><span class="kt">int</span> <span class="n">i</span> <span class="o">=</span> <span class="mi">0</span><span class="p">;</span> <span class="n">i</span> <span class="o">&lt;</span> <span class="n">STUDENTS</span><span class="p">;</span> <span class="n">i</span><span class="o">++</span><span class="p">)</span>
+    <span class="p">{</span>
+        <span class="n">printf</span><span class="p">(</span><span class="s">&quot;Student&#39;s name: &quot;</span><span class="p">);</span>
+        <span class="n">students</span><span class="p">[</span><span class="n">i</span><span class="p">].</span><span class="n">name</span> <span class="o">=</span> <span class="n">GetString</span><span class="p">();</span>
+
+        <span class="n">printf</span><span class="p">(</span><span class="s">&quot;Student&#39;s house: &quot;</span><span class="p">);</span>
+        <span class="n">students</span><span class="p">[</span><span class="n">i</span><span class="p">].</span><span class="n">house</span> <span class="o">=</span> <span class="n">GetString</span><span class="p">();</span>
+    <span class="p">}</span>
+
+    <span class="c1">// now print students</span>
+    <span class="k">for</span> <span class="p">(</span><span class="kt">int</span> <span class="n">i</span> <span class="o">=</span> <span class="mi">0</span><span class="p">;</span> <span class="n">i</span> <span class="o">&lt;</span> <span class="n">STUDENTS</span><span class="p">;</span> <span class="n">i</span><span class="o">++</span><span class="p">)</span>
+    <span class="p">{</span>
+        <span class="n">printf</span><span class="p">(</span><span class="s">&quot;%s is in %s.</span><span class="se">\n</span><span class="s">&quot;</span><span class="p">,</span> <span class="n">students</span><span class="p">[</span><span class="n">i</span><span class="p">].</span><span class="n">name</span><span class="p">,</span> <span class="n">students</span><span class="p">[</span><span class="n">i</span><span class="p">].</span><span class="n">house</span><span class="p">);</span>
+    <span class="p">}</span>
+
+    <span class="c1">// free memory</span>
+    <span class="k">for</span> <span class="p">(</span><span class="kt">int</span> <span class="n">i</span> <span class="o">=</span> <span class="mi">0</span><span class="p">;</span> <span class="n">i</span> <span class="o">&lt;</span> <span class="n">STUDENTS</span><span class="p">;</span> <span class="n">i</span><span class="o">++</span><span class="p">)</span>
+    <span class="p">{</span>
+        <span class="n">free</span><span class="p">(</span><span class="n">students</span><span class="p">[</span><span class="n">i</span><span class="p">].</span><span class="n">name</span><span class="p">);</span>
+        <span class="n">free</span><span class="p">(</span><span class="n">students</span><span class="p">[</span><span class="n">i</span><span class="p">].</span><span class="n">house</span><span class="p">);</span>
+    <span class="p">}</span>
+<span class="p">}</span>
+</pre></div></div></div>
+</li>
+<li>
+<p>
+<code>students</code> is an array of variables of type <code>student</code> ad defined in the <code>structs.h</code> header file.
+</p>
+</li>
+<li>
+<p>
+We access element <code>i</code> of <code>students</code> by writing <code>students[i]</code>, as with any array.  To access the pieces of information within any given <code>student</code>, we use dot notation: <code>students[i].name</code> and <code>students[i].house</code>.
+</p>
+</li>
+<li>
+<p>
+Don&#8217;t forget that we need to free the memory that we allocated when we called <code>GetString</code>!  Technically, we should also be checking if <code>students[i].name</code> and <code>students[i].house)</code> are not <code>NULL</code> before we free them.
+</p>
+</li>
+</ul></div>
+</div>
+<div class="sect2">
+<h3 id="_code_structs_1_c_code"><code>structs-1.c</code></h3>
+<div class="ulist"><ul>
+<li>
+<p>
+Before we examine the code, let&#8217;s just make and run <code>structs-1.c</code>.  After we enter in some data and the program exits successfully, a file named <code>students.csv</code> is created.  CSV stands for comma-separated values, a very simple version of a table like you may have worked with in Excel.
+</p>
+</li>
+<li>
+<p>
+The code that creates this CSV file looks like this:
+</p>
+<div class="listingblock">
+<div class="content"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre> 1
+ 2
+ 3
+ 4
+ 5
+ 6
+ 7
+ 8
+ 9
+10
+11
+12
+13
+14
+15
+16
+17
+18
+19
+20
+21
+22
+23
+24
+25
+26
+27
+28
+29
+30
+31
+32
+33
+34
+35
+36
+37
+38
+39
+40
+41
+42
+43</pre></div></td><td class="code"><div class="highlight"><pre><span class="cp">#include &lt;cs50.h&gt;</span>
+<span class="cp">#include &lt;stdio.h&gt;</span>
+<span class="cp">#include &lt;stdlib.h&gt;</span>
+<span class="cp">#include &lt;string.h&gt;</span>
+
+<span class="cp">#include &quot;structs.h&quot;</span>
+
+<span class="c1">// number of students</span>
+<span class="cp">#define STUDENTS 3</span>
+
+<span class="kt">int</span> <span class="nf">main</span><span class="p">(</span><span class="kt">void</span><span class="p">)</span>
+<span class="p">{</span>
+    <span class="c1">// declare students</span>
+    <span class="n">student</span> <span class="n">students</span><span class="p">[</span><span class="n">STUDENTS</span><span class="p">];</span>
+
+    <span class="c1">// populate students with user&#39;s input</span>
+    <span class="k">for</span> <span class="p">(</span><span class="kt">int</span> <span class="n">i</span> <span class="o">=</span> <span class="mi">0</span><span class="p">;</span> <span class="n">i</span> <span class="o">&lt;</span> <span class="n">STUDENTS</span><span class="p">;</span> <span class="n">i</span><span class="o">++</span><span class="p">)</span>
+    <span class="p">{</span>
+        <span class="n">printf</span><span class="p">(</span><span class="s">&quot;Student&#39;s name: &quot;</span><span class="p">);</span>
+        <span class="n">students</span><span class="p">[</span><span class="n">i</span><span class="p">].</span><span class="n">name</span> <span class="o">=</span> <span class="n">GetString</span><span class="p">();</span>
+
+        <span class="n">printf</span><span class="p">(</span><span class="s">&quot;Student&#39;s house: &quot;</span><span class="p">);</span>
+        <span class="n">students</span><span class="p">[</span><span class="n">i</span><span class="p">].</span><span class="n">house</span> <span class="o">=</span> <span class="n">GetString</span><span class="p">();</span>
+    <span class="p">}</span>
+
+    <span class="c1">// save students to disk</span>
+    <span class="kt">FILE</span><span class="o">*</span> <span class="n">file</span> <span class="o">=</span> <span class="n">fopen</span><span class="p">(</span><span class="s">&quot;students.csv&quot;</span><span class="p">,</span> <span class="s">&quot;w&quot;</span><span class="p">);</span>
+    <span class="k">if</span> <span class="p">(</span><span class="n">file</span> <span class="o">!=</span> <span class="nb">NULL</span><span class="p">)</span>
+    <span class="p">{</span>
+        <span class="k">for</span> <span class="p">(</span><span class="kt">int</span> <span class="n">i</span> <span class="o">=</span> <span class="mi">0</span><span class="p">;</span> <span class="n">i</span> <span class="o">&lt;</span> <span class="n">STUDENTS</span><span class="p">;</span> <span class="n">i</span><span class="o">++</span><span class="p">)</span>
+        <span class="p">{</span>
+            <span class="n">fprintf</span><span class="p">(</span><span class="n">file</span><span class="p">,</span> <span class="s">&quot;%s,%s</span><span class="se">\n</span><span class="s">&quot;</span><span class="p">,</span> <span class="n">students</span><span class="p">[</span><span class="n">i</span><span class="p">].</span><span class="n">name</span><span class="p">,</span> <span class="n">students</span><span class="p">[</span><span class="n">i</span><span class="p">].</span><span class="n">house</span><span class="p">);</span>
+        <span class="p">}</span>
+        <span class="n">fclose</span><span class="p">(</span><span class="n">file</span><span class="p">);</span>
+    <span class="p">}</span>
+
+    <span class="c1">// free memory</span>
+    <span class="k">for</span> <span class="p">(</span><span class="kt">int</span> <span class="n">i</span> <span class="o">=</span> <span class="mi">0</span><span class="p">;</span> <span class="n">i</span> <span class="o">&lt;</span> <span class="n">STUDENTS</span><span class="p">;</span> <span class="n">i</span><span class="o">++</span><span class="p">)</span>
+    <span class="p">{</span>
+        <span class="n">free</span><span class="p">(</span><span class="n">students</span><span class="p">[</span><span class="n">i</span><span class="p">].</span><span class="n">name</span><span class="p">);</span>
+        <span class="n">free</span><span class="p">(</span><span class="n">students</span><span class="p">[</span><span class="n">i</span><span class="p">].</span><span class="n">house</span><span class="p">);</span>
+    <span class="p">}</span>
+<span class="p">}</span>
+</pre></div>
+</td></tr></table></div></div>
+</li>
+<li>
+<p>
+Line 27 does the work of actually opening a file, specifying "w" as an argument to <code>fopen</code> to indicate that we want to write to this file (whereas "r" would indicate read mode).  <code>fopen</code> returns a pointer to a <code>FILE</code> object.  Instead of <code>printf</code>, we use <code>fprintf</code> to write to our file.
+</p>
+</li>
+<li>
+<p>
+Question: what happens when you try to free a <code>NULL</code> pointer?  Your program will probably segfault.
+</p>
+</li>
+</ul></div>
+</div>
+</div>
+</div>
+<div class="sect1">
+<h2 id="_storage">Storage</h2>
+<div class="sectionbody">
+<div class="sect2">
+<h3 id="_hard_drives">Hard Drives</h3>
+<div class="ulist"><ul>
+<li>
+<p>
+Hard drives that aren&#8217;t SSDs (solid-state drives with no moving parts) consist of circular metal platters and magnetic heads that read and write bits on them.  The 0s and 1s of files are stored by magnetic particles that are flipped with either their north or their south poles sticking up.
+</p>
+</li>
+<li>
+<p>
+Somewhere on the hard drive there exists a table that maps filenames to their memory addresses.  As you can with RAM, you can number all of the bytes of a hard drive so that each has a memory address.  When you delete a file, say by dragging it to the trash can or even by emptying the trash can, the contents of the file may not actually be deleted.  Rather, the file&#8217;s entry in the location table is simply erased so that the operating system forgets where the file was stored.  Not until the 0s and 1s of the file are actually overwritten will the file&#8217;s contents truly be gone.  In the meantime, the file can be recovered by software like Norton or by a program like the one you&#8217;ll write for Problem Set 5.  Having been provided with the raw bytes of an SD card, you&#8217;ll be tasked with searching through them to look for the particular pattern of bits that identifies the start of a JPEG file.
+</p>
+</li>
+</ul></div>
+</div>
+<div class="sect2">
+<h3 id="_floppy_disks">Floppy Disks</h3>
+<div class="ulist"><ul>
+<li>
+<p>
+Back in David&#8217;s day <span class="footnote"><br />[The turn of the 20th century?]<br /></span>,  another type of storage called floppy disks was popular. Functionally, these are very similar to hard drives in that inside their plastic casing, there is a circular magnetic platter.  You can get your hands on it just by ripping off the metal tab.  Be careful, there&#8217;s a spring in there!
+</p>
+</li>
+<li>
+<p>
+These days, the size of hard drives is measured in terabytes.  A so-called "high-density" floppy disk can only store 1.44 megabytes, or roughly 1 millionth of a terabyte.
+</p>
+</li>
+</ul></div>
+</div>
+</div>
+</div>
+<div class="sect1">
+<h2 id="_linked_lists">Linked Lists</h2>
+<div class="sectionbody">
+<div class="ulist"><ul>
+<li>
+<p>
+Arrays are useful because they enable the storage of similar variables in contiguous memory.  One downside of arrays is that they have a fixed size.   Another downside is that there&#8217;s no easy way to insert something in the middle of an array.  To do so, we would have to allocate memory for a copy of the array and then shift all the elements to the right.
+</p>
+</li>
+<li>
+<p>
+To solve the problem of fixed size, we’ll relax the constraint that the memory we use be contiguous. We can take a little bit of memory from here and a little bit of memory from there just so long as we can connect them together. This new data structure is called a <em>linked list</em>:
+</p>
+<div class="imageblock">
+<div class="content">
+<img src="linked_list.png" alt="A linked list." />
+</div>
+</div>
+</li>
+<li>
+<p>
+Each element of a linked list contains not only the data we want to store, but also a pointer to the next element. The final element in the list has the <code>NULL</code> pointer.
+</p>
+</li>
+<li>
+<p>
+To implement a linked list, we’ll borrow some of the syntax we used for structs:
+</p>
+<div class="listingblock">
+<div class="content"><div class="highlight"><pre><span class="k">typedef</span> <span class="k">struct</span> <span class="n">node</span>
+<span class="p">{</span>
+    <span class="kt">int</span> <span class="n">n</span><span class="p">;</span>
+    <span class="k">struct</span> <span class="n">node</span> <span class="o">*</span><span class="n">next</span><span class="p">;</span>
+<span class="p">}</span>
+<span class="n">node</span><span class="p">;</span>
+</pre></div></div></div>
+</li>
+<li>
+<p>
+Pictorially, <code>next</code> is the bottom box that points to the next element of the linked list.  Why do we have to declare it as a <code>struct node*</code> then?  The compiler doesn&#8217;t yet know what a <code>node</code> is, so we have to call it a <code>struct node</code> in the meantime.
+</p>
+</li>
+<li>
+<p>
+There are a few linked list operations that will be of interest to us:
+</p>
+<div class="ulist"><ul>
+<li>
+<p>
+insert
+</p>
+</li>
+<li>
+<p>
+delete
+</p>
+</li>
+<li>
+<p>
+search
+</p>
+</li>
+<li>
+<p>
+traverse
+</p>
+</li>
+</ul></div>
+</li>
+<li>
+<p>
+The search operation is actually pretty easy to implement:
+</p>
+<div class="listingblock">
+<div class="content"><div class="highlight"><pre><span class="kt">bool</span> <span class="nf">search</span><span class="p">(</span><span class="kt">int</span> <span class="n">n</span><span class="p">,</span> <span class="n">node</span><span class="o">*</span> <span class="n">list</span><span class="p">)</span>
+<span class="p">{</span>
+    <span class="n">node</span><span class="o">*</span> <span class="n">ptr</span> <span class="o">=</span> <span class="n">list</span><span class="p">;</span>
+    <span class="k">while</span> <span class="p">(</span><span class="n">ptr</span> <span class="o">!=</span> <span class="nb">NULL</span><span class="p">)</span>
+    <span class="p">{</span>
+        <span class="k">if</span> <span class="p">(</span><span class="n">ptr</span><span class="o">-&gt;</span><span class="n">n</span> <span class="o">==</span> <span class="n">n</span><span class="p">)</span>
+        <span class="p">{</span>
+            <span class="k">return</span> <span class="nb">true</span><span class="p">;</span>
+        <span class="p">}</span>
+        <span class="n">ptr</span> <span class="o">=</span> <span class="n">ptr</span><span class="o">-&gt;</span><span class="n">next</span><span class="p">;</span>
+    <span class="p">}</span>
+    <span class="k">return</span> <span class="nb">false</span><span class="p">;</span>
+<span class="p">}</span>
+</pre></div></div></div>
+</li>
+<li>
+<p>
+<code>search</code> takes two arguments, the number to be searched for and a pointer to the first node in the linked list.  We then declare a pointer <code>ptr</code> that we&#8217;ll use to walk through the list.  Since <code>ptr</code> is a pointer to a struct, we use the arrow syntax (<code>-&gt;</code>) to access the elements within the struct.  To advance to the next node in the linked list, we assign <code>ptr-&gt;next</code> to <code>ptr</code>.  More on this on Wednesday!
+</p>
+</li>
+</ul></div>
+</div>
+</div>
+</div>
+<div id="footnotes"><hr /></div>
+<div id="footer">
+<div id="footer-text">
+Last updated 2013-10-23 21:15:57 PDT
+</div>
+</div>
+</body>
+</html>

@@ -1,0 +1,1597 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.1//EN"
+    "http://www.w3.org/TR/xhtml11/DTD/xhtml11.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en">
+<head>
+<meta http-equiv="Content-Type" content="application/xhtml+xml; charset=UTF-8" />
+<meta name="generator" content="AsciiDoc 8.6.8" />
+<title>Week 9</title>
+<style type="text/css">
+/* Shared CSS for AsciiDoc xhtml11 and html5 backends */
+
+/* Default font. */
+body {
+  font-family: Georgia,serif;
+}
+
+/* Title font. */
+h1, h2, h3, h4, h5, h6,
+div.title, caption.title,
+thead, p.table.header,
+#toctitle,
+#author, #revnumber, #revdate, #revremark,
+#footer {
+  font-family: Arial,Helvetica,sans-serif;
+}
+
+body {
+  margin: 1em 5% 1em 5%;
+}
+
+a {
+  color: blue;
+  text-decoration: underline;
+}
+a:visited {
+  color: fuchsia;
+}
+
+em {
+  font-style: italic;
+  color: navy;
+}
+
+strong {
+  font-weight: bold;
+  color: #083194;
+}
+
+h1, h2, h3, h4, h5, h6 {
+  color: #527bbd;
+  margin-top: 1.2em;
+  margin-bottom: 0.5em;
+  line-height: 1.3;
+}
+
+h1, h2, h3 {
+  border-bottom: 2px solid silver;
+}
+h2 {
+  padding-top: 0.5em;
+}
+h3 {
+  float: left;
+}
+h3 + * {
+  clear: left;
+}
+h5 {
+  font-size: 1.0em;
+}
+
+div.sectionbody {
+  margin-left: 0;
+}
+
+hr {
+  border: 1px solid silver;
+}
+
+p {
+  margin-top: 0.5em;
+  margin-bottom: 0.5em;
+}
+
+ul, ol, li > p {
+  margin-top: 0;
+}
+ul > li     { color: #aaa; }
+ul > li > * { color: black; }
+
+.monospaced, code, pre {
+  font-family: "Courier New", Courier, monospace;
+  font-size: inherit;
+  color: navy;
+  padding: 0;
+  margin: 0;
+}
+
+
+#author {
+  color: #527bbd;
+  font-weight: bold;
+  font-size: 1.1em;
+}
+#email {
+}
+#revnumber, #revdate, #revremark {
+}
+
+#footer {
+  font-size: small;
+  border-top: 2px solid silver;
+  padding-top: 0.5em;
+  margin-top: 4.0em;
+}
+#footer-text {
+  float: left;
+  padding-bottom: 0.5em;
+}
+#footer-badges {
+  float: right;
+  padding-bottom: 0.5em;
+}
+
+#preamble {
+  margin-top: 1.5em;
+  margin-bottom: 1.5em;
+}
+div.imageblock, div.exampleblock, div.verseblock,
+div.quoteblock, div.literalblock, div.listingblock, div.sidebarblock,
+div.admonitionblock {
+  margin-top: 1.0em;
+  margin-bottom: 1.5em;
+}
+div.admonitionblock {
+  margin-top: 2.0em;
+  margin-bottom: 2.0em;
+  margin-right: 10%;
+  color: #606060;
+}
+
+div.content { /* Block element content. */
+  padding: 0;
+}
+
+/* Block element titles. */
+div.title, caption.title {
+  color: #527bbd;
+  font-weight: bold;
+  text-align: left;
+  margin-top: 1.0em;
+  margin-bottom: 0.5em;
+}
+div.title + * {
+  margin-top: 0;
+}
+
+td div.title:first-child {
+  margin-top: 0.0em;
+}
+div.content div.title:first-child {
+  margin-top: 0.0em;
+}
+div.content + div.title {
+  margin-top: 0.0em;
+}
+
+div.sidebarblock > div.content {
+  background: #ffffee;
+  border: 1px solid #dddddd;
+  border-left: 4px solid #f0f0f0;
+  padding: 0.5em;
+}
+
+div.listingblock > div.content {
+  border: 1px solid #dddddd;
+  border-left: 5px solid #f0f0f0;
+  background: #f8f8f8;
+  padding: 0.5em;
+}
+
+div.quoteblock, div.verseblock {
+  padding-left: 1.0em;
+  margin-left: 1.0em;
+  margin-right: 10%;
+  border-left: 5px solid #f0f0f0;
+  color: #888;
+}
+
+div.quoteblock > div.attribution {
+  padding-top: 0.5em;
+  text-align: right;
+}
+
+div.verseblock > pre.content {
+  font-family: inherit;
+  font-size: inherit;
+}
+div.verseblock > div.attribution {
+  padding-top: 0.75em;
+  text-align: left;
+}
+/* DEPRECATED: Pre version 8.2.7 verse style literal block. */
+div.verseblock + div.attribution {
+  text-align: left;
+}
+
+div.admonitionblock .icon {
+  vertical-align: top;
+  font-size: 1.1em;
+  font-weight: bold;
+  text-decoration: underline;
+  color: #527bbd;
+  padding-right: 0.5em;
+}
+div.admonitionblock td.content {
+  padding-left: 0.5em;
+  border-left: 3px solid #dddddd;
+}
+
+div.exampleblock > div.content {
+  border-left: 3px solid #dddddd;
+  padding-left: 0.5em;
+}
+
+div.imageblock div.content { padding-left: 0; }
+span.image img { border-style: none; }
+a.image:visited { color: white; }
+
+dl {
+  margin-top: 0.8em;
+  margin-bottom: 0.8em;
+}
+dt {
+  margin-top: 0.5em;
+  margin-bottom: 0;
+  font-style: normal;
+  color: navy;
+}
+dd > *:first-child {
+  margin-top: 0.1em;
+}
+
+ul, ol {
+    list-style-position: outside;
+}
+ol.arabic {
+  list-style-type: decimal;
+}
+ol.loweralpha {
+  list-style-type: lower-alpha;
+}
+ol.upperalpha {
+  list-style-type: upper-alpha;
+}
+ol.lowerroman {
+  list-style-type: lower-roman;
+}
+ol.upperroman {
+  list-style-type: upper-roman;
+}
+
+div.compact ul, div.compact ol,
+div.compact p, div.compact p,
+div.compact div, div.compact div {
+  margin-top: 0.1em;
+  margin-bottom: 0.1em;
+}
+
+tfoot {
+  font-weight: bold;
+}
+td > div.verse {
+  white-space: pre;
+}
+
+div.hdlist {
+  margin-top: 0.8em;
+  margin-bottom: 0.8em;
+}
+div.hdlist tr {
+  padding-bottom: 15px;
+}
+dt.hdlist1.strong, td.hdlist1.strong {
+  font-weight: bold;
+}
+td.hdlist1 {
+  vertical-align: top;
+  font-style: normal;
+  padding-right: 0.8em;
+  color: navy;
+}
+td.hdlist2 {
+  vertical-align: top;
+}
+div.hdlist.compact tr {
+  margin: 0;
+  padding-bottom: 0;
+}
+
+.comment {
+  background: yellow;
+}
+
+.footnote, .footnoteref {
+  font-size: 0.8em;
+}
+
+span.footnote, span.footnoteref {
+  vertical-align: super;
+}
+
+#footnotes {
+  margin: 20px 0 20px 0;
+  padding: 7px 0 0 0;
+}
+
+#footnotes div.footnote {
+  margin: 0 0 5px 0;
+}
+
+#footnotes hr {
+  border: none;
+  border-top: 1px solid silver;
+  height: 1px;
+  text-align: left;
+  margin-left: 0;
+  width: 20%;
+  min-width: 100px;
+}
+
+div.colist td {
+  padding-right: 0.5em;
+  padding-bottom: 0.3em;
+  vertical-align: top;
+}
+div.colist td img {
+  margin-top: 0.3em;
+}
+
+@media print {
+  #footer-badges { display: none; }
+}
+
+#toc {
+  margin-bottom: 2.5em;
+}
+
+#toctitle {
+  color: #527bbd;
+  font-size: 1.1em;
+  font-weight: bold;
+  margin-top: 1.0em;
+  margin-bottom: 0.1em;
+}
+
+div.toclevel0, div.toclevel1, div.toclevel2, div.toclevel3, div.toclevel4 {
+  margin-top: 0;
+  margin-bottom: 0;
+}
+div.toclevel2 {
+  margin-left: 2em;
+  font-size: 0.9em;
+}
+div.toclevel3 {
+  margin-left: 4em;
+  font-size: 0.9em;
+}
+div.toclevel4 {
+  margin-left: 6em;
+  font-size: 0.9em;
+}
+
+span.aqua { color: aqua; }
+span.black { color: black; }
+span.blue { color: blue; }
+span.fuchsia { color: fuchsia; }
+span.gray { color: gray; }
+span.green { color: green; }
+span.lime { color: lime; }
+span.maroon { color: maroon; }
+span.navy { color: navy; }
+span.olive { color: olive; }
+span.purple { color: purple; }
+span.red { color: red; }
+span.silver { color: silver; }
+span.teal { color: teal; }
+span.white { color: white; }
+span.yellow { color: yellow; }
+
+span.aqua-background { background: aqua; }
+span.black-background { background: black; }
+span.blue-background { background: blue; }
+span.fuchsia-background { background: fuchsia; }
+span.gray-background { background: gray; }
+span.green-background { background: green; }
+span.lime-background { background: lime; }
+span.maroon-background { background: maroon; }
+span.navy-background { background: navy; }
+span.olive-background { background: olive; }
+span.purple-background { background: purple; }
+span.red-background { background: red; }
+span.silver-background { background: silver; }
+span.teal-background { background: teal; }
+span.white-background { background: white; }
+span.yellow-background { background: yellow; }
+
+span.big { font-size: 2em; }
+span.small { font-size: 0.6em; }
+
+span.underline { text-decoration: underline; }
+span.overline { text-decoration: overline; }
+span.line-through { text-decoration: line-through; }
+
+div.unbreakable { page-break-inside: avoid; }
+
+
+/*
+ * xhtml11 specific
+ *
+ * */
+
+div.tableblock {
+  margin-top: 1.0em;
+  margin-bottom: 1.5em;
+}
+div.tableblock > table {
+  border: 3px solid #527bbd;
+}
+thead, p.table.header {
+  font-weight: bold;
+  color: #527bbd;
+}
+p.table {
+  margin-top: 0;
+}
+/* Because the table frame attribute is overriden by CSS in most browsers. */
+div.tableblock > table[frame="void"] {
+  border-style: none;
+}
+div.tableblock > table[frame="hsides"] {
+  border-left-style: none;
+  border-right-style: none;
+}
+div.tableblock > table[frame="vsides"] {
+  border-top-style: none;
+  border-bottom-style: none;
+}
+
+
+/*
+ * html5 specific
+ *
+ * */
+
+table.tableblock {
+  margin-top: 1.0em;
+  margin-bottom: 1.5em;
+}
+thead, p.tableblock.header {
+  font-weight: bold;
+  color: #527bbd;
+}
+p.tableblock {
+  margin-top: 0;
+}
+table.tableblock {
+  border-width: 3px;
+  border-spacing: 0px;
+  border-style: solid;
+  border-color: #527bbd;
+  border-collapse: collapse;
+}
+th.tableblock, td.tableblock {
+  border-width: 1px;
+  padding: 4px;
+  border-style: solid;
+  border-color: #527bbd;
+}
+
+table.tableblock.frame-topbot {
+  border-left-style: hidden;
+  border-right-style: hidden;
+}
+table.tableblock.frame-sides {
+  border-top-style: hidden;
+  border-bottom-style: hidden;
+}
+table.tableblock.frame-none {
+  border-style: hidden;
+}
+
+th.tableblock.halign-left, td.tableblock.halign-left {
+  text-align: left;
+}
+th.tableblock.halign-center, td.tableblock.halign-center {
+  text-align: center;
+}
+th.tableblock.halign-right, td.tableblock.halign-right {
+  text-align: right;
+}
+
+th.tableblock.valign-top, td.tableblock.valign-top {
+  vertical-align: top;
+}
+th.tableblock.valign-middle, td.tableblock.valign-middle {
+  vertical-align: middle;
+}
+th.tableblock.valign-bottom, td.tableblock.valign-bottom {
+  vertical-align: bottom;
+}
+
+
+/*
+ * manpage specific
+ *
+ * */
+
+body.manpage h1 {
+  padding-top: 0.5em;
+  padding-bottom: 0.5em;
+  border-top: 2px solid silver;
+  border-bottom: 2px solid silver;
+}
+body.manpage h2 {
+  border-style: none;
+}
+body.manpage div.sectionbody {
+  margin-left: 3em;
+}
+
+@media print {
+  body.manpage div#toc { display: none; }
+}
+/*
+  pygmentize filter
+*/
+.highlight .hll { background-color: #ffffcc }
+.highlight  { background: #f4f4f4; }
+.highlight .c { color: #008800; font-style: italic } /* Comment */
+.highlight .err { border: 1px solid #FF0000 } /* Error */
+.highlight .k { color: #AA22FF; font-weight: bold } /* Keyword */
+.highlight .o { color: #666666 } /* Operator */
+.highlight .cm { color: #008800; font-style: italic } /* Comment.Multiline */
+.highlight .cp { color: #008800 } /* Comment.Preproc */
+.highlight .c1 { color: #008800; font-style: italic } /* Comment.Single */
+.highlight .cs { color: #008800; font-weight: bold } /* Comment.Special */
+.highlight .gd { color: #A00000 } /* Generic.Deleted */
+.highlight .ge { font-style: italic } /* Generic.Emph */
+.highlight .gr { color: #FF0000 } /* Generic.Error */
+.highlight .gh { color: #000080; font-weight: bold } /* Generic.Heading */
+.highlight .gi { color: #00A000 } /* Generic.Inserted */
+.highlight .go { color: #808080 } /* Generic.Output */
+.highlight .gp { color: #000080; font-weight: bold } /* Generic.Prompt */
+.highlight .gs { font-weight: bold } /* Generic.Strong */
+.highlight .gu { color: #800080; font-weight: bold } /* Generic.Subheading */
+.highlight .gt { color: #0040D0 } /* Generic.Traceback */
+.highlight .kc { color: #AA22FF; font-weight: bold } /* Keyword.Constant */
+.highlight .kd { color: #AA22FF; font-weight: bold } /* Keyword.Declaration */
+.highlight .kn { color: #AA22FF; font-weight: bold } /* Keyword.Namespace */
+.highlight .kp { color: #AA22FF } /* Keyword.Pseudo */
+.highlight .kr { color: #AA22FF; font-weight: bold } /* Keyword.Reserved */
+.highlight .kt { color: #00BB00; font-weight: bold } /* Keyword.Type */
+.highlight .m { color: #666666 } /* Literal.Number */
+.highlight .s { color: #BB4444 } /* Literal.String */
+.highlight .na { color: #BB4444 } /* Name.Attribute */
+.highlight .nb { color: #AA22FF } /* Name.Builtin */
+.highlight .nc { color: #0000FF } /* Name.Class */
+.highlight .no { color: #880000 } /* Name.Constant */
+.highlight .nd { color: #AA22FF } /* Name.Decorator */
+.highlight .ni { color: #999999; font-weight: bold } /* Name.Entity */
+.highlight .ne { color: #D2413A; font-weight: bold } /* Name.Exception */
+.highlight .nf { color: #00A000 } /* Name.Function */
+.highlight .nl { color: #A0A000 } /* Name.Label */
+.highlight .nn { color: #0000FF; font-weight: bold } /* Name.Namespace */
+.highlight .nt { color: #008000; font-weight: bold } /* Name.Tag */
+.highlight .nv { color: #B8860B } /* Name.Variable */
+.highlight .ow { color: #AA22FF; font-weight: bold } /* Operator.Word */
+.highlight .w { color: #bbbbbb } /* Text.Whitespace */
+.highlight .mf { color: #666666 } /* Literal.Number.Float */
+.highlight .mh { color: #666666 } /* Literal.Number.Hex */
+.highlight .mi { color: #666666 } /* Literal.Number.Integer */
+.highlight .mo { color: #666666 } /* Literal.Number.Oct */
+.highlight .sb { color: #BB4444 } /* Literal.String.Backtick */
+.highlight .sc { color: #BB4444 } /* Literal.String.Char */
+.highlight .sd { color: #BB4444; font-style: italic } /* Literal.String.Doc */
+.highlight .s2 { color: #BB4444 } /* Literal.String.Double */
+.highlight .se { color: #BB6622; font-weight: bold } /* Literal.String.Escape */
+.highlight .sh { color: #BB4444 } /* Literal.String.Heredoc */
+.highlight .si { color: #BB6688; font-weight: bold } /* Literal.String.Interpol */
+.highlight .sx { color: #008000 } /* Literal.String.Other */
+.highlight .sr { color: #BB6688 } /* Literal.String.Regex */
+.highlight .s1 { color: #BB4444 } /* Literal.String.Single */
+.highlight .ss { color: #B8860B } /* Literal.String.Symbol */
+.highlight .bp { color: #AA22FF } /* Name.Builtin.Pseudo */
+.highlight .vc { color: #B8860B } /* Name.Variable.Class */
+.highlight .vg { color: #B8860B } /* Name.Variable.Global */
+.highlight .vi { color: #B8860B } /* Name.Variable.Instance */
+.highlight .il { color: #666666 } /* Literal.Number.Integer.Long */
+
+
+
+</style>
+<script type="text/javascript">
+/*<![CDATA[*/
+var asciidoc = {  // Namespace.
+
+/////////////////////////////////////////////////////////////////////
+// Table Of Contents generator
+/////////////////////////////////////////////////////////////////////
+
+/* Author: Mihai Bazon, September 2002
+ * http://students.infoiasi.ro/~mishoo
+ *
+ * Table Of Content generator
+ * Version: 0.4
+ *
+ * Feel free to use this script under the terms of the GNU General Public
+ * License, as long as you do not remove or alter this notice.
+ */
+
+ /* modified by Troy D. Hanson, September 2006. License: GPL */
+ /* modified by Stuart Rackham, 2006, 2009. License: GPL */
+
+// toclevels = 1..4.
+toc: function (toclevels) {
+
+  function getText(el) {
+    var text = "";
+    for (var i = el.firstChild; i != null; i = i.nextSibling) {
+      if (i.nodeType == 3 /* Node.TEXT_NODE */) // IE doesn't speak constants.
+        text += i.data;
+      else if (i.firstChild != null)
+        text += getText(i);
+    }
+    return text;
+  }
+
+  function TocEntry(el, text, toclevel) {
+    this.element = el;
+    this.text = text;
+    this.toclevel = toclevel;
+  }
+
+  function tocEntries(el, toclevels) {
+    var result = new Array;
+    var re = new RegExp('[hH]([1-'+(toclevels+1)+'])');
+    // Function that scans the DOM tree for header elements (the DOM2
+    // nodeIterator API would be a better technique but not supported by all
+    // browsers).
+    var iterate = function (el) {
+      for (var i = el.firstChild; i != null; i = i.nextSibling) {
+        if (i.nodeType == 1 /* Node.ELEMENT_NODE */) {
+          var mo = re.exec(i.tagName);
+          if (mo && (i.getAttribute("class") || i.getAttribute("className")) != "float") {
+            result[result.length] = new TocEntry(i, getText(i), mo[1]-1);
+          }
+          iterate(i);
+        }
+      }
+    }
+    iterate(el);
+    return result;
+  }
+
+  var toc = document.getElementById("toc");
+  if (!toc) {
+    return;
+  }
+
+  // Delete existing TOC entries in case we're reloading the TOC.
+  var tocEntriesToRemove = [];
+  var i;
+  for (i = 0; i < toc.childNodes.length; i++) {
+    var entry = toc.childNodes[i];
+    if (entry.nodeName.toLowerCase() == 'div'
+     && entry.getAttribute("class")
+     && entry.getAttribute("class").match(/^toclevel/))
+      tocEntriesToRemove.push(entry);
+  }
+  for (i = 0; i < tocEntriesToRemove.length; i++) {
+    toc.removeChild(tocEntriesToRemove[i]);
+  }
+
+  // Rebuild TOC entries.
+  var entries = tocEntries(document.getElementById("content"), toclevels);
+  for (var i = 0; i < entries.length; ++i) {
+    var entry = entries[i];
+    if (entry.element.id == "")
+      entry.element.id = "_toc_" + i;
+    var a = document.createElement("a");
+    a.href = "#" + entry.element.id;
+    a.appendChild(document.createTextNode(entry.text));
+    var div = document.createElement("div");
+    div.appendChild(a);
+    div.className = "toclevel" + entry.toclevel;
+    toc.appendChild(div);
+  }
+  if (entries.length == 0)
+    toc.parentNode.removeChild(toc);
+},
+
+
+/////////////////////////////////////////////////////////////////////
+// Footnotes generator
+/////////////////////////////////////////////////////////////////////
+
+/* Based on footnote generation code from:
+ * http://www.brandspankingnew.net/archive/2005/07/format_footnote.html
+ */
+
+footnotes: function () {
+  // Delete existing footnote entries in case we're reloading the footnodes.
+  var i;
+  var noteholder = document.getElementById("footnotes");
+  if (!noteholder) {
+    return;
+  }
+  var entriesToRemove = [];
+  for (i = 0; i < noteholder.childNodes.length; i++) {
+    var entry = noteholder.childNodes[i];
+    if (entry.nodeName.toLowerCase() == 'div' && entry.getAttribute("class") == "footnote")
+      entriesToRemove.push(entry);
+  }
+  for (i = 0; i < entriesToRemove.length; i++) {
+    noteholder.removeChild(entriesToRemove[i]);
+  }
+
+  // Rebuild footnote entries.
+  var cont = document.getElementById("content");
+  var spans = cont.getElementsByTagName("span");
+  var refs = {};
+  var n = 0;
+  for (i=0; i<spans.length; i++) {
+    if (spans[i].className == "footnote") {
+      n++;
+      var note = spans[i].getAttribute("data-note");
+      if (!note) {
+        // Use [\s\S] in place of . so multi-line matches work.
+        // Because JavaScript has no s (dotall) regex flag.
+        note = spans[i].innerHTML.match(/\s*\[([\s\S]*)]\s*/)[1];
+        spans[i].innerHTML =
+          "[<a id='_footnoteref_" + n + "' href='#_footnote_" + n +
+          "' title='View footnote' class='footnote'>" + n + "</a>]";
+        spans[i].setAttribute("data-note", note);
+      }
+      noteholder.innerHTML +=
+        "<div class='footnote' id='_footnote_" + n + "'>" +
+        "<a href='#_footnoteref_" + n + "' title='Return to text'>" +
+        n + "</a>. " + note + "</div>";
+      var id =spans[i].getAttribute("id");
+      if (id != null) refs["#"+id] = n;
+    }
+  }
+  if (n == 0)
+    noteholder.parentNode.removeChild(noteholder);
+  else {
+    // Process footnoterefs.
+    for (i=0; i<spans.length; i++) {
+      if (spans[i].className == "footnoteref") {
+        var href = spans[i].getElementsByTagName("a")[0].getAttribute("href");
+        href = href.match(/#.*/)[0];  // Because IE return full URL.
+        n = refs[href];
+        spans[i].innerHTML =
+          "[<a href='#_footnote_" + n +
+          "' title='View footnote' class='footnote'>" + n + "</a>]";
+      }
+    }
+  }
+},
+
+install: function(toclevels) {
+  var timerId;
+
+  function reinstall() {
+    asciidoc.footnotes();
+    if (toclevels) {
+      asciidoc.toc(toclevels);
+    }
+  }
+
+  function reinstallAndRemoveTimer() {
+    clearInterval(timerId);
+    reinstall();
+  }
+
+  timerId = setInterval(reinstall, 500);
+  if (document.addEventListener)
+    document.addEventListener("DOMContentLoaded", reinstallAndRemoveTimer, false);
+  else
+    window.onload = reinstallAndRemoveTimer;
+}
+
+}
+asciidoc.install(2);
+/*]]>*/
+</script>
+</head>
+<body class="article">
+<div id="header">
+<h1>Week 9</h1>
+<span id="author">Andrew Sellergren</span><br />
+<div id="toc">
+  <div id="toctitle">Table of Contents</div>
+  <noscript><p><b>JavaScript must be enabled in your browser to display the table of contents.</b></p></noscript>
+</div>
+</div>
+<div id="content">
+<div class="sect1">
+<h2 id="_announcements_and_demos">Announcements and Demos</h2>
+<div class="sectionbody">
+<div class="ulist"><ul>
+<li>
+<p>
+This week we start our foray into web programming!  The fundamentals and concepts from the first 9 weeks of the course will still play a role in how you program, but you&#8217;ll find that tasks are an order of magnitude easier to accomplish now.
+</p>
+</li>
+<li>
+<p>
+After taking a course like CS50, you may start noticing mistakes in a show like <a href="http://www.youtube.com/watch?v=5ceaqtWhdnI">Numb3rs</a>.  First, IP addresses (at least v4 addresses), are of the form w.x.y.z, where w, x, y, and z are all numbers between 0 and 255.  Second, the language of the code you see in Charlie&#8217;s browser window is Objective C and appears to be manipulating a variable named <code>crayon</code>, which has nothing to do with what Amita was ostensibly programming.
+</p>
+</li>
+</ul></div>
+</div>
+</div>
+<div class="sect1">
+<h2 id="_from_last_time">From Last Time</h2>
+<div class="sectionbody">
+<div class="ulist"><ul>
+<li>
+<p>
+Every computer on the internet has a (more or less) unique IP address.  An IP address can be used for good in order to send and receive information.  An IP address can also be used for evil if an adversary wants to track a particular computer.
+</p>
+</li>
+<li>
+<p>
+When you log onto a website, your browser (the client) is communicating with another computer on the internet (the server) via HTTP.  HTTP is just one of many services like FTP and SMTP which sit on top of the internet.  A single computer can support multiple different services on different ports.
+</p>
+</li>
+<li>
+<p>
+HTTP responses are tagged with a status code like one of the following:
+</p>
+<div class="ulist"><ul>
+<li>
+<p>
+200 - OK
+</p>
+</li>
+<li>
+<p>
+301 - Moved Permanently
+</p>
+</li>
+<li>
+<p>
+302 - Found
+</p>
+</li>
+<li>
+<p>
+401 - Unauthorized
+</p>
+</li>
+<li>
+<p>
+403 - Forbidden
+</p>
+</li>
+<li>
+<p>
+404 - Not Found
+</p>
+</li>
+<li>
+<p>
+500 - Internal Server Error
+</p>
+</li>
+</ul></div>
+</li>
+<li>
+<p>
+You&#8217;re probably familiar with 404, which you&#8217;ll see if a file has been deleted from a web server or if you&#8217;ve mistyped a URL.  You can think of 500 as the analog of a segmentation fault: it means something really bad happened!
+</p>
+</li>
+</ul></div>
+</div>
+</div>
+<div class="sect1">
+<h2 id="_web_debugging_tools">Web Debugging Tools</h2>
+<div class="sectionbody">
+<div class="ulist"><ul>
+<li>
+<p>
+Browsers these days have very powerful tools for debugging.  In Chrome, there&#8217;s Developer Tools, in IE, there&#8217;s Developer Toolbar, and in Firefox, there&#8217;s Firebug.  Chrome is installed by default on the Appliance, so we&#8217;ll take a peek at Developer Tools.
+</p>
+</li>
+<li>
+<p>
+If you right click on any part of a web page and select Inspect Element, the Developer Tools pane will be opened at the bottom.  The Elements tab provides a much more readable and organized version of the HTML of the web page.  The Network tab allows you to poke around the HTTP requests that your browser executes.  If we navigate to facebook.com, we&#8217;ll see that the first such HTTP request is met with a 301 response code.  We can also see the <code>GET / HTTP/1.1</code> request that we sent if we click on view source next to Request Headers.
+</p>
+</li>
+<li>
+<p>
+Why is Facebook responding with a "Moved Permanently" status?  We didn&#8217;t type www before facebook.com, so Facebook is adding it for us.  They might be doing this for technical or even branding reasons.
+</p>
+</li>
+<li>
+<p>
+But the second HTTP request is also met with a 301 response code!  This time we&#8217;re being redirected to the HTTPS version of the site.
+</p>
+</li>
+<li>
+<p>
+When our request is finally answered with some content, it&#8217;s a lot more than just one page of HTML.  There are a number of scripts, stylesheets, and images that are received as well.  This makes sense since web pages consist of more than just HTML.
+</p>
+</li>
+</ul></div>
+</div>
+</div>
+<div class="sect1">
+<h2 id="_intro_to_html_and_php">Intro to HTML and PHP</h2>
+<div class="sectionbody">
+<div class="sect2">
+<h3 id="_html">HTML</h3>
+<div class="ulist"><ul>
+<li>
+<p>
+HTML stands for hypertext markup language. The word "markup" implies that it&#8217;s not a programming language, per se. For the most part you can&#8217;t (and shouldn&#8217;t) express logic in HTML. Rather, HTML allows you to tell the browser how to render a web page using start and end tags.
+</p>
+</li>
+<li>
+<p>
+A very simple web page we looked at last time was as follows:
+</p>
+<div class="listingblock">
+<div class="content"><div class="highlight"><pre><span class="cp">&lt;!DOCTYPE html&gt;</span>
+
+<span class="nt">&lt;html&gt;</span>
+    <span class="nt">&lt;head&gt;</span>
+        <span class="nt">&lt;title&gt;</span>hello, world<span class="nt">&lt;/title&gt;</span>
+    <span class="nt">&lt;/head&gt;</span>
+    <span class="nt">&lt;body&gt;</span>
+        hello, world
+    <span class="nt">&lt;/body&gt;</span>
+<span class="nt">&lt;/html&gt;</span>
+</pre></div></div></div>
+</li>
+<li>
+<p>
+The first line is the doctype declaration which tells the browser "here comes some HTML." Everything after that is enclosed in the <code>&lt;html&gt;</code> tag. This tag has two children, <code>&lt;head&gt;</code> and <code>&lt;body&gt;</code>.  Each of these children, which begin with an open tag and end with a close tag, we&#8217;ll call HTML <em>elements</em>.  Given that certain elements are children of each other, we can use a tree structure to represent the HTML of a web page:
+</p>
+<div class="imageblock">
+<div class="content">
+<img src="tree.png" alt="A tree structure representing HTML." />
+</div>
+</div>
+</li>
+</ul></div>
+</div>
+<div class="sect2">
+<h3 id="_php">PHP</h3>
+<div class="ulist"><ul>
+<li>
+<p>
+As with other languages, let&#8217;s start by writing a "hello, world" program in PHP:
+</p>
+<div class="listingblock">
+<div class="content"><div class="highlight"><pre><span class="x">printf(&quot;hello, world\n&quot;);</span>
+</pre></div></div></div>
+</li>
+<li>
+<p>
+PHP is an <em>interpreted</em> language, so there&#8217;s no compiler.  To run this program, we pass it to the PHP interpreter, which is conveniently named <code>php</code>.  When we do so, we just get our line of code printed out to the screen.  What went wrong?  PHP has tags (<code>&lt;?php</code> and <code>?&gt;</code>) which tell the interpreter where code begins and ends.  Without them, our lines of code are interpreted as raw HTML that should be passed over.  Let&#8217;s add them in:
+</p>
+<div class="listingblock">
+<div class="content"><div class="highlight"><pre><span class="cp">&lt;?php</span>
+
+    <span class="nb">printf</span><span class="p">(</span><span class="s2">&quot;hello, world</span><span class="se">\n</span><span class="s2">&quot;</span><span class="p">);</span>
+
+<span class="cp">?&gt;</span><span class="x"></span>
+</pre></div></div></div>
+</li>
+<li>
+<p>
+If you run the command <code>ls</code> in your home directory on the Appliance, you&#8217;ll see a directory called <code>vhosts</code>. You can actually run multiple websites on a single web server using this concept of <em>virtual hosts</em>. When a browser sends a request to that web server, it will include in that request the domain name that it wants a response from. Within the <code>vhosts</code> folder, there&#8217;s a single folder named <code>localhost</code>. On another web server, there might be multiple folders here, one for each website that the server hosts. Within the <code>localhost</code> folder is a <code>public</code> folder where we can store our HTML source code.  The Appliance has been configured such that <a href="http://localhost">http://localhost</a> maps to this directory.
+</p>
+</li>
+<li>
+<p>
+If we navigate to <a href="http://localhost/index.html">http://localhost/index.html</a> on Chrome in our Appliance, we get a 403 Forbidden error.  Sad trombone.  We can diagnose the problem by typing <code>ls -l</code> in our <code>public</code> directory:
+</p>
+<div class="listingblock">
+<div class="content">
+<pre><code>-rw------- 1 jharvard students 135 Nov  4 13:29 index.html</code></pre>
+</div></div>
+</li>
+<li>
+<p>
+The <code>rw</code> on the far left stands for "read or write."  The fact that there is only one such <code>rw</code> means that only the owner of this file can read it.  We want everyone to be able to read it, so we run the command <code>chmod a+r index.html</code>.  Now when we reload the page in our browser, we see "hello, world."
+</p>
+</li>
+</ul></div>
+</div>
+<div class="sect2">
+<h3 id="_more_html">More HTML</h3>
+<div class="ulist"><ul>
+<li>
+<p>
+What&#8217;s our favorite thing to do on a web page?  Click on links of course!  To add a link, we use the <code>&lt;a&gt;</code> tag:
+</p>
+<div class="listingblock">
+<div class="content"><div class="highlight"><pre><span class="cp">&lt;!DOCTYPE html&gt;</span>
+
+<span class="nt">&lt;html&gt;</span>
+    <span class="nt">&lt;head&gt;</span>
+        <span class="nt">&lt;title&gt;</span>hello, world<span class="nt">&lt;/title&gt;</span>
+    <span class="nt">&lt;/head&gt;</span>
+    <span class="nt">&lt;body&gt;</span>
+        hello, <span class="nt">&lt;a</span> <span class="na">href=</span><span class="s">&quot;https://www.cs50.net/&quot;</span><span class="nt">&gt;</span>CS50<span class="nt">&lt;/a&gt;</span>.
+    <span class="nt">&lt;/body&gt;</span>
+<span class="nt">&lt;/html&gt;</span>
+</pre></div></div></div>
+</li>
+<li>
+<p>
+<code>href</code> is an <em>attribute</em> of the <code>&lt;a&gt;</code> tag.  In this case, it contains the URL that we want to link to.  What goes inside the element is the text we want the link to show: "CS50."
+</p>
+</li>
+<li>
+<p>
+Consider the security implications of this.  If we change the <code>href</code> attribute to be <a href="https://www.fakecs50.net/">https://www.fakecs50.net/</a>, the text will still show CS50.  This is misleading and potentially harmful to the user if the site he or she ends up on is malicious.  We call this a <em>phishing attack</em>.  Don&#8217;t fall for it!
+</p>
+</li>
+<li>
+<p>
+Another useful tag is the <code>&lt;div&gt;</code> tag, which doesn&#8217;t have any aesthetics, but allows us to organize the structure of our HTML.  If we want to add aesthetics as well, we can use the <code>style</code> attribute like so:
+</p>
+<div class="listingblock">
+<div class="content"><div class="highlight"><pre><span class="cp">&lt;!DOCTYPE html&gt;</span>
+
+<span class="nt">&lt;html&gt;</span>
+    <span class="nt">&lt;head&gt;</span>
+        <span class="nt">&lt;title&gt;</span>hello, world<span class="nt">&lt;/title&gt;</span>
+    <span class="nt">&lt;/head&gt;</span>
+    <span class="nt">&lt;body&gt;</span>
+        <span class="nt">&lt;div</span> <span class="na">style=</span><span class="s">&quot;background-color: red;&quot;</span><span class="nt">&gt;</span>
+            Top of Page
+        <span class="nt">&lt;/div&gt;</span>
+        <span class="nt">&lt;div&gt;</span>
+            Bottom of Page
+        <span class="nt">&lt;/div&gt;</span>
+    <span class="nt">&lt;/body&gt;</span>
+<span class="nt">&lt;/html&gt;</span>
+</pre></div></div></div>
+</li>
+<li>
+<p>
+The value of this <code>style</code> attribute is a language known as CSS, or cascading stylesheets.  It specifies properties and their values to control what the page looks like.  Instead of the English word "red," we can even specify a hexadecimal RGB value like <code>ff0000</code> for <code>background-color</code> and achieve the same effect.
+</p>
+</li>
+<li>
+<p>
+As you can see, it&#8217;s very easy to make very hideous web pages.  To see all the attributes of a given tag and all the different CSS properties, consult an online reference like <a href="http://www.w3schools.com/tags/">W3Schools</a>.
+</p>
+</li>
+<li>
+<p>
+Better than embedding CSS within our tags is factoring it out into a separate <code>&lt;style&gt;</code> tag at the top of our page:
+</p>
+<div class="listingblock">
+<div class="content"><div class="highlight"><pre><span class="cp">&lt;!DOCTYPE html&gt;</span>
+
+<span class="nt">&lt;html&gt;</span>
+    <span class="nt">&lt;head&gt;</span>
+        <span class="nt">&lt;style&gt;</span>
+            <span class="nf">#top</span>
+            <span class="p">{</span>
+                <span class="k">background-color</span><span class="o">:</span> <span class="m">#ff0000</span><span class="p">;</span>
+            <span class="p">}</span>
+            <span class="nf">#bottom</span>
+            <span class="p">{</span>
+                <span class="k">background-color</span><span class="o">:</span> <span class="m">#abcdef</span><span class="p">;</span>
+                <span class="k">font-size</span><span class="o">:</span> <span class="m">24pt</span><span class="p">;</span>
+            <span class="p">}</span>
+        <span class="nt">&lt;/style&gt;</span>
+        <span class="nt">&lt;title&gt;</span>hello, world<span class="nt">&lt;/title&gt;</span>
+    <span class="nt">&lt;/head&gt;</span>
+    <span class="nt">&lt;body&gt;</span>
+        <span class="nt">&lt;div</span> <span class="na">id=</span><span class="s">&quot;top&quot;</span><span class="nt">&gt;</span>
+            Top of Page
+        <span class="nt">&lt;/div&gt;</span>
+        <span class="nt">&lt;div</span> <span class="na">id=</span><span class="s">&quot;bottom&quot;</span><span class="nt">&gt;</span>
+            Bottom of Page
+        <span class="nt">&lt;/div&gt;</span>
+    <span class="nt">&lt;/body&gt;</span>
+<span class="nt">&lt;/html&gt;</span>
+</pre></div></div></div>
+</li>
+<li>
+<p>
+Note that we can specify CSS properties that apply only to a single <code>&lt;div&gt;</code> by assigning it an <code>id</code> attribute that we reference within the <code>style</code> tag.
+</p>
+</li>
+<li>
+<p>
+Separating out CSS into a single <code>style</code> element is good practice because it is easier to reuse.  In fact, we can (and should) even separate out CSS into a separate file altogether:
+</p>
+<div class="listingblock">
+<div class="content"><div class="highlight"><pre><span class="cp">&lt;!DOCTYPE html&gt;</span>
+
+<span class="nt">&lt;html&gt;</span>
+    <span class="nt">&lt;head&gt;</span>
+        <span class="nt">&lt;link</span> <span class="na">href=</span><span class="s">&quot;styles.css&quot;</span> <span class="na">rel=</span><span class="s">&quot;stylesheet&quot;</span><span class="nt">/&gt;</span>
+        <span class="nt">&lt;title&gt;</span>hello, world<span class="nt">&lt;/title&gt;</span>
+    <span class="nt">&lt;/head&gt;</span>
+    <span class="nt">&lt;body&gt;</span>
+        <span class="nt">&lt;div</span> <span class="na">id=</span><span class="s">&quot;top&quot;</span><span class="nt">&gt;</span>
+            Top of Page
+        <span class="nt">&lt;/div&gt;</span>
+        <span class="nt">&lt;div</span> <span class="na">id=</span><span class="s">&quot;bottom&quot;</span><span class="nt">&gt;</span>
+            Bottom of Page
+        <span class="nt">&lt;/div&gt;</span>
+    <span class="nt">&lt;/body&gt;</span>
+<span class="nt">&lt;/html&gt;</span>
+</pre></div></div></div>
+</li>
+<li>
+<p>
+The <code>&lt;link&gt;</code> tag is an example of an empty tag in that there is no need for a separate close tag.  <code>styles.css</code> must be in the same folder as <code>index.html</code>, unless we specify the full or relative path, and it must be world-readable.
+</p>
+</li>
+</ul></div>
+</div>
+<div class="sect2">
+<h3 id="_implementing_google">Implementing Google</h3>
+<div class="ulist"><ul>
+<li>
+<p>
+When you search for something on Google, the URL changes from google.com to something with a lot of information after the <code>/</code>.  This information is actually a series of parameters that Google uses to create its search results for you.  One such parameter is your search query.  If you navigate to <a href="http://www.google.com/search?q=cats">http://www.google.com/search?q=cats</a>, you&#8217;ll notice that the search term "cats" is already filled in for you.  <code>q</code> is a key meaning "query" and its value, "cats," is specified after the <code>=</code>.
+</p>
+</li>
+<li>
+<p>
+Let&#8217;s implement Google!  First, we need an input box for a user&#8217;s query:
+</p>
+<div class="listingblock">
+<div class="content"><div class="highlight"><pre><span class="cp">&lt;!DOCTYPE html&gt;</span>
+
+<span class="nt">&lt;html&gt;</span>
+    <span class="nt">&lt;head&gt;</span>
+        <span class="nt">&lt;title&gt;</span>CS50 Search<span class="nt">&lt;/title&gt;</span>
+    <span class="nt">&lt;/head&gt;</span>
+    <span class="nt">&lt;body&gt;</span>
+        <span class="nt">&lt;h1&gt;</span>CS50 Search<span class="nt">&lt;/h1&gt;</span>
+        <span class="nt">&lt;form&gt;</span>
+            <span class="nt">&lt;input</span> <span class="na">type=</span><span class="s">&quot;text&quot;</span><span class="nt">/&gt;</span>
+            <span class="nt">&lt;input</span> <span class="na">type=</span><span class="s">&quot;submit&quot;</span><span class="nt">/&gt;</span>
+        <span class="nt">&lt;/form&gt;</span>
+    <span class="nt">&lt;/body&gt;</span>
+<span class="nt">&lt;/html&gt;</span>
+</pre></div></div></div>
+</li>
+<li>
+<p>
+With this <code>&lt;form&gt;</code> tag and a few <code>&lt;input&gt;</code> tags, we have a very simple search engine&#8230;that doesn&#8217;t do anything.  We need to specify an <code>action</code> for the <code>&lt;form&gt;</code> tag:
+</p>
+<div class="listingblock">
+<div class="content"><div class="highlight"><pre><span class="cp">&lt;!DOCTYPE html&gt;</span>
+
+<span class="nt">&lt;html&gt;</span>
+    <span class="nt">&lt;head&gt;</span>
+        <span class="nt">&lt;title&gt;</span>CS50 Search<span class="nt">&lt;/title&gt;</span>
+    <span class="nt">&lt;/head&gt;</span>
+    <span class="nt">&lt;body&gt;</span>
+        <span class="nt">&lt;h1&gt;</span>CS50 Search<span class="nt">&lt;/h1&gt;</span>
+        <span class="nt">&lt;form</span> <span class="na">action=</span><span class="s">&quot;https://www.google.com/search&quot;</span> <span class="na">method=</span><span class="s">&quot;get&quot;</span><span class="nt">&gt;</span>
+            <span class="nt">&lt;input</span> <span class="na">name=</span><span class="s">&quot;q&quot;</span> <span class="na">type=</span><span class="s">&quot;text&quot;</span><span class="nt">/&gt;</span>
+            <span class="nt">&lt;br/&gt;</span>
+            <span class="nt">&lt;input</span> <span class="na">type=</span><span class="s">&quot;submit&quot;</span> <span class="na">value=</span><span class="s">&quot;CS50 Search&quot;</span><span class="nt">/&gt;</span>
+        <span class="nt">&lt;/form&gt;</span>
+    <span class="nt">&lt;/body&gt;</span>
+<span class="nt">&lt;/html&gt;</span>
+</pre></div></div></div>
+</li>
+<li>
+<p>
+Now we&#8217;re telling the form to submit its information directly to Google using the GET method.  There are two methods for submitting form information, GET and POST.  For now, just know that GET means the information is appended to the URL.
+</p>
+</li>
+<li>
+<p>
+We&#8217;ve also added a <code>name</code> attribute to the text input to match the URL parameter we saw that Google was using.  We changed the text that the submit button displays to "CS50 Search" using its <code>value</code> attribute.  Finally, we added a line break using the <code>&lt;br/&gt;</code> tag between the two inputs.
+</p>
+</li>
+<li>
+<p>
+When we type "cats" and click "CS50 Search," we end up on <a href="http://www.google.com/search?q=cats">http://www.google.com/search?q=cats</a>!  We&#8217;ve implemented Google!
+</p>
+</li>
+</ul></div>
+</div>
+</div>
+</div>
+<div class="sect1">
+<h2 id="_frosh_ims">Frosh IMs</h2>
+<div class="sectionbody">
+<div class="sect2">
+<h3 id="_code_froshims0_php_code"><code>froshims0.php</code></h3>
+<div class="ulist"><ul>
+<li>
+<p>
+Back at the turn of the 19th century when David was a freshman at Harvard, the process of registering for intramural sports was painfully manual. You had to fill out a paper form and actually drop it off at the dorm room of the proctor in charge. David decided to change all that by implementing an online registration form. Although his original implementation was in Perl, we can recreate it in HTML and PHP:
+</p>
+<div class="listingblock">
+<div class="content"><div class="highlight"><pre><span class="cp">&lt;?php</span>
+
+    <span class="sd">/**</span>
+<span class="sd">     * froshims-0.php</span>
+<span class="sd">     *</span>
+<span class="sd">     * David J. Malan</span>
+<span class="sd">     * malan@harvard.edu</span>
+<span class="sd">     *</span>
+<span class="sd">     * Implements a registration form for Frosh IMs.</span>
+<span class="sd">     * Submits to register-0.php.</span>
+<span class="sd">     */</span>
+
+<span class="cp">?&gt;</span><span class="x"></span>
+
+<span class="x">&lt;!DOCTYPE html&gt;</span>
+
+<span class="x">&lt;html&gt;</span>
+<span class="x">    &lt;head&gt;</span>
+<span class="x">        &lt;title&gt;Frosh IMs&lt;/title&gt;</span>
+<span class="x">    &lt;/head&gt;</span>
+<span class="x">    &lt;body style=&quot;text-align: center;&quot;&gt;</span>
+<span class="x">        &lt;h1&gt;Register for Frosh IMs&lt;/h1&gt;</span>
+<span class="x">        &lt;form action=&quot;register-0.php&quot; method=&quot;post&quot;&gt;</span>
+<span class="x">            Name: &lt;input name=&quot;name&quot; type=&quot;text&quot;/&gt;</span>
+<span class="x">            &lt;br/&gt;</span>
+<span class="x">            &lt;input name=&quot;captain&quot; type=&quot;checkbox&quot;/&gt; Captain?</span>
+<span class="x">            &lt;br/&gt;</span>
+<span class="x">            &lt;input name=&quot;gender&quot; type=&quot;radio&quot; value=&quot;F&quot;/&gt; Female</span>
+<span class="x">            &lt;input name=&quot;gender&quot; type=&quot;radio&quot; value=&quot;M&quot;/&gt; Male</span>
+<span class="x">            &lt;br/&gt;</span>
+<span class="x">            Dorm:</span>
+<span class="x">            &lt;select name=&quot;dorm&quot;&gt;</span>
+<span class="x">                &lt;option value=&quot;&quot;&gt;&lt;/option&gt;</span>
+<span class="x">                &lt;option value=&quot;Apley Court&quot;&gt;Apley Court&lt;/option&gt;</span>
+<span class="x">                &lt;option value=&quot;Canaday&quot;&gt;Canaday&lt;/option&gt;</span>
+<span class="x">                &lt;option value=&quot;Grays&quot;&gt;Grays&lt;/option&gt;</span>
+<span class="x">                &lt;option value=&quot;Greenough&quot;&gt;Greenough&lt;/option&gt;</span>
+<span class="x">                &lt;option value=&quot;Hollis&quot;&gt;Hollis&lt;/option&gt;</span>
+<span class="x">                &lt;option value=&quot;Holworthy&quot;&gt;Holworthy&lt;/option&gt;</span>
+<span class="x">                &lt;option value=&quot;Hurlbut&quot;&gt;Hurlbut&lt;/option&gt;</span>
+<span class="x">                &lt;option value=&quot;Lionel&quot;&gt;Lionel&lt;/option&gt;</span>
+<span class="x">                &lt;option value=&quot;Matthews&quot;&gt;Matthews&lt;/option&gt;</span>
+<span class="x">                &lt;option value=&quot;Mower&quot;&gt;Mower&lt;/option&gt;</span>
+<span class="x">                &lt;option value=&quot;Pennypacker&quot;&gt;Pennypacker&lt;/option&gt;</span>
+<span class="x">                &lt;option value=&quot;Stoughton&quot;&gt;Stoughton&lt;/option&gt;</span>
+<span class="x">                &lt;option value=&quot;Straus&quot;&gt;Straus&lt;/option&gt;</span>
+<span class="x">                &lt;option value=&quot;Thayer&quot;&gt;Thayer&lt;/option&gt;</span>
+<span class="x">                &lt;option value=&quot;Weld&quot;&gt;Weld&lt;/option&gt;</span>
+<span class="x">                &lt;option value=&quot;Wigglesworth&quot;&gt;Wigglesworth&lt;/option&gt;</span>
+<span class="x">            &lt;/select&gt;</span>
+<span class="x">            &lt;br/&gt;</span>
+<span class="x">            &lt;input type=&quot;submit&quot; value=&quot;Register&quot;/&gt;</span>
+<span class="x">        &lt;/form&gt;</span>
+<span class="x">    &lt;/body&gt;</span>
+<span class="x">&lt;/html&gt;</span>
+</pre></div></div></div>
+</li>
+<li>
+<p>
+As before, we have <code>&lt;head&gt;</code> and <code>&lt;body&gt;</code> tags. Within the <code>&lt;body&gt;</code>, there&#8217;s a <code>&lt;form&gt;</code> whose <code>action</code> attribute is <code>register0.php</code>. We see <code>&lt;input&gt;</code> tags with <code>type</code> set to "text," "checkbox," and "radio." Text and checkbox should be self-explanatory, but radio refers to the bulleted buttons for which the user can only choose 1 option.  To create a dropdown menu, we use the <code>&lt;select&gt;</code> tag with <code>&lt;option&gt;</code> tags within it.  Finally we have our submit button which displays "Register" as its <code>value</code> attribute.
+</p>
+</li>
+<li>
+<p>
+When we enter in values into this form and click "Register," we&#8217;re taken to the <code>register0.php</code> URL that was specified in the <code>action</code> attribute of the form. Unlike with our CS50 Search example, this URL doesn&#8217;t have any of our inputs embedded in it. That&#8217;s because we used the POST method of sending data rather than the GET method.
+</p>
+</li>
+<li>
+<p>
+<code>register0.php</code> does nothing more than print out our inputs as an <em>associative array</em>.  Whereas we only worked with numerically indexed arrays in C, PHP supports arrays that can use strings and other objects as keys.  An associative array is really just a hash table!
+Because POST sends data via the headers rather than the URL, it is useful for submitting passwords, credit card numbers, and anything that&#8217;s sensitive. It&#8217;s also useful for sending data that&#8217;s too large to embed in the URL, for example an uploaded photo.
+</p>
+</li>
+</ul></div>
+</div>
+<div class="sect2">
+<h3 id="_code_conditions_1_php_code"><code>conditions-1.php</code></h3>
+<div class="ulist"><ul>
+<li>
+<p>
+To get a feel for this new language, let&#8217;s take a look at how we would implement <code>conditions-1.c</code> in PHP:
+</p>
+<div class="listingblock">
+<div class="content"><div class="highlight"><pre><span class="cp">&lt;?php</span>
+
+    <span class="sd">/**</span>
+<span class="sd">     * conditions-1.php</span>
+<span class="sd">     *</span>
+<span class="sd">     * David J. Malan</span>
+<span class="sd">     * malan@harvard.edu</span>
+<span class="sd">     *</span>
+<span class="sd">     * Tells user if his or her input is positive, zero, or negative.</span>
+<span class="sd">     *</span>
+<span class="sd">     * Demonstrates use of if-else construct.</span>
+<span class="sd">     */</span>
+
+    <span class="c1">// ask user for an integer</span>
+    <span class="nv">$n</span> <span class="o">=</span> <span class="nb">readline</span><span class="p">(</span><span class="s2">&quot;I&#39;d like an integer please: &quot;</span><span class="p">);</span>
+
+    <span class="c1">// analyze user&#39;s input</span>
+    <span class="k">if</span> <span class="p">(</span><span class="nv">$n</span> <span class="o">&gt;</span> <span class="mi">0</span><span class="p">)</span>
+    <span class="p">{</span>
+        <span class="nb">printf</span><span class="p">(</span><span class="s2">&quot;You picked a positive number!</span><span class="se">\n</span><span class="s2">&quot;</span><span class="p">);</span>
+    <span class="p">}</span>
+    <span class="k">else</span> <span class="k">if</span> <span class="p">(</span><span class="nv">$n</span> <span class="o">==</span> <span class="mi">0</span><span class="p">)</span>
+    <span class="p">{</span>
+        <span class="nb">printf</span><span class="p">(</span><span class="s2">&quot;You picked zero!</span><span class="se">\n</span><span class="s2">&quot;</span><span class="p">);</span>
+    <span class="p">}</span>
+    <span class="k">else</span>
+    <span class="p">{</span>
+        <span class="nb">printf</span><span class="p">(</span><span class="s2">&quot;You picked a negative number!</span><span class="se">\n</span><span class="s2">&quot;</span><span class="p">);</span>
+    <span class="p">}</span>
+
+<span class="cp">?&gt;</span><span class="x"></span>
+</pre></div></div></div>
+</li>
+<li>
+<p>
+The syntax for PHP is actually quite similar to that of C.  Variable names in PHP are prefixed with a <code>$</code>.  Variables also do not need to be declared with explicit types because PHP is a loosely typed language.  In different contexts, PHP will implicitly cast variables from one type to another.  <code>readline</code> is a new function, but the if-else construct is identical to C.
+</p>
+</li>
+</ul></div>
+</div>
+<div class="sect2">
+<h3 id="_code_register_0_php_code"><code>register-0.php</code></h3>
+<div class="ulist"><ul>
+<li>
+<p>
+<code>register0.php</code> is a quick example of commingling PHP and HTML:
+</p>
+<div class="listingblock">
+<div class="content"><div class="highlight"><pre><span class="x">&lt;!DOCTYPE html&gt;</span>
+
+<span class="x">&lt;html&gt;</span>
+<span class="x">    &lt;head&gt;</span>
+<span class="x">        &lt;title&gt;Frosh IMs&lt;/title&gt;</span>
+<span class="x">    &lt;/head&gt;</span>
+<span class="x">    &lt;body&gt;</span>
+<span class="x">        &lt;pre&gt;</span>
+<span class="x">            </span><span class="cp">&lt;?php</span> <span class="nb">print_r</span><span class="p">(</span><span class="nv">$_POST</span><span class="p">);</span> <span class="cp">?&gt;</span><span class="x"></span>
+<span class="x">        &lt;/pre&gt;</span>
+<span class="x">    &lt;/body&gt;</span>
+<span class="x">&lt;/html&gt;</span>
+</pre></div></div></div>
+</li>
+<li>
+<p>
+Within the <code>&lt;pre&gt;</code> HTML tags, we enter PHP mode by inserting the <code>&lt;?php</code> and <code>?&gt;</code>. Once we&#8217;re in PHP mode, we access a variable named <code>$_POST</code>. This is an associative array which PHP constructs for you whenever you pass in data via the POST method. If we had used the GET method, the data would be available in the <code>$_GET</code> variable. <code>print_r</code> is a function which prints recursively, meaning it prints everything that&#8217;s nested within a variable. When we pass the <code>$_POST</code> variable to <code>print_r</code>, we see the four inputs that the user provided, each with a key that corresponds to the name attribute of the input. <code>$_POST</code> and <code>$_GET</code> are known as <em>superglobal</em> variables because they&#8217;re available everywhere.
+</p>
+</li>
+</ul></div>
+</div>
+<div class="sect2">
+<h3 id="_code_register_3_php_code"><code>register-3.php</code></h3>
+<div class="ulist"><ul>
+<li>
+<p>
+In <code>register3.php</code>, we take the extra step of actually e-mailing the user&#8217;s information:
+</p>
+<div class="listingblock">
+<div class="content"><div class="highlight"><pre><span class="cp">&lt;?php</span>
+
+    <span class="sd">/**</span>
+<span class="sd">     * register-3.php</span>
+<span class="sd">     *</span>
+<span class="sd">     * Computer Science 50</span>
+<span class="sd">     * David J. Malan</span>
+<span class="sd">     *</span>
+<span class="sd">     * Implements a registration form for Frosh IMs.  Reports registration</span>
+<span class="sd">     * via email.  Redirects user to froshims-3.php upon error.</span>
+<span class="sd">     */</span>
+
+    <span class="c1">// require PHPMailer</span>
+    <span class="k">require</span><span class="p">(</span><span class="s2">&quot;PHPMailer/class.phpmailer.php&quot;</span><span class="p">);</span>
+
+    <span class="c1">// validate submission</span>
+    <span class="k">if</span> <span class="p">(</span><span class="o">!</span><span class="k">empty</span><span class="p">(</span><span class="nv">$_POST</span><span class="p">[</span><span class="s2">&quot;name&quot;</span><span class="p">])</span> <span class="o">&amp;&amp;</span> <span class="o">!</span><span class="k">empty</span><span class="p">(</span><span class="nv">$_POST</span><span class="p">[</span><span class="s2">&quot;gender&quot;</span><span class="p">])</span> <span class="o">&amp;&amp;</span> <span class="o">!</span><span class="k">empty</span><span class="p">(</span><span class="nv">$_POST</span><span class="p">[</span><span class="s2">&quot;dorm&quot;</span><span class="p">]))</span>
+    <span class="p">{</span>
+        <span class="c1">// instantiate mailer</span>
+        <span class="nv">$mail</span> <span class="o">=</span> <span class="k">new</span> <span class="nx">PHPMailer</span><span class="p">();</span>
+
+        <span class="c1">// use SMTP</span>
+        <span class="nv">$mail</span><span class="o">-&gt;</span><span class="na">IsSMTP</span><span class="p">();</span>
+        <span class="nv">$mail</span><span class="o">-&gt;</span><span class="na">Host</span> <span class="o">=</span> <span class="s2">&quot;smtp.fas.harvard.edu&quot;</span><span class="p">;</span>
+
+        <span class="c1">// set From:</span>
+        <span class="nv">$mail</span><span class="o">-&gt;</span><span class="na">SetFrom</span><span class="p">(</span><span class="s2">&quot;jharvard@cs50.net&quot;</span><span class="p">);</span>
+
+        <span class="c1">// set To:</span>
+        <span class="nv">$mail</span><span class="o">-&gt;</span><span class="na">AddAddress</span><span class="p">(</span><span class="s2">&quot;jharvard@cs50.net&quot;</span><span class="p">);</span>
+
+        <span class="c1">// set Subject:</span>
+        <span class="nv">$mail</span><span class="o">-&gt;</span><span class="na">Subject</span> <span class="o">=</span> <span class="s2">&quot;registration&quot;</span><span class="p">;</span>
+
+        <span class="c1">// set body</span>
+        <span class="nv">$mail</span><span class="o">-&gt;</span><span class="na">Body</span> <span class="o">=</span>
+            <span class="s2">&quot;This person just registered:</span><span class="se">\n\n</span><span class="s2">&quot;</span> <span class="o">.</span>
+            <span class="s2">&quot;Name: &quot;</span> <span class="o">.</span> <span class="nv">$_POST</span><span class="p">[</span><span class="s2">&quot;name&quot;</span><span class="p">]</span> <span class="o">.</span> <span class="s2">&quot;</span><span class="se">\n</span><span class="s2">&quot;</span> <span class="o">.</span>
+            <span class="s2">&quot;Captain: &quot;</span> <span class="o">.</span> <span class="nv">$_POST</span><span class="p">[</span><span class="s2">&quot;captain&quot;</span><span class="p">]</span> <span class="o">.</span> <span class="s2">&quot;</span><span class="se">\n</span><span class="s2">&quot;</span> <span class="o">.</span>
+            <span class="s2">&quot;Gender: &quot;</span> <span class="o">.</span> <span class="nv">$_POST</span><span class="p">[</span><span class="s2">&quot;gender&quot;</span><span class="p">]</span> <span class="o">.</span> <span class="s2">&quot;</span><span class="se">\n</span><span class="s2">&quot;</span> <span class="o">.</span>
+            <span class="s2">&quot;Dorm: &quot;</span> <span class="o">.</span> <span class="nv">$_POST</span><span class="p">[</span><span class="s2">&quot;dorm&quot;</span><span class="p">];</span>
+
+        <span class="c1">// send mail</span>
+        <span class="k">if</span> <span class="p">(</span><span class="nv">$mail</span><span class="o">-&gt;</span><span class="na">Send</span><span class="p">()</span> <span class="o">==</span> <span class="k">false</span><span class="p">)</span>
+        <span class="p">{</span>
+            <span class="k">die</span><span class="p">(</span><span class="nv">$mail</span><span class="o">-&gt;</span><span class="na">ErrInfo</span><span class="p">);</span>
+        <span class="p">}</span>
+    <span class="p">}</span>
+    <span class="k">else</span>
+    <span class="p">{</span>
+        <span class="nx">header</span><span class="p">(</span><span class="s2">&quot;Location: http://localhost/src9m/froshims/froshims-3.php&quot;</span><span class="p">);</span>
+        <span class="k">exit</span><span class="p">;</span>
+    <span class="p">}</span>
+<span class="cp">?&gt;</span><span class="x"></span>
+
+<span class="x">&lt;!DOCTYPE html&gt;</span>
+
+<span class="x">&lt;html&gt;</span>
+<span class="x">    &lt;head&gt;</span>
+<span class="x">        &lt;title&gt;Frosh IMs&lt;/title&gt;</span>
+<span class="x">    &lt;/head&gt;</span>
+<span class="x">    &lt;body&gt;</span>
+<span class="x">        You are registered!  (Really.)</span>
+<span class="x">    &lt;/body&gt;</span>
+<span class="x">&lt;/html&gt;</span>
+</pre></div></div></div>
+</li>
+<li>
+<p>
+The <code>require</code> function in PHP is similar to the <code>#include</code> directive in C.  First, we check that the user&#8217;s inputs are not empty using the appropriately named function <code>empty</code>.  If they aren&#8217;t, we begin using a library called PHPMailer to create and send an e-mail. To use this library, we create a new object of type <code>PHPMailer</code> named <code>$mail</code> and we call the <code>IsSMTP</code> method of that object by writing <code>$mail-&gt;IsSMTP()</code>. We set the mail server to be <code>smtp.fas.harvard.edu</code> and call a few more methods to set the to and from addresses as well as the subject and body. We know the names of these methods simply by reading the documentation for PHPMailer. To construct a body for our message, we use the dot operator (<code>.</code>) to concatenate the user&#8217;s inputs into one long string. Finally, we call the <code>Send</code> method and voila, we have just registered a user for freshman intramurals!
+</p>
+</li>
+<li>
+<p>
+One interesting implication of this is that it&#8217;s pretty easy to send e-mails from any e-mail address to any e-mail address.  Be wary!
+</p>
+</li>
+</ul></div>
+</div>
+</div>
+</div>
+<div class="sect1">
+<h2 id="_crash_course_in_php">Crash Course in PHP</h2>
+<div class="sectionbody">
+<div class="ulist"><ul>
+<li>
+<p>
+PHP is a programming language which thankfully is quite accessible since its syntax is very similar to that of C.
+</p>
+</li>
+<li>
+<p>
+There&#8217;s no <code>main</code> function in PHP.
+</p>
+</li>
+<li>
+<p>
+Conditions, Boolean expressions, switches, and loops all have the same syntax in PHP as they do in C. Switches in PHP have the additional capability to use strings as the variables that define cases.
+</p>
+</li>
+<li>
+<p>
+In PHP, variable names begin with <code>$</code>. To declare an array of numbers, you can write the following:
+</p>
+<div class="listingblock">
+<div class="content"><div class="highlight"><pre><span class="x">$numbers = [4, 8, 15, 16, 23, 42];</span>
+</pre></div></div></div>
+</li>
+<li>
+<p>
+Interestingly, there&#8217;s no explicit size or type associated with the variable <code>$numbers</code>. C is a so-called strongly typed language in that it requires you to declare an explicit type for every variable. PHP is loosely typed. You don&#8217;t need to inform PHP in advance as to what data type you&#8217;re going to fill a variable with. Consequently, functions can also return multiple types.
+</p>
+</li>
+<li>
+<p>
+One extra loop type available in PHP is the foreach loop:
+</p>
+<div class="listingblock">
+<div class="content"><div class="highlight"><pre><span class="x">foreach ($numbers as $number)</span>
+<span class="x">{</span>
+<span class="x">    // do this with $number</span>
+<span class="x">}</span>
+</pre></div></div></div>
+</li>
+<li>
+<p>
+In PHP, there&#8217;s another type of array called an associative array whose indices can be strings, objects, etc.:
+</p>
+<div class="listingblock">
+<div class="content"><div class="highlight"><pre><span class="x">$quote = [&quot;symbol&quot; =&gt; &quot;FB&quot;, &quot;price&quot; =&gt; &quot;49.26&quot;];</span>
+</pre></div></div></div>
+</li>
+<li>
+<p>
+Under the hood, associative arrays are implemented as hash tables.  Performance-wise, they&#8217;re slower to access and require more memory than the numerically indexed arrays we worked with in C, but they&#8217;re very convenient to use!
+</p>
+</li>
+<li>
+<p>
+So far, we&#8217;ve used the superglobal variables <code>$_GET</code> and <code>$_POST</code> which store input from forms. In addition to these superglobal variables, there are also the following:
+</p>
+<div class="ulist"><ul>
+<li>
+<p>
+<code>$_SERVER</code>
+</p>
+</li>
+<li>
+<p>
+<code>$_COOKIE</code>
+</p>
+</li>
+<li>
+<p>
+<code>$_SESSION</code>
+</p>
+</li>
+</ul></div>
+</li>
+</ul></div>
+</div>
+</div>
+<div class="sect1">
+<h2 id="_model_view_controller">Model-view-controller</h2>
+<div class="sectionbody">
+<div class="ulist"><ul>
+<li>
+<p>
+As you begin to design web applications, you&#8217;ll want to think about how to organize your code. One paradigm for organizing code is called Model-view-controller (MVC). The View encapsulates the aesthetics of the website. The Model handles interactions with the database. The Controller handles user requests, passing data to and from the Model and View as needed.
+</p>
+</li>
+<li>
+<p>
+Let&#8217;s try to create a course website for CS50 using the MVC framework. In version 0, the pages are well organized into separate directories, but there are a lot of files with very similar code.
+</p>
+</li>
+<li>
+<p>
+To see how we might abstract away some of the logic, let&#8217;s jump ahead to version 5:
+</p>
+<div class="listingblock">
+<div class="content"><div class="highlight"><pre><span class="cp">&lt;?php</span> <span class="k">require</span><span class="p">(</span><span class="s2">&quot;../includes/helpers.php&quot;</span><span class="p">);</span> <span class="cp">?&gt;</span><span class="x"></span>
+
+<span class="cp">&lt;?php</span> <span class="nx">render</span><span class="p">(</span><span class="s2">&quot;header&quot;</span><span class="p">,</span> <span class="p">[</span><span class="s2">&quot;title&quot;</span> <span class="o">=&gt;</span> <span class="s2">&quot;CS50&quot;</span><span class="p">]);</span> <span class="cp">?&gt;</span><span class="x"></span>
+
+<span class="x">&lt;ul&gt;</span>
+<span class="x">    &lt;li&gt;&lt;a href=&quot;lectures.php&quot;&gt;Lectures&lt;/a&gt;&lt;/li&gt;</span>
+<span class="x">    &lt;li&gt;&lt;a href=&quot;http://cdn.cs50.net/2013/fall/lectures/0/w/syllabus/syllabus.html&quot;&gt;Syllabus&lt;/a&gt;&lt;/li&gt;</span>
+<span class="x">&lt;/ul&gt;</span>
+
+<span class="cp">&lt;?php</span> <span class="nx">render</span><span class="p">(</span><span class="s2">&quot;footer&quot;</span><span class="p">);</span> <span class="cp">?&gt;</span><span class="x"></span>
+</pre></div></div></div>
+</li>
+<li>
+<p>
+Now the header and footer are being automatically generated by the function <code>render</code>.  This is better design because we can change the header and footer of all the pages within our site just by changing a few lines of code.
+</p>
+</li>
+</ul></div>
+</div>
+</div>
+<div class="sect1">
+<h2 id="_teaser">Teaser</h2>
+<div class="sectionbody">
+<div class="ulist"><ul>
+<li>
+<p>
+Soon we&#8217;ll dive into the world of databases and even implement our own e-trading website!
+</p>
+</li>
+</ul></div>
+</div>
+</div>
+</div>
+<div id="footnotes"><hr /></div>
+<div id="footer">
+<div id="footer-text">
+Last updated 2013-11-07 00:27:04 PST
+</div>
+</div>
+</body>
+</html>

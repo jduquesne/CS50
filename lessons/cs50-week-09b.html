@@ -1,0 +1,1514 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.1//EN"
+    "http://www.w3.org/TR/xhtml11/DTD/xhtml11.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en">
+<head>
+<meta http-equiv="Content-Type" content="application/xhtml+xml; charset=UTF-8" />
+<meta name="generator" content="AsciiDoc 8.6.8" />
+<title>Week 9, continued</title>
+<style type="text/css">
+/* Shared CSS for AsciiDoc xhtml11 and html5 backends */
+
+/* Default font. */
+body {
+  font-family: Georgia,serif;
+}
+
+/* Title font. */
+h1, h2, h3, h4, h5, h6,
+div.title, caption.title,
+thead, p.table.header,
+#toctitle,
+#author, #revnumber, #revdate, #revremark,
+#footer {
+  font-family: Arial,Helvetica,sans-serif;
+}
+
+body {
+  margin: 1em 5% 1em 5%;
+}
+
+a {
+  color: blue;
+  text-decoration: underline;
+}
+a:visited {
+  color: fuchsia;
+}
+
+em {
+  font-style: italic;
+  color: navy;
+}
+
+strong {
+  font-weight: bold;
+  color: #083194;
+}
+
+h1, h2, h3, h4, h5, h6 {
+  color: #527bbd;
+  margin-top: 1.2em;
+  margin-bottom: 0.5em;
+  line-height: 1.3;
+}
+
+h1, h2, h3 {
+  border-bottom: 2px solid silver;
+}
+h2 {
+  padding-top: 0.5em;
+}
+h3 {
+  float: left;
+}
+h3 + * {
+  clear: left;
+}
+h5 {
+  font-size: 1.0em;
+}
+
+div.sectionbody {
+  margin-left: 0;
+}
+
+hr {
+  border: 1px solid silver;
+}
+
+p {
+  margin-top: 0.5em;
+  margin-bottom: 0.5em;
+}
+
+ul, ol, li > p {
+  margin-top: 0;
+}
+ul > li     { color: #aaa; }
+ul > li > * { color: black; }
+
+.monospaced, code, pre {
+  font-family: "Courier New", Courier, monospace;
+  font-size: inherit;
+  color: navy;
+  padding: 0;
+  margin: 0;
+}
+
+
+#author {
+  color: #527bbd;
+  font-weight: bold;
+  font-size: 1.1em;
+}
+#email {
+}
+#revnumber, #revdate, #revremark {
+}
+
+#footer {
+  font-size: small;
+  border-top: 2px solid silver;
+  padding-top: 0.5em;
+  margin-top: 4.0em;
+}
+#footer-text {
+  float: left;
+  padding-bottom: 0.5em;
+}
+#footer-badges {
+  float: right;
+  padding-bottom: 0.5em;
+}
+
+#preamble {
+  margin-top: 1.5em;
+  margin-bottom: 1.5em;
+}
+div.imageblock, div.exampleblock, div.verseblock,
+div.quoteblock, div.literalblock, div.listingblock, div.sidebarblock,
+div.admonitionblock {
+  margin-top: 1.0em;
+  margin-bottom: 1.5em;
+}
+div.admonitionblock {
+  margin-top: 2.0em;
+  margin-bottom: 2.0em;
+  margin-right: 10%;
+  color: #606060;
+}
+
+div.content { /* Block element content. */
+  padding: 0;
+}
+
+/* Block element titles. */
+div.title, caption.title {
+  color: #527bbd;
+  font-weight: bold;
+  text-align: left;
+  margin-top: 1.0em;
+  margin-bottom: 0.5em;
+}
+div.title + * {
+  margin-top: 0;
+}
+
+td div.title:first-child {
+  margin-top: 0.0em;
+}
+div.content div.title:first-child {
+  margin-top: 0.0em;
+}
+div.content + div.title {
+  margin-top: 0.0em;
+}
+
+div.sidebarblock > div.content {
+  background: #ffffee;
+  border: 1px solid #dddddd;
+  border-left: 4px solid #f0f0f0;
+  padding: 0.5em;
+}
+
+div.listingblock > div.content {
+  border: 1px solid #dddddd;
+  border-left: 5px solid #f0f0f0;
+  background: #f8f8f8;
+  padding: 0.5em;
+}
+
+div.quoteblock, div.verseblock {
+  padding-left: 1.0em;
+  margin-left: 1.0em;
+  margin-right: 10%;
+  border-left: 5px solid #f0f0f0;
+  color: #888;
+}
+
+div.quoteblock > div.attribution {
+  padding-top: 0.5em;
+  text-align: right;
+}
+
+div.verseblock > pre.content {
+  font-family: inherit;
+  font-size: inherit;
+}
+div.verseblock > div.attribution {
+  padding-top: 0.75em;
+  text-align: left;
+}
+/* DEPRECATED: Pre version 8.2.7 verse style literal block. */
+div.verseblock + div.attribution {
+  text-align: left;
+}
+
+div.admonitionblock .icon {
+  vertical-align: top;
+  font-size: 1.1em;
+  font-weight: bold;
+  text-decoration: underline;
+  color: #527bbd;
+  padding-right: 0.5em;
+}
+div.admonitionblock td.content {
+  padding-left: 0.5em;
+  border-left: 3px solid #dddddd;
+}
+
+div.exampleblock > div.content {
+  border-left: 3px solid #dddddd;
+  padding-left: 0.5em;
+}
+
+div.imageblock div.content { padding-left: 0; }
+span.image img { border-style: none; }
+a.image:visited { color: white; }
+
+dl {
+  margin-top: 0.8em;
+  margin-bottom: 0.8em;
+}
+dt {
+  margin-top: 0.5em;
+  margin-bottom: 0;
+  font-style: normal;
+  color: navy;
+}
+dd > *:first-child {
+  margin-top: 0.1em;
+}
+
+ul, ol {
+    list-style-position: outside;
+}
+ol.arabic {
+  list-style-type: decimal;
+}
+ol.loweralpha {
+  list-style-type: lower-alpha;
+}
+ol.upperalpha {
+  list-style-type: upper-alpha;
+}
+ol.lowerroman {
+  list-style-type: lower-roman;
+}
+ol.upperroman {
+  list-style-type: upper-roman;
+}
+
+div.compact ul, div.compact ol,
+div.compact p, div.compact p,
+div.compact div, div.compact div {
+  margin-top: 0.1em;
+  margin-bottom: 0.1em;
+}
+
+tfoot {
+  font-weight: bold;
+}
+td > div.verse {
+  white-space: pre;
+}
+
+div.hdlist {
+  margin-top: 0.8em;
+  margin-bottom: 0.8em;
+}
+div.hdlist tr {
+  padding-bottom: 15px;
+}
+dt.hdlist1.strong, td.hdlist1.strong {
+  font-weight: bold;
+}
+td.hdlist1 {
+  vertical-align: top;
+  font-style: normal;
+  padding-right: 0.8em;
+  color: navy;
+}
+td.hdlist2 {
+  vertical-align: top;
+}
+div.hdlist.compact tr {
+  margin: 0;
+  padding-bottom: 0;
+}
+
+.comment {
+  background: yellow;
+}
+
+.footnote, .footnoteref {
+  font-size: 0.8em;
+}
+
+span.footnote, span.footnoteref {
+  vertical-align: super;
+}
+
+#footnotes {
+  margin: 20px 0 20px 0;
+  padding: 7px 0 0 0;
+}
+
+#footnotes div.footnote {
+  margin: 0 0 5px 0;
+}
+
+#footnotes hr {
+  border: none;
+  border-top: 1px solid silver;
+  height: 1px;
+  text-align: left;
+  margin-left: 0;
+  width: 20%;
+  min-width: 100px;
+}
+
+div.colist td {
+  padding-right: 0.5em;
+  padding-bottom: 0.3em;
+  vertical-align: top;
+}
+div.colist td img {
+  margin-top: 0.3em;
+}
+
+@media print {
+  #footer-badges { display: none; }
+}
+
+#toc {
+  margin-bottom: 2.5em;
+}
+
+#toctitle {
+  color: #527bbd;
+  font-size: 1.1em;
+  font-weight: bold;
+  margin-top: 1.0em;
+  margin-bottom: 0.1em;
+}
+
+div.toclevel0, div.toclevel1, div.toclevel2, div.toclevel3, div.toclevel4 {
+  margin-top: 0;
+  margin-bottom: 0;
+}
+div.toclevel2 {
+  margin-left: 2em;
+  font-size: 0.9em;
+}
+div.toclevel3 {
+  margin-left: 4em;
+  font-size: 0.9em;
+}
+div.toclevel4 {
+  margin-left: 6em;
+  font-size: 0.9em;
+}
+
+span.aqua { color: aqua; }
+span.black { color: black; }
+span.blue { color: blue; }
+span.fuchsia { color: fuchsia; }
+span.gray { color: gray; }
+span.green { color: green; }
+span.lime { color: lime; }
+span.maroon { color: maroon; }
+span.navy { color: navy; }
+span.olive { color: olive; }
+span.purple { color: purple; }
+span.red { color: red; }
+span.silver { color: silver; }
+span.teal { color: teal; }
+span.white { color: white; }
+span.yellow { color: yellow; }
+
+span.aqua-background { background: aqua; }
+span.black-background { background: black; }
+span.blue-background { background: blue; }
+span.fuchsia-background { background: fuchsia; }
+span.gray-background { background: gray; }
+span.green-background { background: green; }
+span.lime-background { background: lime; }
+span.maroon-background { background: maroon; }
+span.navy-background { background: navy; }
+span.olive-background { background: olive; }
+span.purple-background { background: purple; }
+span.red-background { background: red; }
+span.silver-background { background: silver; }
+span.teal-background { background: teal; }
+span.white-background { background: white; }
+span.yellow-background { background: yellow; }
+
+span.big { font-size: 2em; }
+span.small { font-size: 0.6em; }
+
+span.underline { text-decoration: underline; }
+span.overline { text-decoration: overline; }
+span.line-through { text-decoration: line-through; }
+
+div.unbreakable { page-break-inside: avoid; }
+
+
+/*
+ * xhtml11 specific
+ *
+ * */
+
+div.tableblock {
+  margin-top: 1.0em;
+  margin-bottom: 1.5em;
+}
+div.tableblock > table {
+  border: 3px solid #527bbd;
+}
+thead, p.table.header {
+  font-weight: bold;
+  color: #527bbd;
+}
+p.table {
+  margin-top: 0;
+}
+/* Because the table frame attribute is overriden by CSS in most browsers. */
+div.tableblock > table[frame="void"] {
+  border-style: none;
+}
+div.tableblock > table[frame="hsides"] {
+  border-left-style: none;
+  border-right-style: none;
+}
+div.tableblock > table[frame="vsides"] {
+  border-top-style: none;
+  border-bottom-style: none;
+}
+
+
+/*
+ * html5 specific
+ *
+ * */
+
+table.tableblock {
+  margin-top: 1.0em;
+  margin-bottom: 1.5em;
+}
+thead, p.tableblock.header {
+  font-weight: bold;
+  color: #527bbd;
+}
+p.tableblock {
+  margin-top: 0;
+}
+table.tableblock {
+  border-width: 3px;
+  border-spacing: 0px;
+  border-style: solid;
+  border-color: #527bbd;
+  border-collapse: collapse;
+}
+th.tableblock, td.tableblock {
+  border-width: 1px;
+  padding: 4px;
+  border-style: solid;
+  border-color: #527bbd;
+}
+
+table.tableblock.frame-topbot {
+  border-left-style: hidden;
+  border-right-style: hidden;
+}
+table.tableblock.frame-sides {
+  border-top-style: hidden;
+  border-bottom-style: hidden;
+}
+table.tableblock.frame-none {
+  border-style: hidden;
+}
+
+th.tableblock.halign-left, td.tableblock.halign-left {
+  text-align: left;
+}
+th.tableblock.halign-center, td.tableblock.halign-center {
+  text-align: center;
+}
+th.tableblock.halign-right, td.tableblock.halign-right {
+  text-align: right;
+}
+
+th.tableblock.valign-top, td.tableblock.valign-top {
+  vertical-align: top;
+}
+th.tableblock.valign-middle, td.tableblock.valign-middle {
+  vertical-align: middle;
+}
+th.tableblock.valign-bottom, td.tableblock.valign-bottom {
+  vertical-align: bottom;
+}
+
+
+/*
+ * manpage specific
+ *
+ * */
+
+body.manpage h1 {
+  padding-top: 0.5em;
+  padding-bottom: 0.5em;
+  border-top: 2px solid silver;
+  border-bottom: 2px solid silver;
+}
+body.manpage h2 {
+  border-style: none;
+}
+body.manpage div.sectionbody {
+  margin-left: 3em;
+}
+
+@media print {
+  body.manpage div#toc { display: none; }
+}
+/*
+  pygmentize filter
+*/
+.highlight .hll { background-color: #ffffcc }
+.highlight  { background: #f4f4f4; }
+.highlight .c { color: #008800; font-style: italic } /* Comment */
+.highlight .err { border: 1px solid #FF0000 } /* Error */
+.highlight .k { color: #AA22FF; font-weight: bold } /* Keyword */
+.highlight .o { color: #666666 } /* Operator */
+.highlight .cm { color: #008800; font-style: italic } /* Comment.Multiline */
+.highlight .cp { color: #008800 } /* Comment.Preproc */
+.highlight .c1 { color: #008800; font-style: italic } /* Comment.Single */
+.highlight .cs { color: #008800; font-weight: bold } /* Comment.Special */
+.highlight .gd { color: #A00000 } /* Generic.Deleted */
+.highlight .ge { font-style: italic } /* Generic.Emph */
+.highlight .gr { color: #FF0000 } /* Generic.Error */
+.highlight .gh { color: #000080; font-weight: bold } /* Generic.Heading */
+.highlight .gi { color: #00A000 } /* Generic.Inserted */
+.highlight .go { color: #808080 } /* Generic.Output */
+.highlight .gp { color: #000080; font-weight: bold } /* Generic.Prompt */
+.highlight .gs { font-weight: bold } /* Generic.Strong */
+.highlight .gu { color: #800080; font-weight: bold } /* Generic.Subheading */
+.highlight .gt { color: #0040D0 } /* Generic.Traceback */
+.highlight .kc { color: #AA22FF; font-weight: bold } /* Keyword.Constant */
+.highlight .kd { color: #AA22FF; font-weight: bold } /* Keyword.Declaration */
+.highlight .kn { color: #AA22FF; font-weight: bold } /* Keyword.Namespace */
+.highlight .kp { color: #AA22FF } /* Keyword.Pseudo */
+.highlight .kr { color: #AA22FF; font-weight: bold } /* Keyword.Reserved */
+.highlight .kt { color: #00BB00; font-weight: bold } /* Keyword.Type */
+.highlight .m { color: #666666 } /* Literal.Number */
+.highlight .s { color: #BB4444 } /* Literal.String */
+.highlight .na { color: #BB4444 } /* Name.Attribute */
+.highlight .nb { color: #AA22FF } /* Name.Builtin */
+.highlight .nc { color: #0000FF } /* Name.Class */
+.highlight .no { color: #880000 } /* Name.Constant */
+.highlight .nd { color: #AA22FF } /* Name.Decorator */
+.highlight .ni { color: #999999; font-weight: bold } /* Name.Entity */
+.highlight .ne { color: #D2413A; font-weight: bold } /* Name.Exception */
+.highlight .nf { color: #00A000 } /* Name.Function */
+.highlight .nl { color: #A0A000 } /* Name.Label */
+.highlight .nn { color: #0000FF; font-weight: bold } /* Name.Namespace */
+.highlight .nt { color: #008000; font-weight: bold } /* Name.Tag */
+.highlight .nv { color: #B8860B } /* Name.Variable */
+.highlight .ow { color: #AA22FF; font-weight: bold } /* Operator.Word */
+.highlight .w { color: #bbbbbb } /* Text.Whitespace */
+.highlight .mf { color: #666666 } /* Literal.Number.Float */
+.highlight .mh { color: #666666 } /* Literal.Number.Hex */
+.highlight .mi { color: #666666 } /* Literal.Number.Integer */
+.highlight .mo { color: #666666 } /* Literal.Number.Oct */
+.highlight .sb { color: #BB4444 } /* Literal.String.Backtick */
+.highlight .sc { color: #BB4444 } /* Literal.String.Char */
+.highlight .sd { color: #BB4444; font-style: italic } /* Literal.String.Doc */
+.highlight .s2 { color: #BB4444 } /* Literal.String.Double */
+.highlight .se { color: #BB6622; font-weight: bold } /* Literal.String.Escape */
+.highlight .sh { color: #BB4444 } /* Literal.String.Heredoc */
+.highlight .si { color: #BB6688; font-weight: bold } /* Literal.String.Interpol */
+.highlight .sx { color: #008000 } /* Literal.String.Other */
+.highlight .sr { color: #BB6688 } /* Literal.String.Regex */
+.highlight .s1 { color: #BB4444 } /* Literal.String.Single */
+.highlight .ss { color: #B8860B } /* Literal.String.Symbol */
+.highlight .bp { color: #AA22FF } /* Name.Builtin.Pseudo */
+.highlight .vc { color: #B8860B } /* Name.Variable.Class */
+.highlight .vg { color: #B8860B } /* Name.Variable.Global */
+.highlight .vi { color: #B8860B } /* Name.Variable.Instance */
+.highlight .il { color: #666666 } /* Literal.Number.Integer.Long */
+
+
+
+</style>
+<script type="text/javascript">
+/*<![CDATA[*/
+var asciidoc = {  // Namespace.
+
+/////////////////////////////////////////////////////////////////////
+// Table Of Contents generator
+/////////////////////////////////////////////////////////////////////
+
+/* Author: Mihai Bazon, September 2002
+ * http://students.infoiasi.ro/~mishoo
+ *
+ * Table Of Content generator
+ * Version: 0.4
+ *
+ * Feel free to use this script under the terms of the GNU General Public
+ * License, as long as you do not remove or alter this notice.
+ */
+
+ /* modified by Troy D. Hanson, September 2006. License: GPL */
+ /* modified by Stuart Rackham, 2006, 2009. License: GPL */
+
+// toclevels = 1..4.
+toc: function (toclevels) {
+
+  function getText(el) {
+    var text = "";
+    for (var i = el.firstChild; i != null; i = i.nextSibling) {
+      if (i.nodeType == 3 /* Node.TEXT_NODE */) // IE doesn't speak constants.
+        text += i.data;
+      else if (i.firstChild != null)
+        text += getText(i);
+    }
+    return text;
+  }
+
+  function TocEntry(el, text, toclevel) {
+    this.element = el;
+    this.text = text;
+    this.toclevel = toclevel;
+  }
+
+  function tocEntries(el, toclevels) {
+    var result = new Array;
+    var re = new RegExp('[hH]([1-'+(toclevels+1)+'])');
+    // Function that scans the DOM tree for header elements (the DOM2
+    // nodeIterator API would be a better technique but not supported by all
+    // browsers).
+    var iterate = function (el) {
+      for (var i = el.firstChild; i != null; i = i.nextSibling) {
+        if (i.nodeType == 1 /* Node.ELEMENT_NODE */) {
+          var mo = re.exec(i.tagName);
+          if (mo && (i.getAttribute("class") || i.getAttribute("className")) != "float") {
+            result[result.length] = new TocEntry(i, getText(i), mo[1]-1);
+          }
+          iterate(i);
+        }
+      }
+    }
+    iterate(el);
+    return result;
+  }
+
+  var toc = document.getElementById("toc");
+  if (!toc) {
+    return;
+  }
+
+  // Delete existing TOC entries in case we're reloading the TOC.
+  var tocEntriesToRemove = [];
+  var i;
+  for (i = 0; i < toc.childNodes.length; i++) {
+    var entry = toc.childNodes[i];
+    if (entry.nodeName.toLowerCase() == 'div'
+     && entry.getAttribute("class")
+     && entry.getAttribute("class").match(/^toclevel/))
+      tocEntriesToRemove.push(entry);
+  }
+  for (i = 0; i < tocEntriesToRemove.length; i++) {
+    toc.removeChild(tocEntriesToRemove[i]);
+  }
+
+  // Rebuild TOC entries.
+  var entries = tocEntries(document.getElementById("content"), toclevels);
+  for (var i = 0; i < entries.length; ++i) {
+    var entry = entries[i];
+    if (entry.element.id == "")
+      entry.element.id = "_toc_" + i;
+    var a = document.createElement("a");
+    a.href = "#" + entry.element.id;
+    a.appendChild(document.createTextNode(entry.text));
+    var div = document.createElement("div");
+    div.appendChild(a);
+    div.className = "toclevel" + entry.toclevel;
+    toc.appendChild(div);
+  }
+  if (entries.length == 0)
+    toc.parentNode.removeChild(toc);
+},
+
+
+/////////////////////////////////////////////////////////////////////
+// Footnotes generator
+/////////////////////////////////////////////////////////////////////
+
+/* Based on footnote generation code from:
+ * http://www.brandspankingnew.net/archive/2005/07/format_footnote.html
+ */
+
+footnotes: function () {
+  // Delete existing footnote entries in case we're reloading the footnodes.
+  var i;
+  var noteholder = document.getElementById("footnotes");
+  if (!noteholder) {
+    return;
+  }
+  var entriesToRemove = [];
+  for (i = 0; i < noteholder.childNodes.length; i++) {
+    var entry = noteholder.childNodes[i];
+    if (entry.nodeName.toLowerCase() == 'div' && entry.getAttribute("class") == "footnote")
+      entriesToRemove.push(entry);
+  }
+  for (i = 0; i < entriesToRemove.length; i++) {
+    noteholder.removeChild(entriesToRemove[i]);
+  }
+
+  // Rebuild footnote entries.
+  var cont = document.getElementById("content");
+  var spans = cont.getElementsByTagName("span");
+  var refs = {};
+  var n = 0;
+  for (i=0; i<spans.length; i++) {
+    if (spans[i].className == "footnote") {
+      n++;
+      var note = spans[i].getAttribute("data-note");
+      if (!note) {
+        // Use [\s\S] in place of . so multi-line matches work.
+        // Because JavaScript has no s (dotall) regex flag.
+        note = spans[i].innerHTML.match(/\s*\[([\s\S]*)]\s*/)[1];
+        spans[i].innerHTML =
+          "[<a id='_footnoteref_" + n + "' href='#_footnote_" + n +
+          "' title='View footnote' class='footnote'>" + n + "</a>]";
+        spans[i].setAttribute("data-note", note);
+      }
+      noteholder.innerHTML +=
+        "<div class='footnote' id='_footnote_" + n + "'>" +
+        "<a href='#_footnoteref_" + n + "' title='Return to text'>" +
+        n + "</a>. " + note + "</div>";
+      var id =spans[i].getAttribute("id");
+      if (id != null) refs["#"+id] = n;
+    }
+  }
+  if (n == 0)
+    noteholder.parentNode.removeChild(noteholder);
+  else {
+    // Process footnoterefs.
+    for (i=0; i<spans.length; i++) {
+      if (spans[i].className == "footnoteref") {
+        var href = spans[i].getElementsByTagName("a")[0].getAttribute("href");
+        href = href.match(/#.*/)[0];  // Because IE return full URL.
+        n = refs[href];
+        spans[i].innerHTML =
+          "[<a href='#_footnote_" + n +
+          "' title='View footnote' class='footnote'>" + n + "</a>]";
+      }
+    }
+  }
+},
+
+install: function(toclevels) {
+  var timerId;
+
+  function reinstall() {
+    asciidoc.footnotes();
+    if (toclevels) {
+      asciidoc.toc(toclevels);
+    }
+  }
+
+  function reinstallAndRemoveTimer() {
+    clearInterval(timerId);
+    reinstall();
+  }
+
+  timerId = setInterval(reinstall, 500);
+  if (document.addEventListener)
+    document.addEventListener("DOMContentLoaded", reinstallAndRemoveTimer, false);
+  else
+    window.onload = reinstallAndRemoveTimer;
+}
+
+}
+asciidoc.install(2);
+/*]]>*/
+</script>
+</head>
+<body class="article">
+<div id="header">
+<h1>Week 9, continued</h1>
+<span id="author">Andrew Sellergren</span><br />
+<div id="toc">
+  <div id="toctitle">Table of Contents</div>
+  <noscript><p><b>JavaScript must be enabled in your browser to display the table of contents.</b></p></noscript>
+</div>
+</div>
+<div id="content">
+<div class="sect1">
+<h2 id="_from_last_time">From Last Time</h2>
+<div class="sectionbody">
+<div class="ulist"><ul>
+<li>
+<p>
+We talked about how web servers send web pages to your browser when they request it.  Those web pages are written in a markup language called HTML.  CSS is a language that controls aesthetics like font size and color.  Ideally, for the sake of reusability and organization, CSS lives in a separate file that gets linked into the HTML.  One downside of this approach is that it requires a separate HTTP request to be fetched and thus it might increase latency.  Smart browsers will often save a copy of CSS files and other static content locally so that they don&#8217;t have to be refetched.  This local repository is called a <em>cache</em> and the act of saving to it is called <em>caching</em>.
+</p>
+</li>
+<li>
+<p>
+Unlike HTML, PHP is a true programming language in that it can express logic.  When we need our web pages to change their content dynamically, we use PHP to output HTML that the browser then renders.  Note that style-wise, we don&#8217;t really care about indentation in the HTML, only in the PHP.
+</p>
+</li>
+</ul></div>
+</div>
+</div>
+<div class="sect1">
+<h2 id="_reimplementing_code_speller_code">Reimplementing <code>speller</code></h2>
+<div class="sectionbody">
+<div class="ulist"><ul>
+<li>
+<p>
+Unless you really need to your program to be highly performant, perhaps because your data sets are huge, you&#8217;ll probably reach for a language like PHP rather than a language like C.  Your C implementation of <code>speller</code> is no doubt very fast, but think how long it took you to program.  In contrast, let&#8217;s see how easy it is to re-implement the logic in PHP.
+</p>
+<div class="listingblock">
+<div class="content"><div class="highlight"><pre><span class="cp">&lt;?php</span>
+    <span class="nv">$size</span> <span class="o">=</span> <span class="mi">0</span><span class="p">;</span>
+
+    <span class="nv">$table</span> <span class="o">=</span> <span class="p">[];</span>
+
+    <span class="k">function</span> <span class="nf">load</span><span class="p">(</span><span class="nv">$dictionary</span><span class="p">)</span>
+    <span class="p">{</span>
+        <span class="k">global</span> <span class="nv">$size</span><span class="p">,</span> <span class="nv">$table</span><span class="p">;</span>
+        <span class="k">foreach</span> <span class="p">(</span><span class="nb">file</span><span class="p">(</span><span class="nv">$dictionary</span><span class="p">)</span> <span class="k">as</span> <span class="nv">$word</span><span class="p">)</span>
+        <span class="p">{</span>
+            <span class="nv">$table</span><span class="p">[</span><span class="nb">chop</span><span class="p">(</span><span class="nv">$word</span><span class="p">)]</span> <span class="o">=</span> <span class="k">true</span><span class="p">;</span>
+            <span class="nv">$size</span><span class="o">++</span><span class="p">;</span>
+        <span class="p">}</span>
+        <span class="k">return</span> <span class="k">true</span><span class="p">;</span>
+    <span class="p">}</span>
+
+<span class="cp">?&gt;</span><span class="x"></span>
+</pre></div></div></div>
+</li>
+<li>
+<p>
+A hash table in PHP is as easy to implement as declaring an associative array.  We can use the words themselves as indices in the array.  <code>file</code> is a function that reads in a file and hands it back to you as an array of lines.
+</p>
+</li>
+<li>
+<p>
+A few other details include declaring our variables as globals, stripping the whitespace from the word, and incrementing the <code>$size</code> variable.
+</p>
+</li>
+<li>
+<p>
+Let&#8217;s take a stab at <code>check</code>:
+</p>
+<div class="listingblock">
+<div class="content"><div class="highlight"><pre><span class="cp">&lt;?php</span>
+    <span class="nv">$size</span> <span class="o">=</span> <span class="mi">0</span><span class="p">;</span>
+
+    <span class="nv">$table</span> <span class="o">=</span> <span class="p">[];</span>
+
+    <span class="k">function</span> <span class="nf">check</span><span class="p">(</span><span class="nv">$word</span><span class="p">)</span>
+    <span class="p">{</span>
+        <span class="k">if</span> <span class="p">(</span><span class="nb">isset</span><span class="p">(</span><span class="nv">$table</span><span class="p">[</span><span class="nx">strtolower</span><span class="p">(</span><span class="nv">$word</span><span class="p">)]))</span>
+        <span class="p">{</span>
+            <span class="k">return</span> <span class="k">true</span><span class="p">;</span>
+        <span class="p">}</span>
+        <span class="k">else</span>
+        <span class="p">{</span>
+            <span class="k">return</span> <span class="k">false</span><span class="p">;</span>
+        <span class="p">}</span>
+    <span class="p">}</span>
+
+    <span class="k">function</span> <span class="nf">load</span><span class="p">(</span><span class="nv">$dictionary</span><span class="p">)</span>
+    <span class="p">{</span>
+        <span class="k">global</span> <span class="nv">$size</span><span class="p">,</span> <span class="nv">$table</span><span class="p">;</span>
+        <span class="k">foreach</span> <span class="p">(</span><span class="nb">file</span><span class="p">(</span><span class="nv">$dictionary</span><span class="p">)</span> <span class="k">as</span> <span class="nv">$word</span><span class="p">)</span>
+        <span class="p">{</span>
+            <span class="nv">$table</span><span class="p">[</span><span class="nb">chop</span><span class="p">(</span><span class="nv">$word</span><span class="p">)]</span> <span class="o">=</span> <span class="k">true</span><span class="p">;</span>
+            <span class="nv">$size</span><span class="o">++</span><span class="p">;</span>
+        <span class="p">}</span>
+        <span class="k">return</span> <span class="k">true</span><span class="p">;</span>
+    <span class="p">}</span>
+
+<span class="cp">?&gt;</span><span class="x"></span>
+</pre></div></div></div>
+</li>
+<li>
+<p>
+All we need to check is if the index for a particular word is set to know whether it&#8217;s in the dictionary.  <code>size</code> and <code>unload</code> are similarly trivial to implement:
+</p>
+<div class="listingblock">
+<div class="content"><div class="highlight"><pre><span class="cp">&lt;?php</span>
+    <span class="nv">$size</span> <span class="o">=</span> <span class="mi">0</span><span class="p">;</span>
+
+    <span class="nv">$table</span> <span class="o">=</span> <span class="p">[];</span>
+
+    <span class="k">function</span> <span class="nf">check</span><span class="p">(</span><span class="nv">$word</span><span class="p">)</span>
+    <span class="p">{</span>
+        <span class="k">global</span> <span class="nv">$table</span><span class="p">;</span>
+        <span class="k">if</span> <span class="p">(</span><span class="nb">isset</span><span class="p">(</span><span class="nv">$table</span><span class="p">[</span><span class="nx">strtolower</span><span class="p">(</span><span class="nv">$word</span><span class="p">)]))</span>
+        <span class="p">{</span>
+            <span class="k">return</span> <span class="k">true</span><span class="p">;</span>
+        <span class="p">}</span>
+        <span class="k">else</span>
+        <span class="p">{</span>
+            <span class="k">return</span> <span class="k">false</span><span class="p">;</span>
+        <span class="p">}</span>
+    <span class="p">}</span>
+
+    <span class="k">function</span> <span class="nf">load</span><span class="p">(</span><span class="nv">$dictionary</span><span class="p">)</span>
+    <span class="p">{</span>
+        <span class="k">global</span> <span class="nv">$size</span><span class="p">,</span> <span class="nv">$table</span><span class="p">;</span>
+        <span class="k">foreach</span> <span class="p">(</span><span class="nb">file</span><span class="p">(</span><span class="nv">$dictionary</span><span class="p">)</span> <span class="k">as</span> <span class="nv">$word</span><span class="p">)</span>
+        <span class="p">{</span>
+            <span class="nv">$table</span><span class="p">[</span><span class="nb">chop</span><span class="p">(</span><span class="nv">$word</span><span class="p">)]</span> <span class="o">=</span> <span class="k">true</span><span class="p">;</span>
+            <span class="nv">$size</span><span class="o">++</span><span class="p">;</span>
+        <span class="p">}</span>
+        <span class="k">return</span> <span class="k">true</span><span class="p">;</span>
+    <span class="p">}</span>
+
+    <span class="k">function</span> <span class="nf">size</span><span class="p">()</span>
+    <span class="p">{</span>
+        <span class="k">global</span> <span class="nv">$size</span><span class="p">;</span>
+        <span class="k">return</span> <span class="nv">$size</span><span class="p">;</span>
+    <span class="p">}</span>
+
+    <span class="k">function</span> <span class="nf">unload</span><span class="p">()</span>
+    <span class="p">{</span>
+        <span class="k">return</span> <span class="k">true</span><span class="p">;</span>
+    <span class="p">}</span>
+
+<span class="cp">?&gt;</span><span class="x"></span>
+</pre></div></div></div>
+</li>
+<li>
+<p>
+If it&#8217;s this easy to implement this in PHP, why bother implementing it in C?  When you run <code>speller</code> in C over the King James Bible, you get a runtime of about 0.5 seconds.  When you run <code>speller</code> in PHP over the King James Bible, you get a runtime of about 3 seconds. That&#8217;s an order of magnitude difference!  One reason is that PHP is an interpreted language, so it has to be read and executed line by line.  C on the other hand is already compiled into 0s and 1s by the time it is executed.  There are ways to cache the results of the PHP interpreter so that content can be served up faster on the web, but it will likely never compete with C in terms of performance.
+</p>
+</li>
+</ul></div>
+</div>
+</div>
+<div class="sect1">
+<h2 id="_sessions_and_cookies">Sessions and Cookies</h2>
+<div class="sectionbody">
+<div class="ulist"><ul>
+<li>
+<p>
+There are a number of variables called superglobals that are available everywhere in PHP programs:
+</p>
+<div class="ulist"><ul>
+<li>
+<p>
+<code>$_COOKIE</code>
+</p>
+</li>
+<li>
+<p>
+<code>$_GET</code>
+</p>
+</li>
+<li>
+<p>
+<code>$_POST</code>
+</p>
+</li>
+<li>
+<p>
+<code>$_SERVER</code>
+</p>
+</li>
+<li>
+<p>
+<code>$_SESSION</code>
+</p>
+</li>
+</ul></div>
+</li>
+<li>
+<p>
+A <em>cookie</em> is a long unique identifier that is planted on your computer when you visit a web page, typically via the "Set-cookie" HTTP header.  This identifier gets passed back to the web server via the "Cookie" HTTP header when you revisit that web page so that it knows who you are and can serve you content that is specific to you.  Think of it like a hand stamp at an amusement park.
+</p>
+</li>
+</ul></div>
+<div class="sect2">
+<h3 id="_code_counter_php_code"><code>counter.php</code></h3>
+<div class="ulist"><ul>
+<li>
+<p>
+<code>counter.php</code> demonstrates the use of sessions to implement a simple counter for a user&#8217;s visits:
+</p>
+<div class="listingblock">
+<div class="content"><div class="highlight"><pre><span class="cp">&lt;?php</span>
+    <span class="c1">// enable sessions</span>
+    <span class="nb">session_start</span><span class="p">();</span>
+
+    <span class="c1">// check counter</span>
+    <span class="k">if</span> <span class="p">(</span><span class="nb">isset</span><span class="p">(</span><span class="nv">$_SESSION</span><span class="p">[</span><span class="s2">&quot;counter&quot;</span><span class="p">]))</span>
+    <span class="p">{</span>
+        <span class="nv">$counter</span> <span class="o">=</span> <span class="nv">$_SESSION</span><span class="p">[</span><span class="s2">&quot;counter&quot;</span><span class="p">];</span>
+    <span class="p">}</span>
+    <span class="k">else</span>
+    <span class="p">{</span>
+        <span class="nv">$counter</span> <span class="o">=</span> <span class="mi">0</span><span class="p">;</span>
+    <span class="p">}</span>
+
+    <span class="c1">// increment counter</span>
+    <span class="nv">$_SESSION</span><span class="p">[</span><span class="s2">&quot;counter&quot;</span><span class="p">]</span> <span class="o">=</span> <span class="nv">$counter</span> <span class="o">+</span> <span class="mi">1</span><span class="p">;</span>
+
+<span class="cp">?&gt;</span><span class="x"></span>
+
+<span class="x">&lt;!DOCTYPE html&gt;</span>
+<span class="x">&lt;html&gt;</span>
+<span class="x">    &lt;head&gt;</span>
+<span class="x">        &lt;title&gt;counter&lt;/title&gt;</span>
+<span class="x">    &lt;/head&gt;</span>
+<span class="x">    &lt;body&gt;</span>
+<span class="x">        You have visited this site </span><span class="cp">&lt;?</span><span class="o">=</span> <span class="nv">$counter</span> <span class="cp">?&gt;</span><span class="x"> time(s).</span>
+<span class="x">    &lt;/body&gt;</span>
+<span class="x">&lt;/html&gt;</span>
+</pre></div></div></div>
+</li>
+<li>
+<p>
+Note that <code>$counter</code> exists in scope even outside the curly braces of the if-else blocks.
+</p>
+</li>
+<li>
+<p>
+<code>session_start()</code> needs to be called in order to use HTTP sessions, which allow a web server to keep track of a user across visits.  This function call tells the server to send the "Set-cookie" header with a long alphanumeric string after the keyword <code>PHPSESSID</code>.
+</p>
+</li>
+<li>
+<p>
+Question: are PHP variables always global?  Yes, unless they are declared within a function.
+</p>
+</li>
+<li>
+<p>
+The <code>&lt;?= $counter ?&gt;</code> syntax is shorthand for switching into PHP mode and printing out a variable.
+</p>
+</li>
+<li>
+<p>
+If cookies are used to identify users, then impersonating a user is as easy as stealing a cookie.  The defense against this is to encrypt HTTP headers using SSL.  This might be familiar to you as HTTPS.  Even SSL encryption can be broken though!
+</p>
+</li>
+</ul></div>
+</div>
+</div>
+</div>
+<div class="sect1">
+<h2 id="_sql">SQL</h2>
+<div class="sectionbody">
+<div class="ulist"><ul>
+<li>
+<p>
+We introduced SQL last time as a language to interact with databases.  You can think of a database as an Excel spreadsheet: it stores data in tables and rows.
+</p>
+</li>
+<li>
+<p>
+There are four basic SQL commands:
+</p>
+<div class="ulist"><ul>
+<li>
+<p>
+<code>SELECT</code>
+</p>
+</li>
+<li>
+<p>
+<code>INSERT</code>
+</p>
+</li>
+<li>
+<p>
+<code>UPDATE</code>
+</p>
+</li>
+<li>
+<p>
+<code>DELETE</code>
+</p>
+</li>
+</ul></div>
+</li>
+<li>
+<p>
+For Problem Set 7, we&#8217;ve set you up with a database and an application named phpMyAdmin (not affiliated with PHP) to interact with it.  In that database, there is a users table with id, username, and hash columns:
+</p>
+<div class="imageblock">
+<div class="content">
+<img src="users.png" alt="The users table." />
+</div>
+</div>
+</li>
+<li>
+<p>
+Presumably, username is unique, so why bother with an id column?  An id is only 32 bits because it&#8217;s an integer, whereas username is a variable-length string.  Comparing strings is not as fast as comparing integers, so lookups by id will be faster than lookups by username.
+</p>
+</li>
+<li>
+<p>
+SQL supports the following types:
+</p>
+<div class="ulist"><ul>
+<li>
+<p>
+<code>CHAR</code>
+</p>
+</li>
+<li>
+<p>
+<code>VARCHAR</code>
+</p>
+</li>
+<li>
+<p>
+<code>INT</code>
+</p>
+</li>
+<li>
+<p>
+<code>BIGINT</code>
+</p>
+</li>
+<li>
+<p>
+<code>DECIMAL</code>
+</p>
+</li>
+<li>
+<p>
+<code>DATETIME</code>
+</p>
+</li>
+</ul></div>
+</li>
+<li>
+<p>
+A <code>CHAR</code> is a fixed-length string whereas a <code>VARCHAR</code> is a variable-length string.  It&#8217;s slightly faster to search on a <code>CHAR</code> than a <code>VARCHAR</code>.
+</p>
+</li>
+<li>
+<p>
+SQL tables also have indexes:
+</p>
+<div class="ulist"><ul>
+<li>
+<p>
+<code>PRIMARY</code>
+</p>
+</li>
+<li>
+<p>
+<code>INDEX</code>
+</p>
+</li>
+<li>
+<p>
+<code>UNIQUE</code>
+</p>
+</li>
+<li>
+<p>
+<code>FULLTEXT</code>
+</p>
+</li>
+</ul></div>
+</li>
+<li>
+<p>
+Adding indexes makes searching a table faster.  Because we know that we&#8217;ll be using id to look up rows and we know that id will be unique, we can specify it as a primary key by choosing <code>PRIMARY</code> from the Index dropdown menu.  Although we decided that id should be the lookup field rather than email, we still want email to be unique, so we choose <code>UNIQUE</code> from the Index dropdown menu. This tells MySQL that the same e-mail address should not be inserted more than once.  Choosing <code>INDEX</code> tells MySQL to build a data structure to make searching this column more efficient, even though it&#8217;s not unique.  Similarly, <code>FULLTEXT</code> allows for wildcard searching on a column.
+</p>
+</li>
+<li>
+<p>
+Databases can be powered by one of several different engines:
+</p>
+<div class="ulist"><ul>
+<li>
+<p>
+InnoDB
+</p>
+</li>
+<li>
+<p>
+MyISAM
+</p>
+</li>
+<li>
+<p>
+Archive
+</p>
+</li>
+<li>
+<p>
+Memory
+</p>
+</li>
+</ul></div>
+</li>
+<li>
+<p>
+This is one more design decision that we have to make, but we won&#8217;t trouble ourselves with the particulars for right now.
+</p>
+</li>
+</ul></div>
+<div class="sect2">
+<h3 id="_race_conditions">Race Conditions</h3>
+<div class="ulist"><ul>
+<li>
+<p>
+Let&#8217;s motivate our discussion of race conditions with a short story.  Imagine that you come home from class and open the refrigerator to find that there&#8217;s no milk.  You close the door, walk to the store, buy some milk, and come home.  In the meantime, your roommate has also come home and noticed that there&#8217;s no milk.  He went out to buy some more, so when he comes back, you now have two cartons of milk, one of which will certainly spoil before you can drink it.
+</p>
+</li>
+<li>
+<p>
+How could you have avoided this?  You could have left a note on the refrigerator or you could have even padlocked the door.  In the real world, we might run into this same situation when withdrawing from an account from two different ATMs.  If both ATMs query for the balance of the account at the same time, they will return the same number.  Then when you withdraw $100 from each ATM, 100 will be subtracted from that number on each ATM instead of the cumulative 200 that should be subtracted.  Free money!
+</p>
+</li>
+<li>
+<p>
+For Problem Set 7, you&#8217;ll need to keep track of users' cash balances and shares of stock.  If you issue a <code>SELECT</code> statement to get these numbers and then issue an <code>UPDATE</code> statement to update them, you may run into the same problem as the milk or ATM situations we just discussed.  Better to run one <em>atomic</em> operation like so:
+</p>
+<div class="listingblock">
+<div class="content"><div class="highlight"><pre><span class="k">INSERT</span> <span class="k">INTO</span> <span class="k">table</span> <span class="p">(</span><span class="n">id</span><span class="p">,</span> <span class="n">symbol</span><span class="p">,</span> <span class="n">shares</span><span class="p">)</span> <span class="k">VALUES</span><span class="p">(</span><span class="mi">7</span><span class="p">,</span> <span class="s1">&#39;DVN.V&#39;</span><span class="p">,</span> <span class="mi">10</span><span class="p">)</span>
+    <span class="k">ON</span> <span class="n">DUPLICATE</span> <span class="k">KEY</span> <span class="k">UPDATE</span> <span class="n">shares</span> <span class="o">=</span> <span class="n">shares</span> <span class="o">+</span> <span class="k">VALUES</span><span class="p">(</span><span class="n">shares</span><span class="p">);</span>
+</pre></div></div></div>
+</li>
+<li>
+<p>
+Atomicity means that multiple operations happen at the same time or don&#8217;t happen at all.  The above statement is both an <code>INSERT</code> and an <code>UPDATE</code> statement, where the <code>UPDATE</code> statement is executed only if the <code>INSERT</code> fails because there&#8217;s already an entry for that stock.
+</p>
+</li>
+<li>
+<p>
+Some database engines also support <em>transactions</em>:
+</p>
+<div class="listingblock">
+<div class="content"><div class="highlight"><pre><span class="k">START</span> <span class="n">TRANSACTION</span><span class="p">;</span>
+<span class="k">UPDATE</span> <span class="n">account</span> <span class="k">SET</span> <span class="n">balance</span> <span class="o">=</span> <span class="n">balance</span> <span class="o">-</span> <span class="mi">1000</span> <span class="k">WHERE</span> <span class="nb">number</span> <span class="o">=</span> <span class="mi">2</span><span class="p">;</span>
+<span class="k">UPDATE</span> <span class="n">account</span> <span class="k">SET</span> <span class="n">balance</span> <span class="o">=</span> <span class="n">balance</span> <span class="o">+</span> <span class="mi">1000</span> <span class="k">WHERE</span> <span class="nb">number</span> <span class="o">=</span> <span class="mi">1</span><span class="p">;</span>
+<span class="k">COMMIT</span><span class="p">;</span>
+</pre></div></div></div>
+</li>
+<li>
+<p>
+Because these two <code>UPDATE</code> statements are part of the same transaction, they will only succeed if <em>both</em> succeed.
+</p>
+</li>
+</ul></div>
+</div>
+</div>
+</div>
+<div class="sect1">
+<h2 id="_javascript">JavaScript</h2>
+<div class="sectionbody">
+<div class="ulist"><ul>
+<li>
+<p>
+<a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript">JavaScript</a> is an interpreted programming language that executes clientside.  Whereas PHP is executed on the server, JavaScript is downloaded by the browser and executed there.
+</p>
+</li>
+<li>
+<p>
+If you&#8217;ve ever been on page that updates its content without reloading, you&#8217;ve seen JavaScript in action.  Behind the scenes, it has actually made another HTTP request.
+</p>
+</li>
+<li>
+<p>
+JavaScript is also used to manipulate the DOM, the document object model, the tree of HTML that we saw earlier.
+</p>
+</li>
+<li>
+<p>
+The syntax for conditions, Boolean expressions, loops, switch statements is much the same in JavaScript as it is in PHP and C.  One new type of loop exists, however:
+</p>
+<div class="listingblock">
+<div class="content"><div class="highlight"><pre><span class="k">for</span> <span class="p">(</span><span class="kd">var</span> <span class="nx">i</span> <span class="k">in</span> <span class="nx">array</span><span class="p">)</span>
+<span class="p">{</span>
+    <span class="c1">// do this with array[i]</span>
+<span class="p">}</span>
+</pre></div></div></div>
+</li>
+<li>
+<p>
+Functionally, this loop is equivalent to the foreach loop in PHP.
+</p>
+</li>
+<li>
+<p>
+The syntax for arrays is slightly different:
+</p>
+<div class="listingblock">
+<div class="content"><div class="highlight"><pre><span class="kd">var</span> <span class="nx">numbers</span> <span class="o">=</span> <span class="p">[</span><span class="mi">4</span><span class="p">,</span> <span class="mi">8</span><span class="p">,</span> <span class="mi">15</span><span class="p">,</span> <span class="mi">16</span><span class="p">,</span> <span class="mi">23</span><span class="p">,</span> <span class="mi">42</span><span class="p">];</span>
+</pre></div></div></div>
+</li>
+<li>
+<p>
+Note that we don&#8217;t have the <code>$</code> prefix for variables anymore.  We still don&#8217;t specify a type for the variable, though.
+</p>
+</li>
+<li>
+<p>
+Another built-in data structure in JavaScript are objects:
+</p>
+<div class="listingblock">
+<div class="content"><div class="highlight"><pre><span class="kd">var</span> <span class="nx">quote</span> <span class="o">=</span> <span class="p">{</span><span class="nx">symbol</span><span class="o">:</span> <span class="s2">&quot;FB&quot;</span><span class="p">,</span> <span class="nx">price</span><span class="o">:</span> <span class="mf">49.26</span><span class="p">}</span>
+</pre></div></div></div>
+</li>
+<li>
+<p>
+Objects are similar in functionality to associative arrays in PHP or structs in C.
+</p>
+</li>
+<li>
+<p>
+JavaScript Object Notation, or JSON, is a very popular format these days.  If you work with APIs like Facebook&#8217;s for your Final Project, you&#8217;ll be passed data in JSON.  JSON is quite useful because it is self-describing: each of the fields in an object is named.
+</p>
+</li>
+</ul></div>
+<div class="sect2">
+<h3 id="_code_dom_0_html_code"><code>dom-0.html</code></h3>
+<div class="ulist"><ul>
+<li>
+<p>
+Let&#8217;s start with a "hello, world" for JavaScript:
+</p>
+<div class="listingblock">
+<div class="content"><div class="highlight"><pre><span class="cp">&lt;!DOCTYPE html&gt;</span>
+
+<span class="nt">&lt;html&gt;</span>
+    <span class="nt">&lt;head&gt;</span>
+        <span class="nt">&lt;script&gt;</span>
+
+            <span class="kd">function</span> <span class="nx">greet</span><span class="p">()</span>
+            <span class="p">{</span>
+                <span class="nx">alert</span><span class="p">(</span><span class="s1">&#39;hello, &#39;</span> <span class="o">+</span> <span class="nb">document</span><span class="p">.</span><span class="nx">getElementById</span><span class="p">(</span><span class="s1">&#39;name&#39;</span><span class="p">).</span><span class="nx">value</span> <span class="o">+</span> <span class="s1">&#39;!&#39;</span><span class="p">);</span>
+            <span class="p">}</span>
+
+        <span class="nt">&lt;/script&gt;</span>
+        <span class="nt">&lt;title&gt;</span>dom-0<span class="nt">&lt;/title&gt;</span>
+    <span class="nt">&lt;/head&gt;</span>
+    <span class="nt">&lt;body&gt;</span>
+        <span class="nt">&lt;form</span> <span class="na">id=</span><span class="s">&quot;demo&quot;</span> <span class="na">onsubmit=</span><span class="s">&quot;greet(); return false;&quot;</span><span class="nt">&gt;</span>
+            <span class="nt">&lt;input</span> <span class="na">id=</span><span class="s">&quot;name&quot;</span> <span class="na">placeholder=</span><span class="s">&quot;Name&quot;</span> <span class="na">type=</span><span class="s">&quot;text&quot;</span><span class="nt">/&gt;</span>
+            <span class="nt">&lt;input</span> <span class="na">type=</span><span class="s">&quot;submit&quot;</span><span class="nt">/&gt;</span>
+        <span class="nt">&lt;/form&gt;</span>
+    <span class="nt">&lt;/body&gt;</span>
+<span class="nt">&lt;/html&gt;</span>
+</pre></div></div></div>
+</li>
+<li>
+<p>
+What&#8217;s interesting here is that we can embed JavaScript directly in HTML using the <code>&lt;script&gt;</code> tag.  The <code>alert</code> function is a quick and dirty way of displaying output via a pop-up window.  Convention in JavaScript is to use single quotes for strings, by the way.
+</p>
+</li>
+<li>
+<p>
+In JavaScript, there exists a special global variable named <code>document</code> that contains the entire tree structure of the HTML.  The <code>document</code> object also has functions associated with it known as methods.  One such method is <code>getElementById</code> which retrieves an HTML element with the specified <code>id</code> attribute.
+</p>
+</li>
+<li>
+<p>
+<code>greet</code> is called when the form is submitted because it is passed to the <code>onsubmit</code> attribute of the form.  After that, we have to <code>return false</code> because otherwise the form will actually submit and redirect to whatever its <code>action</code> attribute is.
+</p>
+</li>
+</ul></div>
+</div>
+<div class="sect2">
+<h3 id="_code_dom_2_html_code"><code>dom-2.html</code></h3>
+<div class="ulist"><ul>
+<li>
+<p>
+jQuery is a library that adds a great deal of convenience to writing JavaScript.  Take a look at it in <code>dom-2.html</code>:
+</p>
+<div class="listingblock">
+<div class="content"><div class="highlight"><pre><span class="cp">&lt;!DOCTYPE html&gt;</span>
+
+<span class="nt">&lt;html&gt;</span>
+    <span class="nt">&lt;head&gt;</span>
+        <span class="nt">&lt;script </span><span class="na">src=</span><span class="s">&quot;http://code.jquery.com/jquery-latest.min.js&quot;</span><span class="nt">&gt;&lt;/script&gt;</span>
+        <span class="nt">&lt;script&gt;</span>
+
+            <span class="nx">$</span><span class="p">(</span><span class="nb">document</span><span class="p">).</span><span class="nx">ready</span><span class="p">(</span><span class="kd">function</span><span class="p">()</span> <span class="p">{</span>
+                <span class="nx">$</span><span class="p">(</span><span class="s1">&#39;#demo&#39;</span><span class="p">).</span><span class="nx">submit</span><span class="p">(</span><span class="kd">function</span><span class="p">(</span><span class="nx">event</span><span class="p">)</span> <span class="p">{</span>
+                    <span class="nx">alert</span><span class="p">(</span><span class="s1">&#39;hello, &#39;</span> <span class="o">+</span> <span class="nx">$</span><span class="p">(</span><span class="s1">&#39;#name&#39;</span><span class="p">).</span><span class="nx">val</span><span class="p">()</span> <span class="o">+</span> <span class="s1">&#39;!&#39;</span><span class="p">);</span>
+                    <span class="nx">event</span><span class="p">.</span><span class="nx">preventDefault</span><span class="p">();</span>
+                <span class="p">});</span>
+            <span class="p">});</span>
+
+        <span class="nt">&lt;/script&gt;</span>
+        <span class="nt">&lt;title&gt;</span>dom-2<span class="nt">&lt;/title&gt;</span>
+    <span class="nt">&lt;/head&gt;</span>
+    <span class="nt">&lt;body&gt;</span>
+        <span class="nt">&lt;form</span> <span class="na">id=</span><span class="s">&quot;demo&quot;</span><span class="nt">&gt;</span>
+            <span class="nt">&lt;input</span> <span class="na">id=</span><span class="s">&quot;name&quot;</span> <span class="na">placeholder=</span><span class="s">&quot;Name&quot;</span> <span class="na">type=</span><span class="s">&quot;text&quot;</span><span class="nt">/&gt;</span>
+            <span class="nt">&lt;input</span> <span class="na">type=</span><span class="s">&quot;submit&quot;</span><span class="nt">/&gt;</span>
+        <span class="nt">&lt;/form&gt;</span>
+  <span class="nt">&lt;/body&gt;</span>
+<span class="nt">&lt;/html&gt;</span>
+</pre></div></div></div>
+</li>
+<li>
+<p>
+For now we&#8217;ll wave our hands at the first line of JavaScript above.  Basically, it just waits till the document has loaded before executing anything.  <code>$('#demo')</code> is equivalent to <code>document.getElementById('demo')</code>.
+</p>
+</li>
+<li>
+<p>
+One feature of JavaScript that we&#8217;re leveraging here is the ability to pass functions as objects to other functions.  The only argument to the <code>submit</code> method is an <em>anonymous function</em> that takes in its own argument <code>event</code>.
+</p>
+</li>
+</ul></div>
+</div>
+<div class="sect2">
+<h3 id="_ajax">Ajax</h3>
+<div class="sect3">
+<h4 id="_code_ajax_2_html_code"><code>ajax-2.html</code></h4>
+<div class="ulist"><ul>
+<li>
+<p>
+Ajax is the technology that allows us to request external data without a page refresh.  Take a look at <code>ajax-2.html</code>:
+</p>
+<div class="listingblock">
+<div class="content"><div class="highlight"><pre><span class="c">&lt;!--</span>
+
+<span class="c">ajax-2.html</span>
+
+<span class="c">Gets stock quote from quote.php via Ajax with jQuery, embedding result in page itself.</span>
+
+<span class="c">David J. Malan</span>
+<span class="c">malan@harvard.edu</span>
+
+<span class="c">--&gt;</span>
+
+<span class="cp">&lt;!DOCTYPE html&gt;</span>
+
+<span class="nt">&lt;html&gt;</span>
+    <span class="nt">&lt;head&gt;</span>
+        <span class="nt">&lt;script </span><span class="na">src=</span><span class="s">&quot;http://code.jquery.com/jquery-latest.min.js&quot;</span><span class="nt">&gt;&lt;/script&gt;</span>
+        <span class="nt">&lt;script&gt;</span>
+
+            <span class="cm">/**</span>
+<span class="cm">             * Gets a quote via JSON.</span>
+<span class="cm">             */</span>
+            <span class="kd">function</span> <span class="nx">quote</span><span class="p">()</span>
+            <span class="p">{</span>
+                <span class="kd">var</span> <span class="nx">url</span> <span class="o">=</span> <span class="s1">&#39;quote.php?symbol=&#39;</span> <span class="o">+</span> <span class="nx">$</span><span class="p">(</span><span class="s1">&#39;#symbol&#39;</span><span class="p">).</span><span class="nx">val</span><span class="p">();</span>
+                <span class="nx">$</span><span class="p">.</span><span class="nx">getJSON</span><span class="p">(</span><span class="nx">url</span><span class="p">,</span> <span class="kd">function</span><span class="p">(</span><span class="nx">data</span><span class="p">)</span> <span class="p">{</span>
+                    <span class="nx">$</span><span class="p">(</span><span class="s1">&#39;#price&#39;</span><span class="p">).</span><span class="nx">html</span><span class="p">(</span><span class="nx">data</span><span class="p">.</span><span class="nx">price</span><span class="p">);</span>
+                <span class="p">});</span>
+            <span class="p">}</span>
+
+        <span class="nt">&lt;/script&gt;</span>
+        <span class="nt">&lt;title&gt;</span>ajax-2<span class="nt">&lt;/title&gt;</span>
+    <span class="nt">&lt;/head&gt;</span>
+    <span class="nt">&lt;body&gt;</span>
+        <span class="nt">&lt;form</span> <span class="na">onsubmit=</span><span class="s">&quot;quote(); return false;&quot;</span><span class="nt">&gt;</span>
+            Symbol: <span class="nt">&lt;input</span> <span class="na">autocomplete=</span><span class="s">&quot;off&quot;</span> <span class="na">id=</span><span class="s">&quot;symbol&quot;</span> <span class="na">type=</span><span class="s">&quot;text&quot;</span><span class="nt">/&gt;</span>
+            <span class="nt">&lt;br/&gt;</span>
+            Price: <span class="nt">&lt;span</span> <span class="na">id=</span><span class="s">&quot;price&quot;</span><span class="nt">&gt;</span>to be determined<span class="nt">&lt;/span&gt;</span>
+            <span class="nt">&lt;br/&gt;&lt;br/&gt;</span>
+            <span class="nt">&lt;input</span> <span class="na">type=</span><span class="s">&quot;submit&quot;</span> <span class="na">value=</span><span class="s">&quot;Get Quote&quot;</span><span class="nt">/&gt;</span>
+        <span class="nt">&lt;/form&gt;</span>
+    <span class="nt">&lt;/body&gt;</span>
+<span class="nt">&lt;/html&gt;</span>
+</pre></div></div></div>
+</li>
+<li>
+<p>
+The <code>quote</code> function appears to be constructing a URL with a stock symbol as a parameter.  If we visit <code>quote.php?symbol=GOOG</code> directly, we&#8217;ll get some JSON spit out to the screen that includes a stock price.  In the JavaScript above, we&#8217;re asking for that JSON programmatically, then passing it to a function that inserts it into the DOM.
+</p>
+</li>
+</ul></div>
+</div>
+</div>
+</div>
+</div>
+<div class="sect1">
+<h2 id="_teaser">Teaser</h2>
+<div class="sectionbody">
+<div class="ulist"><ul>
+<li>
+<p>
+Check out <a href="http://cdn.cs50.net/2013/fall/lectures/9/w/src9w/js/geolocation-0.html"><code>geolocation-0.html</code></a> which seems to know where you are!
+</p>
+</li>
+</ul></div>
+</div>
+</div>
+</div>
+<div id="footnotes"><hr /></div>
+<div id="footer">
+<div id="footer-text">
+Last updated 2013-11-10 06:44:05 PST
+</div>
+</div>
+</body>
+</html>
